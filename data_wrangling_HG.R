@@ -4,6 +4,7 @@ library(robotstxt)
 library(rvest) 
 library(purrr) 
 library(readxl)
+library(readr)
 #url for dataset
 Top30_url <- "https://www.epa.gov/system/files/documents/2021-10/top30candu_july2021.pdf"
 #Confirm bots allowed to access page
@@ -29,8 +30,12 @@ Top30_data <- Top30_data %>%
 
 Top30 <- read_excel("~/Documents/COLLEGE/Data Science/Data Science/Top30.xlsx")
 
+#reading in sustainability data
+Institutions <- read_csv("data/Institutions.csv")
+Tuition <- read_csv("data/Tuition Costs for Common Institutions.csv")
+Degrees_by_County <- read_csv("data/Degrees Awarded by County.csv")
+Growth_by_County <-  read_csv("data/Growth in Awarded Degrees.csv")
 
-  
-  
+
 
 
