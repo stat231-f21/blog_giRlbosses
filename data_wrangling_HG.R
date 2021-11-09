@@ -6,7 +6,7 @@ library(purrr)
 library(readxl)
 library(readr)
 #url for dataset
-Top30_url <- "https://www.epa.gov/system/files/documents/2021-10/top30candu_july2021.pdf"
+Top30_url <- "https://www.epa.gov/greenpower/green-power-partnership-top-30-college-university"
 #Confirm bots allowed to access page
 paths_allowed(Top30_url)
 #get data
