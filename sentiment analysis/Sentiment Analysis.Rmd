@@ -1,0 +1,20 @@
+---
+title: "Sentiment Analysis"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(kableExtra)
+library(janitor)
+library(tidytext)
+library(wordcloud)
+library(textdata)
+```
+
+```{r}
+report <- read_csv("data/amherstsustainabilityreport.txt") %>% 
+  filter(text != "Missing") 
+```
+
