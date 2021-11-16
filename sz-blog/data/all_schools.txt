@@ -1,0 +1,1428 @@
+"institution"	"location"	"stars_version"	"rating"	"valid_through"	"URL"	"latest_report"
+"Arizona State University"	"United States,
+              AZ"	2.2	"Platinum"	"March 5, 2023"	"https://reports.aashe.org/institutions/arizona-state-university-az/report/"	"https://reports.aashe.org/institutions/arizona-state-university-az/report/2020-03-05/"
+"Colorado State University"	"United States,
+              CO"	2.1	"Platinum"	"Dec. 5, 2022"	"https://reports.aashe.org/institutions/colorado-state-university-co/report/"	"https://reports.aashe.org/institutions/colorado-state-university-co/report/2019-12-06/"
+"Cornell University"	"United States,
+              NY"	2.2	"Platinum"	"May 6, 2024"	"https://reports.aashe.org/institutions/cornell-university-ny/report/"	"https://reports.aashe.org/institutions/cornell-university-ny/report/2021-03-04/"
+"Stanford University"	"United States,
+              CA"	2.1	"Platinum"	"Feb. 21, 2022"	"https://reports.aashe.org/institutions/stanford-university-ca/report/"	"https://reports.aashe.org/institutions/stanford-university-ca/report/2019-02-22/"
+"State University of New York College of Environmental Science and Forestry"	"United States,
+              NY"	2.2	"Platinum"	"April 29, 2024"	"https://reports.aashe.org/institutions/state-university-of-new-york-college-of-environmental-science-and-forestry-ny/report/"	"https://reports.aashe.org/institutions/state-university-of-new-york-college-of-environmental-science-and-forestry-ny/report/2021-03-05/"
+"Thompson Rivers University"	"Canada,
+              BC"	2.1	"Platinum"	"Nov. 26, 2021"	"https://reports.aashe.org/institutions/thompson-rivers-university-bc/report/"	"https://reports.aashe.org/institutions/thompson-rivers-university-bc/report/2018-05-31/"
+"University of California, Berkeley"	"United States,
+              CA"	2.2	"Platinum"	"April 29, 2024"	"https://reports.aashe.org/institutions/university-of-california-berkeley-ca/report/"	"https://reports.aashe.org/institutions/university-of-california-berkeley-ca/report/2021-03-04/"
+"University of California, Irvine"	"United States,
+              CA"	2.2	"Platinum"	"Oct. 14, 2024"	"https://reports.aashe.org/institutions/university-of-california-irvine-ca/report/"	"https://reports.aashe.org/institutions/university-of-california-irvine-ca/report/2021-08-11/"
+"University of Connecticut"	"United States,
+              CT"	2.1	"Platinum"	"March 6, 2023"	"https://reports.aashe.org/institutions/university-of-connecticut-ct/report/"	"https://reports.aashe.org/institutions/university-of-connecticut-ct/report/2020-03-06/"
+"University of New Hampshire"	"United States,
+              NH"	2.2	"Platinum"	"Oct. 21, 2024"	"https://reports.aashe.org/institutions/university-of-new-hampshire-nh/report/"	"https://reports.aashe.org/institutions/university-of-new-hampshire-nh/report/2021-08-16/"
+"Université de Sherbrooke"	"Canada,
+              QC"	2.1	"Platinum"	"Dec. 5, 2022"	"https://reports.aashe.org/institutions/universite-de-sherbrooke-qc/report/"	"https://reports.aashe.orgNA"
+"Agnes Scott College"	"United States,
+              GA"	2.2	"Gold"	"July 20, 2024"	"https://reports.aashe.org/institutions/agnes-scott-college-ga/report/"	"https://reports.aashe.org/institutions/agnes-scott-college-ga/report/2021-05-21/"
+"American University"	"United States,
+              DC"	2.2	"Gold"	"April 18, 2024"	"https://reports.aashe.org/institutions/american-university-dc/report/"	"https://reports.aashe.org/institutions/american-university-dc/report/2021-03-05/"
+"Appalachian State University"	"United States,
+              NC"	2.1	"Gold"	"April 18, 2022"	"https://reports.aashe.org/institutions/appalachian-state-university-nc/report/"	"https://reports.aashe.org/institutions/appalachian-state-university-nc/report/2019-04-19/"
+"Babson College"	"United States,
+              MA"	2.1	"Gold"	"Sept. 25, 2021"	"https://reports.aashe.org/institutions/babson-college-ma/report/"	"https://reports.aashe.org/institutions/babson-college-ma/report/2018-03-30/"
+"Bard College"	"United States,
+              NY"	2.2	"Gold"	"Nov. 20, 2023"	"https://reports.aashe.org/institutions/bard-college-ny/report/"	"https://reports.aashe.org/institutions/bard-college-ny/report/2020-06-08/"
+"Bates College"	"United States,
+              ME"	2.1	"Gold"	"Aug. 25, 2023"	"https://reports.aashe.org/institutions/bates-college-me/report/"	"https://reports.aashe.org/institutions/bates-college-me/report/2020-06-12/"
+"Belmont University"	"United States,
+              TN"	2.1	"Gold"	"Feb. 25, 2022"	"https://reports.aashe.org/institutions/belmont-university-tn/report/"	"https://reports.aashe.org/institutions/belmont-university-tn/report/2019-02-26/"
+"Bennington College"	"United States,
+              VT"	2.2	"Gold"	"Sept. 22, 2024"	"https://reports.aashe.org/institutions/bennington-college-vt/report/"	"https://reports.aashe.org/institutions/bennington-college-vt/report/2021-05-13/"
+"Berea College"	"United States,
+              KY"	2.1	"Gold
+                
+                    *"	"Dec. 10, 2020"	"https://reports.aashe.org/institutions/berea-college-ky/report/"	"https://reports.aashe.org/institutions/berea-college-ky/report/2017-06-14/"
+"Binghamton University"	"United States,
+              NY"	2.2	"Gold"	"March 5, 2023"	"https://reports.aashe.org/institutions/binghamton-university-ny/report/"	"https://reports.aashe.org/institutions/binghamton-university-ny/report/2020-03-05/"
+"Bowdoin College"	"United States,
+              ME"	2.1	"Gold"	"Feb. 27, 2022"	"https://reports.aashe.org/institutions/bowdoin-college-me/report/"	"https://reports.aashe.org/institutions/bowdoin-college-me/report/2019-02-28/"
+"Bucknell University"	"United States,
+              PA"	2.1	"Gold"	"Sept. 22, 2022"	"https://reports.aashe.org/institutions/bucknell-university-pa/report/"	"https://reports.aashe.org/institutions/bucknell-university-pa/report/2019-09-23/"
+"California Polytechnic State University"	"United States,
+              CA"	2.1	"Gold"	"Sept. 18, 2022"	"https://reports.aashe.org/institutions/california-polytechnic-state-university-ca/report/"	"https://reports.aashe.org/institutions/california-polytechnic-state-university-ca/report/2019-09-19/"
+"California State University, Channel Islands"	"United States,
+              CA"	2.2	"Gold"	"March 6, 2023"	"https://reports.aashe.org/institutions/california-state-university-channel-islands-ca/report/"	"https://reports.aashe.org/institutions/california-state-university-channel-islands-ca/report/2020-03-06/"
+"California State University, Chico"	"United States,
+              CA"	2.1	"Gold"	"Aug. 26, 2021"	"https://reports.aashe.org/institutions/california-state-university-chico-ca/report/"	"https://reports.aashe.org/institutions/california-state-university-chico-ca/report/2018-02-28/"
+"California State University, Northridge"	"United States,
+              CA"	2.1	"Gold"	"Dec. 9, 2021"	"https://reports.aashe.org/institutions/california-state-university-northridge-ca/report/"	"https://reports.aashe.org/institutions/california-state-university-northridge-ca/report/2018-12-10/"
+"California State University, Sacramento"	"United States,
+              CA"	2.2	"Gold"	"April 22, 2024"	"https://reports.aashe.org/institutions/california-state-university-sacramento-ca/report/"	"https://reports.aashe.org/institutions/california-state-university-sacramento-ca/report/2021-03-01/"
+"California State University, San Marcos"	"United States,
+              CA"	2.2	"Gold"	"Feb. 18, 2024"	"https://reports.aashe.org/institutions/california-state-university-san-marcos-ca/report/"	"https://reports.aashe.org/institutions/california-state-university-san-marcos-ca/report/2020-12-18/"
+"Carnegie Mellon University"	"United States,
+              PA"	2.1	"Gold"	"Feb. 6, 2022"	"https://reports.aashe.org/institutions/carnegie-mellon-university-pa/report/"	"https://reports.aashe.org/institutions/carnegie-mellon-university-pa/report/2019-02-07/"
+"Central Michigan University"	"United States,
+              MI"	2.2	"Gold"	"Feb. 3, 2024"	"https://reports.aashe.org/institutions/central-michigan-university-mi/report/"	"https://reports.aashe.org/institutions/central-michigan-university-mi/report/2020-10-15/"
+"Chatham University"	"United States,
+              PA"	2.1	"Gold"	"Nov. 25, 2021"	"https://reports.aashe.org/institutions/chatham-university-pa/report/"	"https://reports.aashe.org/institutions/chatham-university-pa/report/2018-11-26/"
+"Clarkson University"	"United States,
+              NY"	2.1	"Gold"	"Feb. 21, 2022"	"https://reports.aashe.org/institutions/clarkson-university-ny/report/"	"https://reports.aashe.org/institutions/clarkson-university-ny/report/2019-02-22/"
+"Colby College"	"United States,
+              ME"	2.1	"Gold"	"Nov. 4, 2021"	"https://reports.aashe.org/institutions/colby-college-me/report/"	"https://reports.aashe.org/institutions/colby-college-me/report/2018-11-05/"
+"Colgate University"	"United States,
+              NY"	2.1	"Gold
+                
+                    *"	"Feb. 6, 2021"	"https://reports.aashe.org/institutions/colgate-university-ny/report/"	"https://reports.aashe.org/institutions/colgate-university-ny/report/2017-08-11/"
+"College of the Atlantic"	"United States,
+              ME"	2.1	"Gold"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/college-of-the-atlantic-me/report/"	"https://reports.aashe.org/institutions/college-of-the-atlantic-me/report/2019-03-01/"
+"Colorado College"	"United States,
+              CO"	2.2	"Gold"	"May 3, 2024"	"https://reports.aashe.org/institutions/colorado-college-co/report/"	"https://reports.aashe.org/institutions/colorado-college-co/report/2021-03-05/"
+"Columbia University"	"United States,
+              NY"	2.1	"Gold"	"Aug. 28, 2021"	"https://reports.aashe.org/institutions/columbia-university-ny/report/"	"https://reports.aashe.org/institutions/columbia-university-ny/report/2018-08-29/"
+"Concordia University"	"Canada,
+              QC"	2	"Gold
+                
+                    *"	"Nov. 21, 2020"	"https://reports.aashe.org/institutions/concordia-university-qc/report/"	"https://reports.aashe.org/institutions/concordia-university-qc/report/2017-05-26/"
+"Connecticut College"	"United States,
+              CT"	2.2	"Gold"	"July 28, 2024"	"https://reports.aashe.org/institutions/connecticut-college-ct/report/"	"https://reports.aashe.org/institutions/connecticut-college-ct/report/2021-06-18/"
+"Dalhousie University"	"Canada,
+              NS"	2.2	"Gold"	"Sept. 14, 2024"	"https://reports.aashe.org/institutions/dalhousie-university-ns/report/"	"https://reports.aashe.org/institutions/dalhousie-university-ns/report/2021-07-21/"
+"Dawson College"	"Canada,
+              QC"	2.1	"Gold"	"Dec. 7, 2023"	"https://reports.aashe.org/institutions/dawson-college-qc/report/"	"https://reports.aashe.orgNA"
+"Denison University"	"United States,
+              OH"	2.1	"Gold"	"Feb. 27, 2022"	"https://reports.aashe.org/institutions/denison-university-oh/report/"	"https://reports.aashe.org/institutions/denison-university-oh/report/2019-02-28/"
+"Dickinson College"	"United States,
+              PA"	2.2	"Gold"	"April 11, 2024"	"https://reports.aashe.org/institutions/dickinson-college-pa/report/"	"https://reports.aashe.org/institutions/dickinson-college-pa/report/2021-03-05/"
+"Emerson College"	"United States,
+              MA"	2.1	"Gold"	"Sept. 25, 2021"	"https://reports.aashe.org/institutions/emerson-college-ma/report/"	"https://reports.aashe.org/institutions/emerson-college-ma/report/2018-03-30/"
+"Emory University"	"United States,
+              GA"	2.2	"Gold"	"April 20, 2024"	"https://reports.aashe.org/institutions/emory-university-ga/report/"	"https://reports.aashe.org/institutions/emory-university-ga/report/2021-03-05/"
+"Fanshawe College"	"Canada,
+              ON"	2.1	"Gold"	"Nov. 29, 2021"	"https://reports.aashe.org/institutions/fanshawe-college-on/report/"	"https://reports.aashe.org/institutions/fanshawe-college-on/report/2018-11-30/"
+"Fleming College"	"Canada,
+              ON"	2.1	"Gold"	"Aug. 22, 2022"	"https://reports.aashe.org/institutions/fleming-college-on/report/"	"https://reports.aashe.org/institutions/fleming-college-on/report/2019-08-23/"
+"Florida Gulf Coast University"	"United States,
+              FL"	2.2	"Gold"	"Dec. 4, 2023"	"https://reports.aashe.org/institutions/florida-gulf-coast-university-fl/report/"	"https://reports.aashe.org/institutions/florida-gulf-coast-university-fl/report/2020-07-23/"
+"Florida State University"	"United States,
+              FL"	2.1	"Gold"	"Dec. 18, 2021"	"https://reports.aashe.org/institutions/florida-state-university-fl/report/"	"https://reports.aashe.org/institutions/florida-state-university-fl/report/2018-12-19/"
+"Furman University"	"United States,
+              SC"	2.2	"Gold"	"Sept. 6, 2024"	"https://reports.aashe.org/institutions/furman-university-sc/report/"	"https://reports.aashe.org/institutions/furman-university-sc/report/2021-06-22/"
+"George Mason University"	"United States,
+              VA"	2.2	"Gold"	"Feb. 19, 2024"	"https://reports.aashe.org/institutions/george-mason-university-va/report/"	"https://reports.aashe.org/institutions/george-mason-university-va/report/2021-01-08/"
+"George Washington University"	"United States,
+              DC"	2.2	"Gold"	"March 5, 2023"	"https://reports.aashe.org/institutions/george-washington-university-dc/report/"	"https://reports.aashe.org/institutions/george-washington-university-dc/report/2020-03-05/"
+"Gonzaga University"	"United States,
+              WA"	2.2	"Gold"	"Nov. 12, 2023"	"https://reports.aashe.org/institutions/gonzaga-university-wa/report/"	"https://reports.aashe.org/institutions/gonzaga-university-wa/report/2020-09-23/"
+"Grand Valley State University"	"United States,
+              MI"	2.2	"Gold"	"May 5, 2024"	"https://reports.aashe.org/institutions/grand-valley-state-university-mi/report/"	"https://reports.aashe.org/institutions/grand-valley-state-university-mi/report/2021-03-05/"
+"Green Mountain College"	"United States,
+              VT"	2.1	"Gold"	"Aug. 21, 2021"	"https://reports.aashe.org/institutions/green-mountain-college-vt/report/"	"https://reports.aashe.org/institutions/green-mountain-college-vt/report/2018-02-23/"
+"HEC Montréal"	"Canada,
+              QC"	2.2	"Gold"	"April 22, 2024"	"https://reports.aashe.org/institutions/hec-montreal-pa/report/"	"https://reports.aashe.org/institutions/hec-montreal-pa/report/2021-02-10/"
+"Hampshire College"	"United States,
+              MA"	2.1	"Gold"	"Sept. 25, 2021"	"https://reports.aashe.org/institutions/hampshire-college-ma/report/"	"https://reports.aashe.orgNA"
+"Haywood Community College"	"United States,
+              NC"	1.2	"Gold
+                
+                    *"	"April 5, 2015"	"https://reports.aashe.org/institutions/haywood-community-college-nc/report/"	"https://reports.aashe.org/institutions/haywood-community-college-nc/report/2012-04-05/"
+"Humber College"	"Canada,
+              ON"	2.2	"Gold"	"Oct. 23, 2022"	"https://reports.aashe.org/institutions/humber-college-on/report/"	"https://reports.aashe.org/institutions/humber-college-on/report/2019-10-24/"
+"Humboldt State University"	"United States,
+              CA"	2.2	"Gold"	"May 7, 2023"	"https://reports.aashe.org/institutions/humboldt-state-university-ca/report/"	"https://reports.aashe.org/institutions/humboldt-state-university-ca/report/2020-05-07/"
+"Indiana University Bloomington"	"United States,
+              IN"	2.2	"Gold"	"Feb. 25, 2023"	"https://reports.aashe.org/institutions/indiana-university-bloomington-in/report/"	"https://reports.aashe.org/institutions/indiana-university-bloomington-in/report/2020-02-26/"
+"Indiana University-Purdue University Indianapolis (IUPUI)"	"United States,
+              IN"	2.2	"Gold"	"May 11, 2024"	"https://reports.aashe.org/institutions/indiana-university-purdue-university-indianapolis-in/report/"	"https://reports.aashe.org/institutions/indiana-university-purdue-university-indianapolis-in/report/2020-12-14/"
+"Iowa State University"	"United States,
+              IA"	2.1	"Gold"	"Aug. 29, 2022"	"https://reports.aashe.org/institutions/iowa-state-university-ia/report/"	"https://reports.aashe.org/institutions/iowa-state-university-ia/report/2019-08-30/"
+"Ithaca College"	"United States,
+              NY"	2.1	"Gold"	"Nov. 24, 2022"	"https://reports.aashe.org/institutions/ithaca-college-ny/report/"	"https://reports.aashe.org/institutions/ithaca-college-ny/report/2019-11-25/"
+"James Madison University"	"United States,
+              VA"	2.1	"Gold"	"Dec. 20, 2021"	"https://reports.aashe.org/institutions/james-madison-university-va/report/"	"https://reports.aashe.org/institutions/james-madison-university-va/report/2018-12-21/"
+"Kankakee Community College"	"United States,
+              IL"	2	"Gold
+                
+                    *"	"Feb. 2, 2018"	"https://reports.aashe.org/institutions/kankakee-community-college-il/report/"	"https://reports.aashe.org/institutions/kankakee-community-college-il/report/2015-02-03/"
+"Keene State College"	"United States,
+              NH"	2.2	"Gold"	"March 30, 2024"	"https://reports.aashe.org/institutions/keene-state-college-nh/report/"	"https://reports.aashe.org/institutions/keene-state-college-nh/report/2021-03-04/"
+"Lehigh University"	"United States,
+              PA"	2.2	"Gold"	"April 11, 2024"	"https://reports.aashe.org/institutions/lehigh-university-pa/report/"	"https://reports.aashe.org/institutions/lehigh-university-pa/report/2021-02-26/"
+"Lewis & Clark College"	"United States,
+              OR"	2.2	"Gold"	"March 6, 2023"	"https://reports.aashe.org/institutions/lewis-clark-college-or/report/"	"https://reports.aashe.org/institutions/lewis-clark-college-or/report/2020-03-06/"
+"Loyola Marymount University"	"United States,
+              CA"	2.2	"Gold"	"May 16, 2024"	"https://reports.aashe.org/institutions/loyola-marymount-university-ca/report/"	"https://reports.aashe.org/institutions/loyola-marymount-university-ca/report/2021-03-05/"
+"Loyola University Chicago"	"United States,
+              IL"	2.2	"Gold"	"March 6, 2023"	"https://reports.aashe.org/institutions/loyola-university-chicago-il/report/"	"https://reports.aashe.org/institutions/loyola-university-chicago-il/report/2020-03-06/"
+"Luther College"	"United States,
+              IA"	2.1	"Gold"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/luther-college-ia/report/"	"https://reports.aashe.org/institutions/luther-college-ia/report/2019-03-01/"
+"Macalester College"	"United States,
+              MN"	2.2	"Gold"	"April 18, 2024"	"https://reports.aashe.org/institutions/macalester-college-mn/report/"	"https://reports.aashe.org/institutions/macalester-college-mn/report/2021-01-19/"
+"Massachusetts Institute of Technology"	"United States,
+              MA"	2.1	"Gold"	"Oct. 22, 2021"	"https://reports.aashe.org/institutions/massachusetts-institute-of-technology-ma/report/"	"https://reports.aashe.orgNA"
+"McGill University"	"Canada,
+              QC"	2.2	"Gold"	"Feb. 2, 2024"	"https://reports.aashe.org/institutions/mcgill-university-qc/report/"	"https://reports.aashe.org/institutions/mcgill-university-qc/report/2020-12-11/"
+"Miami University"	"United States,
+              OH"	2.1	"Gold"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/miami-university-oh/report/"	"https://reports.aashe.org/institutions/miami-university-oh/report/2019-03-01/"
+"Michigan State University"	"United States,
+              MI"	2.1	"Gold"	"Feb. 27, 2022"	"https://reports.aashe.org/institutions/michigan-state-university-mi/report/"	"https://reports.aashe.org/institutions/michigan-state-university-mi/report/2019-02-28/"
+"Middlebury College"	"United States,
+              VT"	2	"Gold
+                
+                    *"	"Dec. 5, 2020"	"https://reports.aashe.org/institutions/middlebury-college-vt/report/"	"https://reports.aashe.org/institutions/middlebury-college-vt/report/2017-06-09/"
+"Mohawk College"	"Canada,
+              ON"	2.1	"Gold"	"Jan. 21, 2022"	"https://reports.aashe.org/institutions/mohawk-college-on/report/"	"https://reports.aashe.org/institutions/mohawk-college-on/report/2019-01-22/"
+"Muhlenberg College"	"United States,
+              PA"	2.1	"Gold"	"Dec. 2, 2021"	"https://reports.aashe.org/institutions/muhlenberg-college-pa/report/"	"https://reports.aashe.org/institutions/muhlenberg-college-pa/report/2018-06-06/"
+"National University of Ireland, Galway"	"Ireland"	2.2	"Gold"	"Oct. 28, 2024"	"https://reports.aashe.org/institutions/nui-galway/report/"	"https://reports.aashe.orgNA"
+"New York University"	"United States,
+              NY"	2.1	"Gold"	"Feb. 6, 2023"	"https://reports.aashe.org/institutions/new-york-university-ny/report/"	"https://reports.aashe.org/institutions/new-york-university-ny/report/2020-02-07/"
+"North Carolina State University"	"United States,
+              NC"	2	"Gold
+                
+                    *"	"Jan. 4, 2019"	"https://reports.aashe.org/institutions/north-carolina-state-university-nc/report/"	"https://reports.aashe.org/institutions/north-carolina-state-university-nc/report/2016-01-05/"
+"Northern Arizona University"	"United States,
+              AZ"	2.2	"Gold"	"Jan. 5, 2024"	"https://reports.aashe.org/institutions/northern-arizona-university-az/report/"	"https://reports.aashe.org/institutions/northern-arizona-university-az/report/2020-09-28/"
+"Northland College"	"United States,
+              WI"	2.2	"Gold"	"May 9, 2024"	"https://reports.aashe.org/institutions/northland-college-wi/report/"	"https://reports.aashe.org/institutions/northland-college-wi/report/2021-02-26/"
+"Northwestern University"	"United States,
+              IL"	2.2	"Gold"	"March 6, 2023"	"https://reports.aashe.org/institutions/northwestern-university-il/report/"	"https://reports.aashe.org/institutions/northwestern-university-il/report/2020-03-06/"
+"Nova Scotia Community College"	"Canada,
+              NS"	2.2	"Gold"	"March 6, 2023"	"https://reports.aashe.org/institutions/nova-scotia-community-college-ns/report/"	"https://reports.aashe.org/institutions/nova-scotia-community-college-ns/report/2020-03-06/"
+"Oberlin College"	"United States,
+              OH"	2	"Gold
+                
+                    *"	"Sept. 4, 2020"	"https://reports.aashe.org/institutions/oberlin-college-oh/report/"	"https://reports.aashe.org/institutions/oberlin-college-oh/report/2017-03-09/"
+"Oregon State University"	"United States,
+              OR"	2.2	"Gold"	"March 8, 2024"	"https://reports.aashe.org/institutions/oregon-state-university-or/report/"	"https://reports.aashe.org/institutions/oregon-state-university-or/report/2020-12-23/"
+"Pacific Lutheran University"	"United States,
+              WA"	1.1	"Gold
+                
+                    *"	"March 11, 2016"	"https://reports.aashe.org/institutions/pacific-lutheran-university-wa/report/"	"https://reports.aashe.org/institutions/pacific-lutheran-university-wa/report/2013-03-12/"
+"Pennsylvania State University"	"United States,
+              PA"	2.2	"Gold"	"Jan. 25, 2024"	"https://reports.aashe.org/institutions/pennsylvania-state-university-pa/report/"	"https://reports.aashe.org/institutions/pennsylvania-state-university-pa/report/2020-12-17/"
+"Polytechnique Montreal"	"Canada,
+              QC"	2.1	"Gold"	"June 2, 2022"	"https://reports.aashe.org/institutions/polytechnique-montreal-qc/report/"	"https://reports.aashe.org/institutions/polytechnique-montreal-qc/report/2019-06-03/"
+"Pomona College"	"United States,
+              CA"	2	"Gold
+                
+                    *"	"Oct. 28, 2018"	"https://reports.aashe.org/institutions/pomona-college-ca/report/"	"https://reports.aashe.org/institutions/pomona-college-ca/report/2015-10-29/"
+"Portland State University"	"United States,
+              OR"	2.2	"Gold"	"April 28, 2024"	"https://reports.aashe.org/institutions/portland-state-university-or/report/"	"https://reports.aashe.org/institutions/portland-state-university-or/report/2021-03-05/"
+"Princeton University"	"United States,
+              NJ"	2.1	"Gold"	"Aug. 26, 2021"	"https://reports.aashe.org/institutions/princeton-university-nj/report/"	"https://reports.aashe.org/institutions/princeton-university-nj/report/2018-02-28/"
+"Rice University"	"United States,
+              TX"	2.1	"Gold
+                
+                    *"	"April 10, 2021"	"https://reports.aashe.org/institutions/rice-university-tx/report/"	"https://reports.aashe.org/institutions/rice-university-tx/report/2017-10-13/"
+"Royal Roads University"	"Canada,
+              BC"	1.1	"Gold
+                
+                    *"	"May 25, 2017"	"https://reports.aashe.org/institutions/royal-roads-university-bc/report/"	"https://reports.aashe.org/institutions/royal-roads-university-bc/report/2014-05-26/"
+"Saint Mary's College of California"	"United States,
+              CA"	2.2	"Gold"	"Feb. 25, 2023"	"https://reports.aashe.org/institutions/saint-marys-college-of-california-ca/report/"	"https://reports.aashe.org/institutions/saint-marys-college-of-california-ca/report/2020-02-26/"
+"San Diego State University"	"United States,
+              CA"	2.1	"Gold"	"Oct. 23, 2023"	"https://reports.aashe.org/institutions/san-diego-state-university-ca/report/"	"https://reports.aashe.org/institutions/san-diego-state-university-ca/report/2020-07-31/"
+"San Jose State University"	"United States,
+              CA"	2.2	"Gold"	"March 6, 2023"	"https://reports.aashe.org/institutions/san-jose-state-university-ca/report/"	"https://reports.aashe.org/institutions/san-jose-state-university-ca/report/2020-03-06/"
+"Santa Clara University"	"United States,
+              CA"	2.2	"Gold"	"Feb. 26, 2023"	"https://reports.aashe.org/institutions/santa-clara-university-ca/report/"	"https://reports.aashe.org/institutions/santa-clara-university-ca/report/2020-02-27/"
+"Seattle University"	"United States,
+              WA"	2.2	"Gold"	"May 11, 2024"	"https://reports.aashe.org/institutions/seattle-university-wa/report/"	"https://reports.aashe.org/institutions/seattle-university-wa/report/2021-03-05/"
+"Simon Fraser University"	"Canada,
+              BC"	2.1	"Gold"	"Oct. 4, 2021"	"https://reports.aashe.org/institutions/simon-fraser-university-bc/report/"	"https://reports.aashe.org/institutions/simon-fraser-university-bc/report/2018-10-05/"
+"St. John's University, New York"	"United States,
+              NY"	2	"Gold
+                
+                    *"	"March 14, 2019"	"https://reports.aashe.org/institutions/st-johns-university-ny/report/"	"https://reports.aashe.org/institutions/st-johns-university-ny/report/2016-03-14/"
+"State University of New York at Cortland"	"United States,
+              NY"	2.1	"Gold"	"Feb. 24, 2022"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-cortland-ny/report/"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-cortland-ny/report/2019-02-25/"
+"Sterling College (VT)"	"United States,
+              VT"	2.1	"Gold"	"May 9, 2024"	"https://reports.aashe.org/institutions/sterling-college-vt/report/"	"https://reports.aashe.org/institutions/sterling-college-vt/report/2021-03-05/"
+"Stevens Institute of Technology"	"United States,
+              NJ"	2.2	"Gold"	"March 2, 2023"	"https://reports.aashe.org/institutions/stevens-institute-of-technology-nj/report/"	"https://reports.aashe.org/institutions/stevens-institute-of-technology-nj/report/2020-03-02/"
+"Texas A&M University"	"United States,
+              TX"	2.2	"Gold"	"Feb. 5, 2024"	"https://reports.aashe.org/institutions/texas-am-university-tx/report/"	"https://reports.aashe.org/institutions/texas-am-university-tx/report/2020-12-11/"
+"The American College of Greece"	"Greece,
+              Aghia Paraskevi"	2.2	"Gold"	"Feb. 10, 2023"	"https://reports.aashe.org/institutions/the-american-college-of-greece-deree-aghia-paraskevi/report/"	"https://reports.aashe.org/institutions/the-american-college-of-greece-deree-aghia-paraskevi/report/2020-02-11/"
+"The Ohio State University"	"United States,
+              OH"	2.1	"Gold"	"Jan. 17, 2022"	"https://reports.aashe.org/institutions/the-ohio-state-university-oh/report/"	"https://reports.aashe.org/institutions/the-ohio-state-university-oh/report/2019-01-18/"
+"The University of Texas at Dallas"	"United States,
+              TX"	2.1	"Gold"	"Sept. 10, 2022"	"https://reports.aashe.org/institutions/university-of-texas-at-dallas-tx/report/"	"https://reports.aashe.org/institutions/university-of-texas-at-dallas-tx/report/2019-09-11/"
+"Unity College"	"United States,
+              ME"	2.1	"Gold"	"March 21, 2022"	"https://reports.aashe.org/institutions/unity-college-me/report/"	"https://reports.aashe.org/institutions/unity-college-me/report/2019-03-22/"
+"Universite Laval"	"Canada,
+              QC"	2.1	"Gold"	"Dec. 11, 2022"	"https://reports.aashe.org/institutions/universite-laval-qc/report/"	"https://reports.aashe.org/institutions/universite-laval-qc/report/2019-12-12/"
+"University College Cork - National University of Ireland, Cork"	"Ireland,
+              Co. Cork"	2.1	"Gold
+                
+                    *"	"July 19, 2021"	"https://reports.aashe.org/institutions/university-college-cork-national-university-of-ireland-cork-co-corcaigh/report/"	"https://reports.aashe.orgNA"
+"University at Albany"	"United States,
+              NY"	2.1	"Gold"	"Dec. 20, 2021"	"https://reports.aashe.org/institutions/university-at-albany-ny/report/"	"https://reports.aashe.org/institutions/university-at-albany-ny/report/2018-12-21/"
+"University at Buffalo"	"United States,
+              NY"	2.1	"Gold"	"Dec. 13, 2021"	"https://reports.aashe.org/institutions/university-at-buffalo-ny/report/"	"https://reports.aashe.org/institutions/university-at-buffalo-ny/report/2018-12-14/"
+"University of Alaska Fairbanks"	"United States,
+              AK"	1	"Gold
+                
+                    *"	"Aug. 25, 2014"	"https://reports.aashe.org/institutions/university-of-alaska-fairbanks-ak/report/"	"https://reports.aashe.orgNA"
+"University of Alberta"	"Canada,
+              AB"	2.1	"Gold"	"Oct. 5, 2023"	"https://reports.aashe.org/institutions/university-of-alberta-ab/report/"	"https://reports.aashe.org/institutions/university-of-alberta-ab/report/2020-06-24/"
+"University of Arizona"	"United States,
+              AZ"	2.1	"Gold
+                
+                    *"	"Oct. 28, 2020"	"https://reports.aashe.org/institutions/university-of-arizona-az/report/"	"https://reports.aashe.org/institutions/university-of-arizona-az/report/2017-05-02/"
+"University of Arkansas"	"United States,
+              AR"	2.1	"Gold"	"May 16, 2024"	"https://reports.aashe.org/institutions/university-of-arkansas-ar/report/"	"https://reports.aashe.org/institutions/university-of-arkansas-ar/report/2021-03-05/"
+"University of British Columbia"	"Canada,
+              BC"	2	"Gold
+                
+                    *"	"Aug. 3, 2018"	"https://reports.aashe.org/institutions/university-of-british-columbia-bc/report/"	"https://reports.aashe.org/institutions/university-of-british-columbia-bc/report/2015-08-04/"
+"University of Calgary"	"Canada,
+              AB"	2.1	"Gold"	"Dec. 12, 2021"	"https://reports.aashe.org/institutions/university-of-calgary-ab/report/"	"https://reports.aashe.org/institutions/university-of-calgary-ab/report/2018-12-13/"
+"University of California, Davis"	"United States,
+              CA"	2.2	"Gold"	"March 6, 2023"	"https://reports.aashe.org/institutions/university-of-california-davis-ca/report/"	"https://reports.aashe.org/institutions/university-of-california-davis-ca/report/2020-03-06/"
+"University of California, Los Angeles"	"United States,
+              CA"	2.2	"Gold"	"March 6, 2023"	"https://reports.aashe.org/institutions/university-of-california-los-angeles-ca/report/"	"https://reports.aashe.org/institutions/university-of-california-los-angeles-ca/report/2020-03-06/"
+"University of California, Merced"	"United States,
+              CA"	2.1	"Gold"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/university-of-california-merced-ca/report/"	"https://reports.aashe.org/institutions/university-of-california-merced-ca/report/2019-03-01/"
+"University of California, Riverside"	"United States,
+              CA"	2.2	"Gold"	"May 9, 2024"	"https://reports.aashe.org/institutions/university-of-california-riverside-ca/report/"	"https://reports.aashe.org/institutions/university-of-california-riverside-ca/report/2021-03-05/"
+"University of California, San Diego"	"United States,
+              CA"	2.2	"Gold"	"April 18, 2024"	"https://reports.aashe.org/institutions/university-of-california-san-diego-ca/report/"	"https://reports.aashe.org/institutions/university-of-california-san-diego-ca/report/2021-03-05/"
+"University of California, Santa Barbara"	"United States,
+              CA"	2.2	"Gold"	"April 20, 2024"	"https://reports.aashe.org/institutions/university-of-california-santa-barbara-ca/report/"	"https://reports.aashe.org/institutions/university-of-california-santa-barbara-ca/report/2021-03-04/"
+"University of California, Santa Cruz"	"United States,
+              CA"	2.1	"Gold"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/university-of-california-santa-cruz-ca/report/"	"https://reports.aashe.org/institutions/university-of-california-santa-cruz-ca/report/2019-03-01/"
+"University of Cincinnati"	"United States,
+              OH"	2.2	"Gold"	"March 6, 2023"	"https://reports.aashe.org/institutions/university-of-cincinnati-oh/report/"	"https://reports.aashe.org/institutions/university-of-cincinnati-oh/report/2020-03-06/"
+"University of Colorado Boulder"	"United States,
+              CO"	2.1	"Gold"	"Sept. 18, 2021"	"https://reports.aashe.org/institutions/university-of-colorado-at-boulder-co/report/"	"https://reports.aashe.org/institutions/university-of-colorado-at-boulder-co/report/2018-03-23/"
+"University of Colorado Colorado Springs"	"United States,
+              CO"	2.2	"Gold"	"May 12, 2024"	"https://reports.aashe.org/institutions/university-of-colorado-at-colorado-springs-co/report/"	"https://reports.aashe.org/institutions/university-of-colorado-at-colorado-springs-co/report/2021-02-15/"
+"University of Dayton"	"United States,
+              OH"	2.1	"Gold"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/university-of-dayton-oh/report/"	"https://reports.aashe.org/institutions/university-of-dayton-oh/report/2019-03-01/"
+"University of Georgia"	"United States,
+              GA"	2.2	"Gold"	"Oct. 3, 2024"	"https://reports.aashe.org/institutions/university-of-georgia-ga/report/"	"https://reports.aashe.org/institutions/university-of-georgia-ga/report/2021-06-22/"
+"University of Guelph"	"Canada,
+              ON"	2.2	"Gold"	"Nov. 17, 2023"	"https://reports.aashe.org/institutions/university-of-guelph-on/report/"	"https://reports.aashe.orgNA"
+"University of Houston"	"United States,
+              TX"	2.1	"Gold"	"Jan. 3, 2022"	"https://reports.aashe.org/institutions/university-of-houston-university-park-tx/report/"	"https://reports.aashe.org/institutions/university-of-houston-university-park-tx/report/2019-01-04/"
+"University of Illinois, Urbana-Champaign"	"United States,
+              IL"	2.1	"Gold"	"Feb. 26, 2022"	"https://reports.aashe.org/institutions/university-of-illinois-urbana-champaign-il/report/"	"https://reports.aashe.org/institutions/university-of-illinois-urbana-champaign-il/report/2019-02-27/"
+"University of Louisville"	"United States,
+              KY"	2.1	"Gold"	"Feb. 26, 2022"	"https://reports.aashe.org/institutions/university-of-louisville-ky/report/"	"https://reports.aashe.org/institutions/university-of-louisville-ky/report/2019-02-27/"
+"University of Manitoba"	"Canada,
+              MB"	2.1	"Gold"	"Aug. 15, 2021"	"https://reports.aashe.org/institutions/university-of-manitoba-mb/report/"	"https://reports.aashe.org/institutions/university-of-manitoba-mb/report/2018-08-16/"
+"University of Maryland, College Park"	"United States,
+              MD"	2.1	"Gold"	"Feb. 27, 2022"	"https://reports.aashe.org/institutions/university-of-maryland-college-park-md/report/"	"https://reports.aashe.org/institutions/university-of-maryland-college-park-md/report/2019-02-28/"
+"University of Massachusetts Amherst"	"United States,
+              MA"	2.2	"Gold"	"March 6, 2023"	"https://reports.aashe.org/institutions/university-of-massachusetts-amherst-ma/report/"	"https://reports.aashe.org/institutions/university-of-massachusetts-amherst-ma/report/2020-03-06/"
+"University of Massachusetts Lowell"	"United States,
+              MA"	2.1	"Gold"	"Feb. 14, 2022"	"https://reports.aashe.org/institutions/university-of-massachusetts-lowell-ma/report/"	"https://reports.aashe.org/institutions/university-of-massachusetts-lowell-ma/report/2019-02-15/"
+"University of Miami"	"United States,
+              FL"	2.1	"Gold"	"March 12, 2022"	"https://reports.aashe.org/institutions/university-of-miami-fl/report/"	"https://reports.aashe.org/institutions/university-of-miami-fl/report/2019-03-13/"
+"University of Michigan"	"United States,
+              MI"	2.1	"Gold"	"Dec. 21, 2021"	"https://reports.aashe.org/institutions/university-of-michigan-mi/report/"	"https://reports.aashe.org/institutions/university-of-michigan-mi/report/2018-06-25/"
+"University of Minnesota, Duluth"	"United States,
+              MN"	2.1	"Gold"	"Nov. 3, 2022"	"https://reports.aashe.org/institutions/university-of-minnesota-duluth-mn/report/"	"https://reports.aashe.org/institutions/university-of-minnesota-duluth-mn/report/2019-11-04/"
+"University of Minnesota, Morris"	"United States,
+              MN"	2.1	"Gold"	"Sept. 25, 2021"	"https://reports.aashe.org/institutions/university-of-minnesota-morris-mn/report/"	"https://reports.aashe.org/institutions/university-of-minnesota-morris-mn/report/2018-03-30/"
+"University of Minnesota, Twin Cities"	"United States,
+              MN"	2	"Gold
+                
+                    *"	"Dec. 14, 2018"	"https://reports.aashe.org/institutions/university-of-minnesota-mn/report/"	"https://reports.aashe.org/institutions/university-of-minnesota-mn/report/2015-12-15/"
+"University of Missouri"	"United States,
+              MO"	2.1	"Gold"	"Aug. 14, 2021"	"https://reports.aashe.org/institutions/university-of-missouri-mo/report/"	"https://reports.aashe.org/institutions/university-of-missouri-mo/report/2018-02-16/"
+"University of North Carolina at Chapel Hill"	"United States,
+              NC"	2.2	"Gold"	"Feb. 29, 2024"	"https://reports.aashe.org/institutions/university-of-north-carolina-chapel-hill-nc/report/"	"https://reports.aashe.org/institutions/university-of-north-carolina-chapel-hill-nc/report/2020-12-23/"
+"University of Northern Iowa"	"United States,
+              IA"	1.1	"Gold
+                
+                    *"	"Feb. 29, 2016"	"https://reports.aashe.org/institutions/university-of-northern-iowa-ia/report/"	"https://reports.aashe.org/institutions/university-of-northern-iowa-ia/report/2013-03-01/"
+"University of Ontario Institute of Technology"	"Canada,
+              ON"	2.1	"Gold"	"June 18, 2022"	"https://reports.aashe.org/institutions/university-of-ontario-institute-of-technology-on/report/"	"https://reports.aashe.org/institutions/university-of-ontario-institute-of-technology-on/report/2019-06-19/"
+"University of Oregon"	"United States,
+              OR"	2.2	"Gold"	"March 6, 2023"	"https://reports.aashe.org/institutions/university-of-oregon-or/report/"	"https://reports.aashe.org/institutions/university-of-oregon-or/report/2020-03-06/"
+"University of Pennsylvania"	"United States,
+              PA"	2.2	"Gold"	"Oct. 28, 2024"	"https://reports.aashe.org/institutions/university-of-pennsylvania-pa/report/"	"https://reports.aashe.org/institutions/university-of-pennsylvania-pa/report/2021-08-09/"
+"University of Pittsburgh"	"United States,
+              PA"	2.2	"Gold"	"April 11, 2024"	"https://reports.aashe.org/institutions/university-of-pittsburgh-pa/report/"	"https://reports.aashe.org/institutions/university-of-pittsburgh-pa/report/2021-02-28/"
+"University of Puget Sound"	"United States,
+              WA"	1.1	"Gold
+                
+                    *"	"July 25, 2015"	"https://reports.aashe.org/institutions/university-of-puget-sound-wa/report/"	"https://reports.aashe.orgNA"
+"University of Richmond"	"United States,
+              VA"	2.1	"Gold"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/university-of-richmond-va/report/"	"https://reports.aashe.org/institutions/university-of-richmond-va/report/2019-03-01/"
+"University of San Diego"	"United States,
+              CA"	2.2	"Gold"	"July 11, 2024"	"https://reports.aashe.org/institutions/university-of-san-diego-ca/report/"	"https://reports.aashe.org/institutions/university-of-san-diego-ca/report/2021-03-24/"
+"University of South Florida (Tampa)"	"United States,
+              FL"	2.1	"Gold"	"Aug. 17, 2021"	"https://reports.aashe.org/institutions/university-of-south-florida-tampa-fl/report/"	"https://reports.aashe.org/institutions/university-of-south-florida-tampa-fl/report/2018-02-19/"
+"University of St. Thomas"	"United States,
+              MN"	2.2	"Gold"	"April 22, 2024"	"https://reports.aashe.org/institutions/university-of-st-thomas-mn/report/"	"https://reports.aashe.org/institutions/university-of-st-thomas-mn/report/2021-03-05/"
+"University of Texas Rio Grande Valley"	"United States,
+              TX"	2.1	"Gold
+                
+                    *"	"March 18, 2021"	"https://reports.aashe.org/institutions/university-of-texas-rio-grande-valley-tx/report/"	"https://reports.aashe.org/institutions/university-of-texas-rio-grande-valley-tx/report/2017-09-20/"
+"University of Texas at Austin"	"United States,
+              TX"	2.2	"Gold"	"March 2, 2023"	"https://reports.aashe.org/institutions/university-of-texas-at-austin-tx/report/"	"https://reports.aashe.org/institutions/university-of-texas-at-austin-tx/report/2020-03-02/"
+"University of Utah"	"United States,
+              UT"	2.2	"Gold"	"Jan. 13, 2024"	"https://reports.aashe.org/institutions/university-of-utah-ut/report/"	"https://reports.aashe.org/institutions/university-of-utah-ut/report/2020-10-21/"
+"University of Vermont"	"United States,
+              VT"	2.2	"Gold"	"March 2, 2023"	"https://reports.aashe.org/institutions/university-of-vermont-vt/report/"	"https://reports.aashe.org/institutions/university-of-vermont-vt/report/2020-03-02/"
+"University of Victoria"	"Canada,
+              BC"	2.2	"Gold"	"July 20, 2023"	"https://reports.aashe.org/institutions/university-of-victoria-bc/report/"	"https://reports.aashe.org/institutions/university-of-victoria-bc/report/2020-05-05/"
+"University of Virginia"	"United States,
+              VA"	2.2	"Gold"	"April 29, 2024"	"https://reports.aashe.org/institutions/university-of-virginia-va/report/"	"https://reports.aashe.org/institutions/university-of-virginia-va/report/2021-03-04/"
+"University of Washington, Seattle"	"United States,
+              WA"	2.1	"Gold"	"Oct. 11, 2021"	"https://reports.aashe.org/institutions/university-of-washington-seattle-wa/report/"	"https://reports.aashe.org/institutions/university-of-washington-seattle-wa/report/2018-10-12/"
+"University of Wisconsin-Milwaukee"	"United States,
+              WI"	2.1	"Gold"	"Nov. 26, 2022"	"https://reports.aashe.org/institutions/university-of-wisconsin-milwaukee-wi/report/"	"https://reports.aashe.org/institutions/university-of-wisconsin-milwaukee-wi/report/2019-11-27/"
+"University of Wisconsin-Oshkosh"	"United States,
+              WI"	2.1	"Gold
+                
+                    *"	"July 27, 2021"	"https://reports.aashe.org/institutions/university-of-wisconsin-oshkosh-wi/report/"	"https://reports.aashe.org/institutions/university-of-wisconsin-oshkosh-wi/report/2018-01-29/"
+"University of Wisconsin-Stevens Point"	"United States,
+              WI"	2.1	"Gold"	"Nov. 9, 2021"	"https://reports.aashe.org/institutions/university-of-wisconsin-stevens-point-wi/report/"	"https://reports.aashe.org/institutions/university-of-wisconsin-stevens-point-wi/report/2018-05-14/"
+"Vassar College"	"United States,
+              NY"	2.2	"Gold"	"March 28, 2024"	"https://reports.aashe.org/institutions/vassar-college-ny/report/"	"https://reports.aashe.org/institutions/vassar-college-ny/report/2021-03-04/"
+"Virginia Tech"	"United States,
+              VA"	2.2	"Gold"	"March 18, 2024"	"https://reports.aashe.org/institutions/virginia-tech-va/report/"	"https://reports.aashe.org/institutions/virginia-tech-va/report/2021-02-18/"
+"Wake Forest University"	"United States,
+              NC"	2.1	"Gold
+                
+                    *"	"July 26, 2021"	"https://reports.aashe.org/institutions/wake-forest-university-nc/report/"	"https://reports.aashe.org/institutions/wake-forest-university-nc/report/2018-07-27/"
+"Warren Wilson College"	"United States,
+              NC"	2.2	"Gold"	"March 4, 2023"	"https://reports.aashe.org/institutions/warren-wilson-college-nc/report/"	"https://reports.aashe.org/institutions/warren-wilson-college-nc/report/2020-03-04/"
+"Wartburg College"	"United States,
+              IA"	2	"Gold
+                
+                    *"	"Jan. 28, 2018"	"https://reports.aashe.org/institutions/wartburg-college-ia/report/"	"https://reports.aashe.org/institutions/wartburg-college-ia/report/2015-01-29/"
+"Washington University in St. Louis"	"United States,
+              MO"	2.1	"Gold"	"Aug. 28, 2021"	"https://reports.aashe.org/institutions/washington-university-in-st-louis-mo/report/"	"https://reports.aashe.org/institutions/washington-university-in-st-louis-mo/report/2020-03-06/"
+"Wellesley College"	"United States,
+              MA"	2.1	"Gold"	"Nov. 12, 2021"	"https://reports.aashe.org/institutions/wellesley-college-ma/report/"	"https://reports.aashe.org/institutions/wellesley-college-ma/report/2018-11-13/"
+"Wells College"	"United States,
+              NY"	2.1	"Gold
+                
+                    *"	"June 10, 2021"	"https://reports.aashe.org/institutions/wells-college-ny/report/"	"https://reports.aashe.org/institutions/wells-college-ny/report/2017-12-13/"
+"Western University"	"Canada,
+              ON"	2.1	"Gold
+                
+                    *"	"July 30, 2021"	"https://reports.aashe.org/institutions/university-of-western-ontario-on/report/"	"https://reports.aashe.org/institutions/university-of-western-ontario-on/report/2018-02-01/"
+"Wilfrid Laurier University"	"Canada,
+              ON"	2.1	"Gold"	"Jan. 15, 2022"	"https://reports.aashe.org/institutions/wilfrid-laurier-university-on/report/"	"https://reports.aashe.org/institutions/wilfrid-laurier-university-on/report/2019-01-16/"
+"Worcester Polytechnic Institute"	"United States,
+              MA"	2.1	"Gold"	"Nov. 6, 2023"	"https://reports.aashe.org/institutions/worcester-polytechnic-institute-ma/report/"	"https://reports.aashe.org/institutions/worcester-polytechnic-institute-ma/report/2020-05-22/"
+"Yale University"	"United States,
+              CT"	2.2	"Gold"	"Nov. 6, 2023"	"https://reports.aashe.org/institutions/yale-university-ct/report/"	"https://reports.aashe.org/institutions/yale-university-ct/report/2020-08-03/"
+"American University of Sharjah"	"United Arab Emirates,
+              Ash Shariqah"	2.1	"Silver"	"June 21, 2024"	"https://reports.aashe.org/institutions/3388/report/"	"https://reports.aashe.org/institutions/3388/report/2021-05-06/"
+"Amherst College"	"United States,
+              MA"	2.1	"Silver"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/amherst-college-ma/report/"	"https://reports.aashe.orgNA"
+"Anne Arundel Community College"	"United States,
+              MD"	1	"Silver
+                
+                    *"	"Nov. 17, 2014"	"https://reports.aashe.org/institutions/anne-arundel-community-college-md/report/"	"https://reports.aashe.orgNA"
+"Antioch College"	"United States,
+              OH"	2.1	"Silver"	"Sept. 24, 2021"	"https://reports.aashe.org/institutions/antioch-college-oh/report/"	"https://reports.aashe.orgNA"
+"Aquinas College"	"United States,
+              MI"	2.1	"Silver"	"March 3, 2022"	"https://reports.aashe.org/institutions/aquinas-college-mi/report/"	"https://reports.aashe.org/institutions/aquinas-college-mi/report/2019-03-04/"
+"Auburn University"	"United States,
+              AL"	2.1	"Silver"	"Jan. 22, 2022"	"https://reports.aashe.org/institutions/auburn-university-al/report/"	"https://reports.aashe.org/institutions/auburn-university-al/report/2019-01-23/"
+"Baldwin Wallace University"	"United States,
+              OH"	2.1	"Silver"	"Jan. 10, 2022"	"https://reports.aashe.org/institutions/baldwin-wallace-university-oh/report/"	"https://reports.aashe.orgNA"
+"Ball State University"	"United States,
+              IN"	2.2	"Silver"	"Sept. 23, 2024"	"https://reports.aashe.org/institutions/ball-state-university-in/report/"	"https://reports.aashe.org/institutions/ball-state-university-in/report/2021-07-21/"
+"Barnard College"	"United States,
+              NY"	2.2	"Silver"	"March 6, 2023"	"https://reports.aashe.org/institutions/barnard-college-ny/report/"	"https://reports.aashe.orgNA"
+"Baylor University"	"United States,
+              TX"	2.1	"Silver
+                
+                    *"	"Feb. 29, 2020"	"https://reports.aashe.org/institutions/baylor-university-tx/report/"	"https://reports.aashe.org/institutions/baylor-university-tx/report/2017-03-01/"
+"Bellevue College"	"United States,
+              WA"	1.2	"Silver
+                
+                    *"	"June 30, 2016"	"https://reports.aashe.org/institutions/bellevue-college-wa/report/"	"https://reports.aashe.orgNA"
+"Beloit College"	"United States,
+              WI"	2.1	"Silver
+                
+                    *"	"Nov. 14, 2020"	"https://reports.aashe.org/institutions/beloit-college-wi/report/"	"https://reports.aashe.org/institutions/beloit-college-wi/report/2017-05-19/"
+"Bentley University"	"United States,
+              MA"	2.2	"Silver"	"Dec. 8, 2023"	"https://reports.aashe.org/institutions/bentley-university-ma/report/"	"https://reports.aashe.org/institutions/bentley-university-ma/report/2020-08-06/"
+"Black Hills State University"	"United States,
+              SD"	2.2	"Silver"	"July 31, 2023"	"https://reports.aashe.org/institutions/black-hills-state-university-sd/report/"	"https://reports.aashe.org/institutions/black-hills-state-university-sd/report/2020-04-21/"
+"Boise State University"	"United States,
+              ID"	2.2	"Silver"	"Sept. 22, 2024"	"https://reports.aashe.org/institutions/boise-state-university-id/report/"	"https://reports.aashe.orgNA"
+"Boston College"	"United States,
+              MA"	2.1	"Silver"	"Feb. 5, 2022"	"https://reports.aashe.org/institutions/boston-college-ma/report/"	"https://reports.aashe.org/institutions/boston-college-ma/report/2019-02-06/"
+"Boston University"	"United States,
+              MA"	2.1	"Silver"	"Aug. 1, 2022"	"https://reports.aashe.org/institutions/boston-university-ma/report/"	"https://reports.aashe.org/institutions/boston-university-ma/report/2019-08-02/"
+"Brandeis University"	"United States,
+              MA"	1.2	"Silver
+                
+                    *"	"Feb. 17, 2016"	"https://reports.aashe.org/institutions/brandeis-university-ma/report/"	"https://reports.aashe.org/institutions/brandeis-university-ma/report/2013-02-17/"
+"British Columbia Institute of Technology"	"Canada,
+              BC"	2.2	"Silver"	"June 28, 2024"	"https://reports.aashe.org/institutions/british-columbia-institute-of-technology-bc/report/"	"https://reports.aashe.orgNA"
+"Brock University"	"Canada,
+              ON"	2.2	"Silver"	"Jan. 20, 2024"	"https://reports.aashe.org/institutions/brock-university-on/report/"	"https://reports.aashe.orgNA"
+"Bryant University"	"United States,
+              RI"	2.1	"Silver"	"June 5, 2022"	"https://reports.aashe.org/institutions/bryant-university-ri/report/"	"https://reports.aashe.org/institutions/bryant-university-ri/report/2019-06-06/"
+"Bryn Mawr College"	"United States,
+              PA"	2.1	"Silver
+                
+                    *"	"Dec. 25, 2020"	"https://reports.aashe.org/institutions/bryn-mawr-college-pa/report/"	"https://reports.aashe.orgNA"
+"California State Polytechnic University, Pomona"	"United States,
+              CA"	2.1	"Silver"	"May 15, 2023"	"https://reports.aashe.org/institutions/california-state-polytechnic-university-pomona-ca/report/"	"https://reports.aashe.org/institutions/california-state-polytechnic-university-pomona-ca/report/2020-05-15/"
+"California State University, Bakersfield"	"United States,
+              CA"	2.1	"Silver"	"Aug. 28, 2021"	"https://reports.aashe.org/institutions/california-state-university-bakersfield-ca/report/"	"https://reports.aashe.orgNA"
+"California State University, Dominguez Hills"	"United States,
+              CA"	2.2	"Silver"	"Aug. 14, 2023"	"https://reports.aashe.org/institutions/california-state-university-dominguez-hills-ca/report/"	"https://reports.aashe.org/institutions/california-state-university-dominguez-hills-ca/report/2020-06-30/"
+"California State University, Fullerton"	"United States,
+              CA"	2.1	"Silver"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/california-state-university-fullerton-ca/report/"	"https://reports.aashe.org/institutions/california-state-university-fullerton-ca/report/2019-03-01/"
+"California State University, Long Beach"	"United States,
+              CA"	2.2	"Silver"	"March 4, 2024"	"https://reports.aashe.org/institutions/california-state-university-long-beach-ca/report/"	"https://reports.aashe.org/institutions/california-state-university-long-beach-ca/report/2021-01-29/"
+"California State University, Los Angeles"	"United States,
+              CA"	2.1	"Silver"	"July 16, 2022"	"https://reports.aashe.org/institutions/california-state-university-los-angeles-ca/report/"	"https://reports.aashe.org/institutions/california-state-university-los-angeles-ca/report/2019-07-17/"
+"California State University, Monterey Bay"	"United States,
+              CA"	2.2	"Silver"	"March 25, 2024"	"https://reports.aashe.org/institutions/california-state-university-monterey-bay-ca/report/"	"https://reports.aashe.org/institutions/california-state-university-monterey-bay-ca/report/2021-02-21/"
+"California State University, San Bernardino"	"United States,
+              CA"	2.2	"Silver"	"May 11, 2024"	"https://reports.aashe.org/institutions/california-state-university-san-bernardino-ca/report/"	"https://reports.aashe.orgNA"
+"California State University, Stanislaus"	"United States,
+              CA"	2.2	"Silver"	"July 20, 2023"	"https://reports.aashe.org/institutions/california-state-university-stanislaus-ca/report/"	"https://reports.aashe.org/institutions/california-state-university-stanislaus-ca/report/2020-05-28/"
+"Calvin University"	"United States,
+              MI"	2.2	"Silver"	"Feb. 25, 2023"	"https://reports.aashe.org/institutions/calvin-college-mi/report/"	"https://reports.aashe.org/institutions/calvin-college-mi/report/2020-02-26/"
+"Camosun College"	"Canada,
+              BC"	2	"Silver
+                
+                    *"	"Nov. 24, 2018"	"https://reports.aashe.org/institutions/camosun-college-bc/report/"	"https://reports.aashe.orgNA"
+"Carleton College"	"United States,
+              MN"	2.2	"Silver"	"May 11, 2024"	"https://reports.aashe.org/institutions/carleton-college-mn/report/"	"https://reports.aashe.org/institutions/carleton-college-mn/report/2021-03-05/"
+"Carleton University"	"Canada,
+              ON"	2	"Silver
+                
+                    *"	"Feb. 17, 2020"	"https://reports.aashe.org/institutions/carleton-university-on/report/"	"https://reports.aashe.orgNA"
+"Case Western Reserve University"	"United States,
+              OH"	2.1	"Silver"	"Aug. 28, 2021"	"https://reports.aashe.org/institutions/case-western-reserve-university-oh/report/"	"https://reports.aashe.orgNA"
+"Central Carolina Community College"	"United States,
+              NC"	2	"Silver
+                
+                    *"	"June 23, 2018"	"https://reports.aashe.org/institutions/central-carolina-community-college-nc/report/"	"https://reports.aashe.org/institutions/central-carolina-community-college-nc/report/2015-06-24/"
+"Central Community College"	"United States,
+              NE"	2.2	"Silver"	"March 3, 2023"	"https://reports.aashe.org/institutions/central-community-college-ne/report/"	"https://reports.aashe.org/institutions/central-community-college-ne/report/2020-03-03/"
+"Central New Mexico Community College"	"United States,
+              NM"	2.1	"Silver"	"July 25, 2022"	"https://reports.aashe.org/institutions/central-new-mexico-community-college-nm/report/"	"https://reports.aashe.org/institutions/central-new-mexico-community-college-nm/report/2019-07-26/"
+"Champlain College"	"United States,
+              VT"	2.1	"Silver"	"May 8, 2022"	"https://reports.aashe.org/institutions/champlain-college-vt/report/"	"https://reports.aashe.org/institutions/champlain-college-vt/report/2019-05-09/"
+"City University of New York, John Jay College of Criminal Justice"	"United States,
+              NY"	2.2	"Silver"	"April 20, 2024"	"https://reports.aashe.org/institutions/city-university-of-new-york-john-jay-college-of-criminal-justice-ny/report/"	"https://reports.aashe.orgNA"
+"Claremont McKenna College"	"United States,
+              CA"	2.1	"Silver"	"Feb. 13, 2023"	"https://reports.aashe.org/institutions/claremont-mckenna-college-ca/report/"	"https://reports.aashe.orgNA"
+"Clemson University"	"United States,
+              SC"	2.1	"Silver"	"Nov. 25, 2021"	"https://reports.aashe.org/institutions/clemson-university-sc/report/"	"https://reports.aashe.orgNA"
+"Cleveland State University"	"United States,
+              OH"	2.2	"Silver"	"Oct. 2, 2023"	"https://reports.aashe.org/institutions/cleveland-state-university-oh/report/"	"https://reports.aashe.org/institutions/cleveland-state-university-oh/report/2020-07-28/"
+"Coastal Carolina University"	"United States,
+              SC"	2	"Silver
+                
+                    *"	"Nov. 23, 2018"	"https://reports.aashe.org/institutions/coastal-carolina-university-sc/report/"	"https://reports.aashe.orgNA"
+"College of Charleston"	"United States,
+              SC"	2.2	"Silver"	"Feb. 17, 2023"	"https://reports.aashe.org/institutions/college-of-charleston-sc/report/"	"https://reports.aashe.orgNA"
+"College of Lake County"	"United States,
+              IL"	2.2	"Silver"	"March 6, 2023"	"https://reports.aashe.org/institutions/college-of-lake-county-il/report/"	"https://reports.aashe.org/institutions/college-of-lake-county-il/report/2020-03-06/"
+"College of Saint Benedict"	"United States,
+              MN"	1.1	"Silver
+                
+                    *"	"April 29, 2016"	"https://reports.aashe.org/institutions/college-of-saint-benedict-mn/report/"	"https://reports.aashe.org/institutions/college-of-saint-benedict-mn/report/2013-04-30/"
+"College of William & Mary"	"United States,
+              VA"	2.1	"Silver
+                
+                    *"	"Dec. 20, 2019"	"https://reports.aashe.org/institutions/college-of-william-mary-va/report/"	"https://reports.aashe.orgNA"
+"Concordia College - Moorhead"	"United States,
+              MN"	2.2	"Silver"	"Feb. 2, 2024"	"https://reports.aashe.org/institutions/concordia-college-moorhead-mn/report/"	"https://reports.aashe.org/institutions/concordia-college-moorhead-mn/report/2020-12-16/"
+"DE LA SALLE LIPA"	"Philippines,
+              BATANGAS"	2.2	"Silver"	"Sept. 14, 2024"	"https://reports.aashe.org/institutions/de-la-salle-lipa-batangas/report/"	"https://reports.aashe.orgNA"
+"Delta College"	"United States,
+              MI"	2.1	"Silver
+                
+                    *"	"Jan. 1, 2021"	"https://reports.aashe.org/institutions/delta-college-mi/report/"	"https://reports.aashe.org/institutions/delta-college-mi/report/2017-07-06/"
+"Drew University"	"United States,
+              NJ"	1.1	"Silver
+                
+                    *"	"Nov. 15, 2014"	"https://reports.aashe.org/institutions/drew-university-nj/report/"	"https://reports.aashe.orgNA"
+"Duquesne University"	"United States,
+              PA"	2.2	"Silver"	"April 11, 2024"	"https://reports.aashe.org/institutions/duquesne-university-pa/report/"	"https://reports.aashe.org/institutions/duquesne-university-pa/report/2021-03-05/"
+"Durham College"	"Canada,
+              ON"	2.1	"Silver"	"Feb. 6, 2023"	"https://reports.aashe.org/institutions/durham-college-on/report/"	"https://reports.aashe.org/institutions/durham-college-on/report/2020-02-07/"
+"Earlham College"	"United States,
+              IN"	2.1	"Silver"	"Feb. 25, 2022"	"https://reports.aashe.org/institutions/earlham-college-in/report/"	"https://reports.aashe.org/institutions/earlham-college-in/report/2019-02-26/"
+"East Carolina University"	"United States,
+              NC"	2.2	"Silver"	"Jan. 15, 2023"	"https://reports.aashe.org/institutions/east-carolina-university-nc/report/"	"https://reports.aashe.org/institutions/east-carolina-university-nc/report/2020-01-16/"
+"Eastern Connecticut State University"	"United States,
+              CT"	2.1	"Silver"	"Dec. 30, 2021"	"https://reports.aashe.org/institutions/eastern-connecticut-state-university-ct/report/"	"https://reports.aashe.org/institutions/eastern-connecticut-state-university-ct/report/2018-12-31/"
+"Eastern Iowa Community College District"	"United States,
+              IA"	1	"Silver
+                
+                    *"	"June 14, 2014"	"https://reports.aashe.org/institutions/eastern-iowa-community-college-district-ia/report/"	"https://reports.aashe.orgNA"
+"Eastern Mennonite University"	"United States,
+              VA"	2.1	"Silver
+                
+                    *"	"Jan. 21, 2021"	"https://reports.aashe.org/institutions/eastern-mennonite-university-va/report/"	"https://reports.aashe.org/institutions/eastern-mennonite-university-va/report/2017-07-26/"
+"Ecole de Technologie Superieure"	"Canada,
+              QC"	2.1	"Silver"	"Nov. 13, 2021"	"https://reports.aashe.org/institutions/ecole-de-technologie-superieure-qc/report/"	"https://reports.aashe.orgNA"
+"Edmonds Community College"	"United States,
+              WA"	1.2	"Silver
+                
+                    *"	"Jan. 16, 2016"	"https://reports.aashe.org/institutions/edmonds-community-college-wa/report/"	"https://reports.aashe.orgNA"
+"Elon University"	"United States,
+              NC"	2.2	"Silver"	"Feb. 18, 2023"	"https://reports.aashe.org/institutions/elon-university-nc/report/"	"https://reports.aashe.org/institutions/elon-university-nc/report/2020-02-19/"
+"Endicott College"	"United States,
+              MA"	2.1	"Silver"	"Aug. 7, 2022"	"https://reports.aashe.org/institutions/endicott-college-ma/report/"	"https://reports.aashe.org/institutions/endicott-college-ma/report/2019-08-08/"
+"Evergreen State College, The"	"United States,
+              WA"	2.1	"Silver"	"Aug. 29, 2022"	"https://reports.aashe.org/institutions/evergreen-state-college-wa/report/"	"https://reports.aashe.org/institutions/evergreen-state-college-wa/report/2019-08-30/"
+"FIE: Foundation for International Education"	"United Kingdom,
+              London"	2.1	"Silver
+                
+                    *"	"Sept. 30, 2020"	"https://reports.aashe.org/institutions/foundation-for-international-education-lnd/report/"	"https://reports.aashe.orgNA"
+"Florida Institute of Technology"	"United States,
+              FL"	2.2	"Silver"	"Nov. 6, 2023"	"https://reports.aashe.org/institutions/florida-institute-of-technology-fl/report/"	"https://reports.aashe.org/institutions/florida-institute-of-technology-fl/report/2020-04-24/"
+"Florida International University"	"United States,
+              FL"	2.1	"Silver
+                
+                    *"	"Feb. 17, 2021"	"https://reports.aashe.org/institutions/florida-international-university-fl/report/"	"https://reports.aashe.org/institutions/florida-international-university-fl/report/2017-08-22/"
+"Frostburg State University"	"United States,
+              MD"	2	"Silver
+                
+                    *"	"June 12, 2019"	"https://reports.aashe.org/institutions/frostburg-state-university-md/report/"	"https://reports.aashe.org/institutions/frostburg-state-university-md/report/2016-06-12/"
+"George Brown College"	"Canada,
+              ON"	2.2	"Silver"	"Nov. 24, 2023"	"https://reports.aashe.org/institutions/george-brown-college-on/report/"	"https://reports.aashe.org/institutions/george-brown-college-on/report/2020-04-30/"
+"Georgia Institute of Technology"	"United States,
+              GA"	2.2	"Silver"	"May 12, 2024"	"https://reports.aashe.org/institutions/georgia-institute-of-technology-ga/report/"	"https://reports.aashe.org/institutions/georgia-institute-of-technology-ga/report/2021-03-02/"
+"Gettysburg College"	"United States,
+              PA"	2	"Silver
+                
+                    *"	"March 7, 2019"	"https://reports.aashe.org/institutions/gettysburg-college-pa/report/"	"https://reports.aashe.org/institutions/gettysburg-college-pa/report/2016-03-07/"
+"Goshen College"	"United States,
+              IN"	2.2	"Silver"	"March 6, 2023"	"https://reports.aashe.org/institutions/goshen-college-in/report/"	"https://reports.aashe.org/institutions/goshen-college-in/report/2020-03-06/"
+"Goucher College"	"United States,
+              MD"	2	"Silver
+                
+                    *"	"May 13, 2017"	"https://reports.aashe.org/institutions/goucher-college-md/report/"	"https://reports.aashe.orgNA"
+"Guilford College"	"United States,
+              NC"	2	"Silver
+                
+                    *"	"Dec. 7, 2018"	"https://reports.aashe.org/institutions/guilford-college-nc/report/"	"https://reports.aashe.org/institutions/guilford-college-nc/report/2015-12-08/"
+"Harvey Mudd College"	"United States,
+              CA"	2.1	"Silver"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/harvey-mudd-college-ca/report/"	"https://reports.aashe.org/institutions/harvey-mudd-college-ca/report/2019-03-01/"
+"Haverford College"	"United States,
+              PA"	2.2	"Silver"	"May 12, 2024"	"https://reports.aashe.org/institutions/haverford-college-pa/report/"	"https://reports.aashe.org/institutions/haverford-college-pa/report/2020-06-29/"
+"Hobart and William Smith Colleges"	"United States,
+              NY"	2.2	"Silver"	"March 25, 2024"	"https://reports.aashe.org/institutions/hobart-and-william-smith-colleges-ny/report/"	"https://reports.aashe.org/institutions/hobart-and-william-smith-colleges-ny/report/2021-03-05/"
+"Hope College"	"United States,
+              MI"	2.2	"Silver"	"March 6, 2023"	"https://reports.aashe.org/institutions/hope-college-mi/report/"	"https://reports.aashe.org/institutions/hope-college-mi/report/2020-03-06/"
+"Indiana State University"	"United States,
+              IN"	2.1	"Silver"	"Feb. 25, 2022"	"https://reports.aashe.org/institutions/indiana-state-university-in/report/"	"https://reports.aashe.org/institutions/indiana-state-university-in/report/2019-02-26/"
+"Jefferson Community and Technical College"	"United States,
+              KY"	1.2	"Silver
+                
+                    *"	"Jan. 30, 2017"	"https://reports.aashe.org/institutions/jefferson-community-and-technical-college-ky/report/"	"https://reports.aashe.orgNA"
+"Johnson County Community College"	"United States,
+              KS"	2.1	"Silver
+                
+                    *"	"Jan. 23, 2021"	"https://reports.aashe.org/institutions/johnson-county-community-college-ks/report/"	"https://reports.aashe.org/institutions/johnson-county-community-college-ks/report/2017-07-28/"
+"Kenyon College"	"United States,
+              OH"	2.2	"Silver"	"March 4, 2024"	"https://reports.aashe.org/institutions/kenyon-college-oh/report/"	"https://reports.aashe.orgNA"
+"Knox College"	"United States,
+              IL"	2.2	"Silver"	"Feb. 22, 2024"	"https://reports.aashe.org/institutions/knox-college-il/report/"	"https://reports.aashe.org/institutions/knox-college-il/report/2020-12-18/"
+"LIU Post"	"United States,
+              NY"	2	"Silver
+                
+                    *"	"July 14, 2018"	"https://reports.aashe.org/institutions/liu-post-ny/report/"	"https://reports.aashe.orgNA"
+"Lafayette College"	"United States,
+              PA"	2.2	"Silver"	"March 3, 2023"	"https://reports.aashe.org/institutions/lafayette-college-pa/report/"	"https://reports.aashe.org/institutions/lafayette-college-pa/report/2020-03-03/"
+"Lane Community College"	"United States,
+              OR"	2.2	"Silver"	"May 5, 2024"	"https://reports.aashe.org/institutions/lane-community-college-or/report/"	"https://reports.aashe.orgNA"
+"Langara College"	"Canada,
+              BC"	2.2	"Silver"	"Aug. 26, 2024"	"https://reports.aashe.org/institutions/langara-college-bc/report/"	"https://reports.aashe.orgNA"
+"Lawrence University"	"United States,
+              WI"	2.2	"Silver"	"Sept. 22, 2022"	"https://reports.aashe.org/institutions/lawrence-university-wi/report/"	"https://reports.aashe.org/institutions/lawrence-university-wi/report/2019-09-23/"
+"Louisiana State University"	"United States,
+              LA"	2.1	"Silver"	"Aug. 27, 2021"	"https://reports.aashe.org/institutions/louisiana-state-university-la/report/"	"https://reports.aashe.org/institutions/louisiana-state-university-la/report/2018-03-01/"
+"MacEwan University"	"Canada,
+              AB"	2.1	"Silver"	"Aug. 30, 2021"	"https://reports.aashe.org/institutions/macewan-university-ab/report/"	"https://reports.aashe.org/institutions/macewan-university-ab/report/2018-08-31/"
+"Madisonville Community College"	"United States,
+              KY"	2	"Silver
+                
+                    *"	"May 7, 2018"	"https://reports.aashe.org/institutions/madisonville-community-college-ky/report/"	"https://reports.aashe.orgNA"
+"Maharishi University of Management"	"United States,
+              IA"	1.2	"Silver
+                
+                    *"	"April 10, 2017"	"https://reports.aashe.org/institutions/maharishi-university-of-management-ia/report/"	"https://reports.aashe.orgNA"
+"Marquette University"	"United States,
+              WI"	1.2	"Silver
+                
+                    *"	"Feb. 13, 2016"	"https://reports.aashe.org/institutions/marquette-university-wi/report/"	"https://reports.aashe.orgNA"
+"Maryville College"	"United States,
+              TN"	2	"Silver
+                
+                    *"	"Feb. 11, 2019"	"https://reports.aashe.org/institutions/maryville-college-tn/report/"	"https://reports.aashe.org/institutions/maryville-college-tn/report/2016-02-12/"
+"Michigan Technological University"	"United States,
+              MI"	2.1	"Silver"	"Oct. 14, 2023"	"https://reports.aashe.org/institutions/michigan-technological-university-mi/report/"	"https://reports.aashe.orgNA"
+"Mills College"	"United States,
+              CA"	2.2	"Silver"	"May 17, 2024"	"https://reports.aashe.org/institutions/mills-college-ca/report/"	"https://reports.aashe.org/institutions/mills-college-ca/report/2021-02-10/"
+"Minnesota State University Moorhead"	"United States,
+              MN"	2	"Silver
+                
+                    *"	"Jan. 16, 2017"	"https://reports.aashe.org/institutions/minnesota-state-university-moorhead-mn/report/"	"https://reports.aashe.orgNA"
+"Missouri State University"	"United States,
+              MO"	2.2	"Silver"	"May 19, 2024"	"https://reports.aashe.org/institutions/missouri-state-university-mo/report/"	"https://reports.aashe.org/institutions/missouri-state-university-mo/report/2021-04-05/"
+"Missouri University of Science and Technology"	"United States,
+              MO"	2.1	"Silver
+                
+                    *"	"Dec. 18, 2020"	"https://reports.aashe.org/institutions/missouri-university-of-science-and-technology-mo/report/"	"https://reports.aashe.org/institutions/missouri-university-of-science-and-technology-mo/report/2017-06-22/"
+"Mohammed VI Polytechnic University"	"Morocco"	2.2	"Silver"	"Oct. 28, 2023"	"https://reports.aashe.org/institutions/mohammed-vi-polytechnic-university-no-state/report/"	"https://reports.aashe.orgNA"
+"Montana State University"	"United States,
+              MT"	2.1	"Silver"	"Feb. 18, 2022"	"https://reports.aashe.org/institutions/montana-state-university-mt/report/"	"https://reports.aashe.orgNA"
+"Mount Royal University"	"Canada,
+              AB"	2.1	"Silver"	"Oct. 16, 2022"	"https://reports.aashe.org/institutions/mount-royal-university-ab/report/"	"https://reports.aashe.orgNA"
+"Niagara College Canada"	"Canada,
+              ON"	2	"Silver
+                
+                    *"	"Aug. 10, 2019"	"https://reports.aashe.org/institutions/niagara-college-of-applied-arts-and-technology-on/report/"	"https://reports.aashe.org/institutions/niagara-college-of-applied-arts-and-technology-on/report/2016-08-10/"
+"North Seattle College"	"United States,
+              WA"	2.1	"Silver
+                
+                    *"	"June 11, 2021"	"https://reports.aashe.org/institutions/north-seattle-community-college-wa/report/"	"https://reports.aashe.org/institutions/north-seattle-community-college-wa/report/2017-12-14/"
+"Northern Alberta Institute of Technology"	"Canada,
+              AB"	2	"Silver
+                
+                    *"	"June 18, 2018"	"https://reports.aashe.org/institutions/northern-alberta-institute-of-technology-ab/report/"	"https://reports.aashe.org/institutions/northern-alberta-institute-of-technology-ab/report/2015-06-19/"
+"Northern Michigan University"	"United States,
+              MI"	2.2	"Silver"	"Feb. 17, 2023"	"https://reports.aashe.org/institutions/northern-michigan-university-mi/report/"	"https://reports.aashe.org/institutions/northern-michigan-university-mi/report/2020-02-18/"
+"Ohio University"	"United States,
+              OH"	2.2	"Silver"	"Oct. 28, 2024"	"https://reports.aashe.org/institutions/ohio-university-oh/report/"	"https://reports.aashe.org/institutions/ohio-university-oh/report/2021-08-11/"
+"Okanagan College"	"Canada,
+              BC"	1.1	"Silver
+                
+                    *"	"July 10, 2017"	"https://reports.aashe.org/institutions/okanagan-college-british-columbia/report/"	"https://reports.aashe.org/institutions/okanagan-college-british-columbia/report/2014-07-11/"
+"Oklahoma State University"	"United States,
+              OK"	2.2	"Silver"	"Oct. 19, 2024"	"https://reports.aashe.org/institutions/oklahoma-state-university-ok/report/"	"https://reports.aashe.org/institutions/oklahoma-state-university-ok/report/2021-08-25/"
+"Onondaga Community College"	"United States,
+              NY"	2	"Silver
+                
+                    *"	"April 4, 2019"	"https://reports.aashe.org/institutions/onondaga-community-college-ny/report/"	"https://reports.aashe.org/institutions/onondaga-community-college-ny/report/2016-04-04/"
+"Orange County Community College"	"United States,
+              NY"	2.1	"Silver"	"Jan. 13, 2022"	"https://reports.aashe.org/institutions/orange-county-community-college-ny/report/"	"https://reports.aashe.org/institutions/orange-county-community-college-ny/report/2019-01-14/"
+"Pacific University"	"United States,
+              OR"	2.1	"Silver"	"Dec. 19, 2021"	"https://reports.aashe.org/institutions/pacific-university-or/report/"	"https://reports.aashe.org/institutions/pacific-university-or/report/2018-12-20/"
+"Pittsburg State University"	"United States,
+              KS"	2	"Silver
+                
+                    *"	"March 4, 2019"	"https://reports.aashe.org/institutions/pittsburg-state-university-ks/report/"	"https://reports.aashe.org/institutions/pittsburg-state-university-ks/report/2016-03-04/"
+"Pitzer College"	"United States,
+              CA"	2.2	"Silver"	"March 6, 2023"	"https://reports.aashe.org/institutions/pitzer-college-ca/report/"	"https://reports.aashe.org/institutions/pitzer-college-ca/report/2020-03-06/"
+"Portland Community College"	"United States,
+              OR"	2.2	"Silver"	"April 11, 2024"	"https://reports.aashe.org/institutions/portland-community-college-or/report/"	"https://reports.aashe.org/institutions/portland-community-college-or/report/2021-03-05/"
+"Pratt Institute"	"United States,
+              NY"	2.2	"Silver"	"May 9, 2024"	"https://reports.aashe.org/institutions/pratt-institute-ny/report/"	"https://reports.aashe.org/institutions/pratt-institute-ny/report/2021-03-05/"
+"Principia College"	"United States,
+              IL"	2.1	"Silver"	"May 12, 2024"	"https://reports.aashe.org/institutions/principia-college-il/report/"	"https://reports.aashe.org/institutions/principia-college-il/report/2021-03-05/"
+"Purchase College - State University of New York"	"United States,
+              NY"	2.1	"Silver"	"Oct. 30, 2022"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-purchase-ny/report/"	"https://reports.aashe.orgNA"
+"Purdue University"	"United States,
+              IN"	1.2	"Silver
+                
+                    *"	"March 26, 2016"	"https://reports.aashe.org/institutions/purdue-university-in/report/"	"https://reports.aashe.orgNA"
+"Radford University"	"United States,
+              VA"	2.1	"Silver"	"May 20, 2022"	"https://reports.aashe.org/institutions/radford-university-va/report/"	"https://reports.aashe.orgNA"
+"Raritan Valley Community College"	"United States,
+              NJ"	2.1	"Silver"	"July 30, 2022"	"https://reports.aashe.org/institutions/raritan-valley-community-college-nj/report/"	"https://reports.aashe.org/institutions/raritan-valley-community-college-nj/report/2019-07-31/"
+"Red River College"	"Canada,
+              MB"	1.1	"Silver
+                
+                    *"	"April 27, 2015"	"https://reports.aashe.org/institutions/red-river-college-mb/report/"	"https://reports.aashe.orgNA"
+"Richland College - DCCCD"	"United States,
+              TX"	1	"Silver
+                
+                    *"	"Aug. 1, 2014"	"https://reports.aashe.org/institutions/richland-college-dcccd-tx/report/"	"https://reports.aashe.orgNA"
+"Richland Community College"	"United States,
+              IL"	2	"Silver
+                
+                    *"	"Dec. 21, 2017"	"https://reports.aashe.org/institutions/richland-community-college-il/report/"	"https://reports.aashe.org/institutions/richland-community-college-il/report/2014-12-22/"
+"Rio Salado College"	"United States,
+              AZ"	1	"Silver
+                
+                    *"	"Aug. 11, 2014"	"https://reports.aashe.org/institutions/rio-salado-college-az/report/"	"https://reports.aashe.orgNA"
+"Rochester Institute of Technology"	"United States,
+              NY"	2.1	"Silver"	"Sept. 25, 2021"	"https://reports.aashe.org/institutions/rochester-institute-of-technology-ny/report/"	"https://reports.aashe.org/institutions/rochester-institute-of-technology-ny/report/2018-03-30/"
+"Ryerson University"	"Canada,
+              ON"	2.1	"Silver"	"Jan. 27, 2024"	"https://reports.aashe.org/institutions/ryerson-university-on/report/"	"https://reports.aashe.orgNA"
+"Saint John's University"	"United States,
+              MN"	2	"Silver
+                
+                    *"	"Feb. 3, 2018"	"https://reports.aashe.org/institutions/saint-johns-university-mn/report/"	"https://reports.aashe.org/institutions/saint-johns-university-mn/report/2015-02-04/"
+"Saint Joseph's College - ME"	"United States,
+              ME"	2.1	"Silver
+                
+                    *"	"Jan. 13, 2021"	"https://reports.aashe.org/institutions/saint-josephs-college-me/report/"	"https://reports.aashe.org/institutions/saint-josephs-college-me/report/2017-07-18/"
+"Saint Mary's University"	"Canada,
+              NS"	1.1	"Silver
+                
+                    *"	"July 30, 2015"	"https://reports.aashe.org/institutions/saint-marys-university-ns/report/"	"https://reports.aashe.orgNA"
+"Saint Michael's College"	"United States,
+              VT"	2.2	"Silver"	"July 5, 2024"	"https://reports.aashe.org/institutions/saint-michaels-college-vt/report/"	"https://reports.aashe.org/institutions/saint-michaels-college-vt/report/2021-05-11/"
+"San Francisco State University"	"United States,
+              CA"	2.1	"Silver"	"Dec. 4, 2021"	"https://reports.aashe.org/institutions/san-francisco-state-university-ca/report/"	"https://reports.aashe.org/institutions/san-francisco-state-university-ca/report/2018-06-08/"
+"Seattle Central College"	"United States,
+              WA"	2.2	"Silver"	"June 14, 2024"	"https://reports.aashe.org/institutions/seattle-central-community-college-wa/report/"	"https://reports.aashe.org/institutions/seattle-central-community-college-wa/report/2021-03-31/"
+"Selkirk College"	"Canada,
+              BC"	2.1	"Silver"	"May 27, 2022"	"https://reports.aashe.org/institutions/selkirk-college-bc/report/"	"https://reports.aashe.org/institutions/selkirk-college-bc/report/2019-05-28/"
+"Seneca College"	"Canada,
+              ON"	2.1	"Silver"	"March 30, 2023"	"https://reports.aashe.org/institutions/seneca-college-on/report/"	"https://reports.aashe.orgNA"
+"Sewanee - The University of the South"	"United States,
+              TN"	2.1	"Silver"	"Dec. 19, 2021"	"https://reports.aashe.org/institutions/sewanee-the-university-of-the-south-tn/report/"	"https://reports.aashe.org/institutions/sewanee-the-university-of-the-south-tn/report/2018-12-20/"
+"Sheridan College (Ontario)"	"Canada,
+              ON"	2.1	"Silver
+                
+                    *"	"July 11, 2021"	"https://reports.aashe.org/institutions/sheridan-institute-of-technology-and-advanced-learning-on/report/"	"https://reports.aashe.org/institutions/sheridan-institute-of-technology-and-advanced-learning-on/report/2018-07-12/"
+"Skidmore College"	"United States,
+              NY"	2.1	"Silver
+                
+                    *"	"Sept. 5, 2020"	"https://reports.aashe.org/institutions/skidmore-college-ny/report/"	"https://reports.aashe.orgNA"
+"Slippery Rock University"	"United States,
+              PA"	2.1	"Silver"	"Feb. 21, 2022"	"https://reports.aashe.org/institutions/slippery-rock-university-pa/report/"	"https://reports.aashe.org/institutions/slippery-rock-university-pa/report/2019-02-22/"
+"Smith College"	"United States,
+              MA"	2.2	"Silver"	"March 2, 2023"	"https://reports.aashe.org/institutions/smith-college-ma/report/"	"https://reports.aashe.org/institutions/smith-college-ma/report/2020-03-02/"
+"Soka University of America"	"United States,
+              CA"	2.1	"Silver"	"Dec. 18, 2021"	"https://reports.aashe.org/institutions/soka-university-of-america-ca/report/"	"https://reports.aashe.org/institutions/soka-university-of-america-ca/report/2018-06-22/"
+"Sonoma State University"	"United States,
+              CA"	2.2	"Silver"	"April 6, 2024"	"https://reports.aashe.org/institutions/sonoma-state-university-ca/report/"	"https://reports.aashe.org/institutions/sonoma-state-university-ca/report/2021-02-18/"
+"South Dakota State University"	"United States,
+              SD"	2.1	"Silver"	"Dec. 8, 2022"	"https://reports.aashe.org/institutions/south-dakota-state-university-sd/report/"	"https://reports.aashe.org/institutions/south-dakota-state-university-sd/report/2019-12-09/"
+"South Seattle College"	"United States,
+              WA"	2.2	"Silver"	"June 14, 2024"	"https://reports.aashe.org/institutions/south-seattle-community-college-wa/report/"	"https://reports.aashe.org/institutions/south-seattle-community-college-wa/report/2021-03-31/"
+"Southern Illinois University Carbondale"	"United States,
+              IL"	2.1	"Silver"	"Jan. 9, 2023"	"https://reports.aashe.org/institutions/southern-illinois-university-carbondale-il/report/"	"https://reports.aashe.org/institutions/southern-illinois-university-carbondale-il/report/2020-01-10/"
+"Southern Illinois University Edwardsville"	"United States,
+              IL"	2	"Silver
+                
+                    *"	"April 22, 2019"	"https://reports.aashe.org/institutions/southern-illinois-university-edwardsville-il/report/"	"https://reports.aashe.org/institutions/southern-illinois-university-edwardsville-il/report/2016-04-22/"
+"Southern Oregon University"	"United States,
+              OR"	2.1	"Silver"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/southern-oregon-university-or/report/"	"https://reports.aashe.org/institutions/southern-oregon-university-or/report/2019-03-01/"
+"St. Lawrence University"	"United States,
+              NY"	2.1	"Silver
+                
+                    *"	"June 11, 2021"	"https://reports.aashe.org/institutions/st-lawrence-university-ny/report/"	"https://reports.aashe.org/institutions/st-lawrence-university-ny/report/2017-12-14/"
+"Stark State College"	"United States,
+              OH"	1.1	"Silver
+                
+                    *"	"Aug. 13, 2015"	"https://reports.aashe.org/institutions/stark-state-college-oh/report/"	"https://reports.aashe.orgNA"
+"State University of New York at Brockport"	"United States,
+              NY"	2.1	"Silver"	"Dec. 11, 2021"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-brockport-ny/report/"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-brockport-ny/report/2018-12-12/"
+"State University of New York at Geneseo"	"United States,
+              NY"	2.1	"Silver"	"Nov. 24, 2022"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-geneseo-ny/report/"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-geneseo-ny/report/2019-11-25/"
+"State University of New York at New Paltz"	"United States,
+              NY"	2.1	"Silver"	"Sept. 3, 2021"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-new-paltz-ny/report/"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-new-paltz-ny/report/2018-03-08/"
+"State University of New York at Oneonta"	"United States,
+              NY"	2.1	"Silver"	"Aug. 28, 2021"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-oneonta-ny/report/"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-oneonta-ny/report/2018-03-02/"
+"State University of New York at Oswego"	"United States,
+              NY"	2.2	"Silver"	"May 11, 2024"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-oswego-ny/report/"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-oswego-ny/report/2021-03-05/"
+"Stonehill College"	"United States,
+              MA"	2	"Silver
+                
+                    *"	"April 22, 2019"	"https://reports.aashe.org/institutions/stonehill-college-ma/report/"	"https://reports.aashe.orgNA"
+"Susquehanna University"	"United States,
+              PA"	2.2	"Silver"	"Sept. 25, 2023"	"https://reports.aashe.org/institutions/susquehanna-university-pa/report/"	"https://reports.aashe.org/institutions/susquehanna-university-pa/report/2020-08-21/"
+"Swarthmore College"	"United States,
+              PA"	2.2	"Silver"	"March 6, 2023"	"https://reports.aashe.org/institutions/swarthmore-college-pa/report/"	"https://reports.aashe.org/institutions/swarthmore-college-pa/report/2020-03-06/"
+"Syracuse University"	"United States,
+              NY"	2.1	"Silver"	"Dec. 11, 2021"	"https://reports.aashe.org/institutions/syracuse-university-ny/report/"	"https://reports.aashe.orgNA"
+"Temple University"	"United States,
+              PA"	2.1	"Silver"	"Feb. 3, 2024"	"https://reports.aashe.org/institutions/temple-university-pa/report/"	"https://reports.aashe.org/institutions/temple-university-pa/report/2020-12-10/"
+"Tennessee Technological University"	"United States,
+              TN"	2.1	"Silver"	"Dec. 17, 2022"	"https://reports.aashe.org/institutions/tennessee-technological-university-tn/report/"	"https://reports.aashe.org/institutions/tennessee-technological-university-tn/report/2019-12-18/"
+"The College of Wooster"	"United States,
+              OH"	1.2	"Silver
+                
+                    *"	"Nov. 11, 2016"	"https://reports.aashe.org/institutions/the-college-of-wooster-oh/report/"	"https://reports.aashe.orgNA"
+"The King's University"	"Canada,
+              AB"	1.2	"Silver
+                
+                    *"	"Nov. 27, 2015"	"https://reports.aashe.org/institutions/kings-university-college-ab/report/"	"https://reports.aashe.org/institutions/kings-university-college-ab/report/2012-11-27/"
+"The New School"	"United States,
+              NY"	2.1	"Silver"	"Aug. 5, 2021"	"https://reports.aashe.org/institutions/the-new-school-ny/report/"	"https://reports.aashe.org/institutions/the-new-school-ny/report/2018-08-06/"
+"The Ohio State University at Lima"	"United States,
+              OH"	2.1	"Silver
+                
+                    *"	"Nov. 4, 2020"	"https://reports.aashe.org/institutions/the-ohio-state-university-at-lima-oh/report/"	"https://reports.aashe.org/institutions/the-ohio-state-university-at-lima-oh/report/2017-05-09/"
+"The Ohio State University at Mansfield"	"United States,
+              OH"	2.1	"Silver
+                
+                    *"	"Nov. 4, 2020"	"https://reports.aashe.org/institutions/the-ohio-state-university-at-mansfield-oh/report/"	"https://reports.aashe.org/institutions/the-ohio-state-university-at-mansfield-oh/report/2017-05-09/"
+"The Ohio State University at Marion"	"United States,
+              OH"	2.1	"Silver
+                
+                    *"	"Nov. 4, 2020"	"https://reports.aashe.org/institutions/the-ohio-state-university-at-marion-oh/report/"	"https://reports.aashe.org/institutions/the-ohio-state-university-at-marion-oh/report/2017-05-09/"
+"The Ohio State University at Newark"	"United States,
+              OH"	2.1	"Silver
+                
+                    *"	"Nov. 4, 2020"	"https://reports.aashe.org/institutions/the-ohio-state-university-at-newark-oh/report/"	"https://reports.aashe.org/institutions/the-ohio-state-university-at-newark-oh/report/2017-05-09/"
+"Tufts University"	"United States,
+              MA"	2.1	"Silver"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/tufts-university-ma/report/"	"https://reports.aashe.org/institutions/tufts-university-ma/report/2019-03-01/"
+"Tulane University"	"United States,
+              LA"	2	"Silver
+                
+                    *"	"Oct. 12, 2018"	"https://reports.aashe.org/institutions/tulane-university-la/report/"	"https://reports.aashe.orgNA"
+"Universidad Autonoma de Tamaulipas"	"Mexico,
+              TM"	2.1	"Silver
+                
+                    *"	"May 25, 2021"	"https://reports.aashe.org/institutions/universidad-autonoma-de-tamaulipas-tm/report/"	"https://reports.aashe.org/institutions/universidad-autonoma-de-tamaulipas-tm/report/2017-11-27/"
+"Universidad San Francisco de Quito"	"Ecuador,
+              Pichincha"	2.1	"Silver"	"Dec. 25, 2021"	"https://reports.aashe.org/institutions/universidad-san-francisco-de-quito/report/"	"https://reports.aashe.org/institutions/universidad-san-francisco-de-quito/report/2018-12-26/"
+"Universidad de Monterrey"	"Mexico,
+              NL"	2	"Silver
+                
+                    *"	"Feb. 27, 2020"	"https://reports.aashe.org/institutions/universidad-de-monterrey/report/"	"https://reports.aashe.org/institutions/universidad-de-monterrey/report/2017-02-27/"
+"Universite de Montreal"	"Canada,
+              QC"	2.2	"Silver"	"Dec. 19, 2022"	"https://reports.aashe.org/institutions/university-of-montreal-qc/report/"	"https://reports.aashe.org/institutions/university-of-montreal-qc/report/2019-12-20/"
+"Universite du Quebec a Montreal"	"Canada,
+              Québec"	2.2	"Silver"	"Oct. 21, 2024"	"https://reports.aashe.org/institutions/universite-du-quebec-a-montreal-quebec/report/"	"https://reports.aashe.orgNA"
+"University of Alabama at Birmingham"	"United States,
+              AL"	2.1	"Silver"	"Feb. 6, 2023"	"https://reports.aashe.org/institutions/university-of-alabama-at-birmingham-al/report/"	"https://reports.aashe.org/institutions/university-of-alabama-at-birmingham-al/report/2020-02-07/"
+"University of Central Florida"	"United States,
+              FL"	2.2	"Silver"	"April 20, 2024"	"https://reports.aashe.org/institutions/university-of-central-florida-fl/report/"	"https://reports.aashe.org/institutions/university-of-central-florida-fl/report/2021-03-05/"
+"University of Colorado Denver - Anschutz Medical Campus"	"United States,
+              CO"	1.1	"Silver
+                
+                    *"	"Dec. 5, 2015"	"https://reports.aashe.org/institutions/university-of-colorado-denver-co/report/"	"https://reports.aashe.orgNA"
+"University of Denver"	"United States,
+              CO"	2.2	"Silver"	"Sept. 9, 2024"	"https://reports.aashe.org/institutions/university-of-denver-co/report/"	"https://reports.aashe.org/institutions/university-of-denver-co/report/2021-06-09/"
+"University of Florida"	"United States,
+              FL"	2.1	"Silver"	"April 18, 2024"	"https://reports.aashe.org/institutions/university-of-florida-fl/report/"	"https://reports.aashe.org/institutions/university-of-florida-fl/report/2020-12-04/"
+"University of Idaho"	"United States,
+              ID"	2.1	"Silver"	"Feb. 26, 2022"	"https://reports.aashe.org/institutions/university-of-idaho-id/report/"	"https://reports.aashe.orgNA"
+"University of Illinois Chicago"	"United States,
+              IL"	2.2	"Silver"	"Oct. 28, 2024"	"https://reports.aashe.org/institutions/university-of-illinois-chicago-il/report/"	"https://reports.aashe.org/institutions/university-of-illinois-chicago-il/report/2021-07-16/"
+"University of Iowa"	"United States,
+              IA"	2.1	"Silver
+                
+                    *"	"July 23, 2021"	"https://reports.aashe.org/institutions/university-of-iowa-ia/report/"	"https://reports.aashe.org/institutions/university-of-iowa-ia/report/2018-07-24/"
+"University of Kansas"	"United States,
+              KS"	2	"Silver
+                
+                    *"	"July 16, 2018"	"https://reports.aashe.org/institutions/university-of-kansas-ks/report/"	"https://reports.aashe.org/institutions/university-of-kansas-ks/report/2015-07-17/"
+"University of Kentucky"	"United States,
+              KY"	2.1	"Silver"	"Sept. 29, 2022"	"https://reports.aashe.org/institutions/university-of-kentucky-ky/report/"	"https://reports.aashe.org/institutions/university-of-kentucky-ky/report/2019-09-30/"
+"University of Louisiana at Lafayette"	"United States,
+              LA"	2.2	"Silver"	"Sept. 21, 2024"	"https://reports.aashe.org/institutions/university-of-louisiana-at-lafayette-la/report/"	"https://reports.aashe.orgNA"
+"University of Maine"	"United States,
+              ME"	2.1	"Silver"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/university-of-maine-me/report/"	"https://reports.aashe.orgNA"
+"University of Maryland, Baltimore County"	"United States,
+              MD"	2.2	"Silver"	"Feb. 24, 2023"	"https://reports.aashe.org/institutions/university-of-maryland-baltimore-county-md/report/"	"https://reports.aashe.orgNA"
+"University of Massachusetts Dartmouth"	"United States,
+              MA"	2.2	"Silver"	"May 13, 2024"	"https://reports.aashe.org/institutions/university-of-massachusetts-dartmouth-ma/report/"	"https://reports.aashe.orgNA"
+"University of Massachusetts Medical School"	"United States,
+              MA"	2.1	"Silver"	"April 3, 2023"	"https://reports.aashe.org/institutions/university-of-massachusetts-medical-school-ma/report/"	"https://reports.aashe.org/institutions/university-of-massachusetts-medical-school-ma/report/2020-04-03/"
+"University of Missouri, Kansas City"	"United States,
+              MO"	2	"Silver
+                
+                    *"	"March 9, 2017"	"https://reports.aashe.org/institutions/university-of-missouri-kansas-city-mo/report/"	"https://reports.aashe.org/institutions/university-of-missouri-kansas-city-mo/report/2014-03-10/"
+"University of Montana"	"United States,
+              MT"	2.2	"Silver"	"Aug. 26, 2024"	"https://reports.aashe.org/institutions/university-of-montana-mt/report/"	"https://reports.aashe.org/institutions/university-of-montana-mt/report/2021-06-30/"
+"University of Mount Union"	"United States,
+              OH"	2.1	"Silver"	"May 5, 2024"	"https://reports.aashe.org/institutions/university-of-mount-union-oh/report/"	"https://reports.aashe.org/institutions/university-of-mount-union-oh/report/2021-03-22/"
+"University of Nebraska - Lincoln"	"United States,
+              NE"	2.2	"Silver"	"Jan. 30, 2023"	"https://reports.aashe.org/institutions/university-of-nebraska-lincoln-ne/report/"	"https://reports.aashe.org/institutions/university-of-nebraska-lincoln-ne/report/2020-01-31/"
+"University of Nebraska at Omaha"	"United States,
+              NE"	2.1	"Silver"	"March 18, 2022"	"https://reports.aashe.org/institutions/university-of-nebraska-at-omaha-ne/report/"	"https://reports.aashe.org/institutions/university-of-nebraska-at-omaha-ne/report/2019-03-19/"
+"University of Nevada Las Vegas"	"United States,
+              NV"	2	"Silver
+                
+                    *"	"Dec. 17, 2018"	"https://reports.aashe.org/institutions/university-of-nevada-las-vegas-nv/report/"	"https://reports.aashe.org/institutions/university-of-nevada-las-vegas-nv/report/2015-12-18/"
+"University of New Brunswick, Fredericton"	"Canada,
+              NB"	2.2	"Silver"	"Oct. 14, 2023"	"https://reports.aashe.org/institutions/university-of-new-brunswick-nb/report/"	"https://reports.aashe.org/institutions/university-of-new-brunswick-nb/report/2020-08-11/"
+"University of New Brunswick, Saint John"	"Canada,
+              NB"	2.2	"Silver"	"April 6, 2024"	"https://reports.aashe.org/institutions/university-of-new-brunswick-saint-john-nb/report/"	"https://reports.aashe.orgNA"
+"University of North Carolina, Charlotte"	"United States,
+              NC"	2	"Silver
+                
+                    *"	"Sept. 18, 2019"	"https://reports.aashe.org/institutions/university-of-north-carolina-charlotte-nc/report/"	"https://reports.aashe.orgNA"
+"University of North Carolina, Greensboro"	"United States,
+              NC"	2.1	"Silver"	"Feb. 6, 2022"	"https://reports.aashe.org/institutions/university-of-north-carolina-greensboro-nc/report/"	"https://reports.aashe.org/institutions/university-of-north-carolina-greensboro-nc/report/2019-02-07/"
+"University of North Carolina, Wilmington"	"United States,
+              NC"	2	"Silver
+                
+                    *"	"April 26, 2019"	"https://reports.aashe.org/institutions/university-of-north-carolina-wilmington-nc/report/"	"https://reports.aashe.orgNA"
+"University of North Texas"	"United States,
+              TX"	2	"Silver
+                
+                    *"	"May 13, 2017"	"https://reports.aashe.org/institutions/university-of-north-texas-tx/report/"	"https://reports.aashe.org/institutions/university-of-north-texas-tx/report/2014-05-14/"
+"University of Northern British Columbia"	"Canada,
+              BC"	1	"Silver
+                
+                    *"	"Aug. 19, 2014"	"https://reports.aashe.org/institutions/university-of-northern-british-columbia-bc/report/"	"https://reports.aashe.orgNA"
+"University of Notre Dame"	"United States,
+              IN"	2.1	"Silver
+                
+                    *"	"April 10, 2021"	"https://reports.aashe.org/institutions/university-of-notre-dame-in/report/"	"https://reports.aashe.org/institutions/university-of-notre-dame-in/report/2017-10-13/"
+"University of Ottawa"	"Canada,
+              ON"	2.1	"Silver"	"Sept. 24, 2021"	"https://reports.aashe.org/institutions/university-of-ottawa-on/report/"	"https://reports.aashe.org/institutions/university-of-ottawa-on/report/2018-03-29/"
+"University of Queensland"	"Australia,
+              QLD"	2.2	"Silver"	"Feb. 10, 2024"	"https://reports.aashe.org/institutions/university-of-queensland-queensland/report/"	"https://reports.aashe.orgNA"
+"University of Rochester"	"United States,
+              NY"	2.1	"Silver"	"Jan. 30, 2022"	"https://reports.aashe.org/institutions/university-of-rochester-ny/report/"	"https://reports.aashe.org/institutions/university-of-rochester-ny/report/2019-01-31/"
+"University of Saskatchewan"	"Canada,
+              SK"	2.1	"Silver"	"March 5, 2023"	"https://reports.aashe.org/institutions/university-of-saskatchewan-sk/report/"	"https://reports.aashe.org/institutions/university-of-saskatchewan-sk/report/2020-03-05/"
+"University of Sharjah"	"United Arab Emirates"	2.2	"Silver"	"July 6, 2024"	"https://reports.aashe.org/institutions/university-of-sharjah-/report/"	"https://reports.aashe.orgNA"
+"University of South Carolina"	"United States,
+              SC"	2.1	"Silver"	"May 17, 2024"	"https://reports.aashe.org/institutions/university-of-south-carolina-sc/report/"	"https://reports.aashe.org/institutions/university-of-south-carolina-sc/report/2020-12-04/"
+"University of South Florida St. Petersburg"	"United States,
+              FL"	2.1	"Silver
+                
+                    *"	"Sept. 8, 2020"	"https://reports.aashe.org/institutions/university-of-south-florida-st-petersburg-fl/report/"	"https://reports.aashe.orgNA"
+"University of Southern California"	"United States,
+              CA"	2.2	"Silver"	"Sept. 21, 2024"	"https://reports.aashe.org/institutions/university-of-southern-california-ca/report/"	"https://reports.aashe.orgNA"
+"University of Tasmania"	"Australia"	2.2	"Silver"	"Aug. 25, 2023"	"https://reports.aashe.org/institutions/university-of-tasmania-no-state/report/"	"https://reports.aashe.orgNA"
+"University of Tennessee at Knoxville"	"United States,
+              TN"	2.1	"Silver"	"March 6, 2023"	"https://reports.aashe.org/institutions/university-of-tennessee-at-knoxville-tn/report/"	"https://reports.aashe.org/institutions/university-of-tennessee-at-knoxville-tn/report/2020-03-06/"
+"University of Texas at Arlington"	"United States,
+              TX"	2	"Silver
+                
+                    *"	"July 12, 2019"	"https://reports.aashe.org/institutions/university-of-texas-at-arlington-tx/report/"	"https://reports.aashe.org/institutions/university-of-texas-at-arlington-tx/report/2016-07-12/"
+"University of Texas at San Antonio"	"United States,
+              TX"	2.2	"Silver"	"Dec. 3, 2023"	"https://reports.aashe.org/institutions/university-of-texas-at-san-antonio-tx/report/"	"https://reports.aashe.org/institutions/university-of-texas-at-san-antonio-tx/report/2019-11-27/"
+"University of Toronto Mississauga"	"Canada,
+              ON"	2.2	"Silver"	"Feb. 5, 2024"	"https://reports.aashe.org/institutions/university-of-toronto-at-mississauga-on/report/"	"https://reports.aashe.orgNA"
+"University of Waterloo"	"Canada,
+              ON"	2.1	"Silver"	"Nov. 5, 2021"	"https://reports.aashe.org/institutions/university-of-waterloo-on/report/"	"https://reports.aashe.orgNA"
+"University of West Georgia"	"United States,
+              GA"	2.1	"Silver"	"Sept. 25, 2021"	"https://reports.aashe.org/institutions/university-of-west-georgia-ga/report/"	"https://reports.aashe.org/institutions/university-of-west-georgia-ga/report/2018-03-30/"
+"University of Winnipeg"	"Canada,
+              MB"	2.1	"Silver"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/university-of-winnipeg-mb/report/"	"https://reports.aashe.org/institutions/university-of-winnipeg-mb/report/2019-03-01/"
+"University of Wisconsin-Green Bay"	"United States,
+              WI"	2.1	"Silver
+                
+                    *"	"May 4, 2021"	"https://reports.aashe.org/institutions/university-of-wisconsin-green-bay-wi/report/"	"https://reports.aashe.org/institutions/university-of-wisconsin-green-bay-wi/report/2017-11-06/"
+"University of Wisconsin-La Crosse"	"United States,
+              WI"	2	"Silver
+                
+                    *"	"May 19, 2018"	"https://reports.aashe.org/institutions/university-of-wisconsin-la-crosse-wi/report/"	"https://reports.aashe.orgNA"
+"University of Wisconsin-Madison"	"United States,
+              WI"	2.1	"Silver"	"July 31, 2022"	"https://reports.aashe.org/institutions/university-of-wisconsin-madison-wi/report/"	"https://reports.aashe.orgNA"
+"University of Wisconsin-Platteville"	"United States,
+              WI"	2.2	"Silver"	"March 5, 2023"	"https://reports.aashe.org/institutions/university-of-wisconsin-platteville-wi/report/"	"https://reports.aashe.org/institutions/university-of-wisconsin-platteville-wi/report/2020-03-05/"
+"University of Wisconsin-River Falls"	"United States,
+              WI"	2.2	"Silver"	"Aug. 9, 2024"	"https://reports.aashe.org/institutions/university-of-wisconsin-river-falls-wi/report/"	"https://reports.aashe.org/institutions/university-of-wisconsin-river-falls-wi/report/2021-06-30/"
+"University of Wisconsin-Stout"	"United States,
+              WI"	2	"Silver
+                
+                    *"	"Nov. 3, 2018"	"https://reports.aashe.org/institutions/university-of-wisconsin-stout-wi/report/"	"https://reports.aashe.org/institutions/university-of-wisconsin-stout-wi/report/2015-11-04/"
+"University of Wisconsin-Whitewater"	"United States,
+              WI"	2.1	"Silver"	"Nov. 12, 2021"	"https://reports.aashe.org/institutions/university-of-wisconsin-whitewater-wi/report/"	"https://reports.aashe.org/institutions/university-of-wisconsin-whitewater-wi/report/2018-11-13/"
+"University of the Pacific"	"United States,
+              CA"	2.2	"Silver"	"April 15, 2024"	"https://reports.aashe.org/institutions/university-of-the-pacific-ca/report/"	"https://reports.aashe.org/institutions/university-of-the-pacific-ca/report/2021-03-04/"
+"Utah State University"	"United States,
+              UT"	2.2	"Silver"	"Oct. 30, 2022"	"https://reports.aashe.org/institutions/utah-state-university-ut/report/"	"https://reports.aashe.org/institutions/utah-state-university-ut/report/2019-10-31/"
+"Valencia College"	"United States,
+              FL"	1.2	"Silver
+                
+                    *"	"Oct. 8, 2015"	"https://reports.aashe.org/institutions/valencia-community-college-fl/report/"	"https://reports.aashe.orgNA"
+"Villanova University"	"United States,
+              PA"	2.1	"Silver"	"Sept. 22, 2021"	"https://reports.aashe.org/institutions/villanova-university-pa/report/"	"https://reports.aashe.org/institutions/villanova-university-pa/report/2018-03-27/"
+"Virginia Commonwealth University"	"United States,
+              VA"	2.1	"Silver"	"Aug. 28, 2021"	"https://reports.aashe.org/institutions/virginia-commonwealth-university-va/report/"	"https://reports.aashe.org/institutions/virginia-commonwealth-university-va/report/2018-03-02/"
+"Washington and Lee University"	"United States,
+              VA"	2.2	"Silver"	"March 6, 2023"	"https://reports.aashe.org/institutions/washington-and-lee-university-va/report/"	"https://reports.aashe.org/institutions/washington-and-lee-university-va/report/2020-03-06/"
+"Weber State University"	"United States,
+              UT"	2.1	"Silver"	"Feb. 18, 2022"	"https://reports.aashe.org/institutions/weber-state-university-ut/report/"	"https://reports.aashe.org/institutions/weber-state-university-ut/report/2019-02-19/"
+"Wesleyan University"	"United States,
+              CT"	2.2	"Silver"	"Dec. 19, 2022"	"https://reports.aashe.org/institutions/wesleyan-university-ct/report/"	"https://reports.aashe.org/institutions/wesleyan-university-ct/report/2019-12-20/"
+"West Chester University of Pennsylvania"	"United States,
+              PA"	2.2	"Silver"	"March 6, 2023"	"https://reports.aashe.org/institutions/west-chester-university-of-pennsylvania-pa/report/"	"https://reports.aashe.org/institutions/west-chester-university-of-pennsylvania-pa/report/2020-03-06/"
+"West Virginia University"	"United States,
+              WV"	2.2	"Silver"	"March 29, 2024"	"https://reports.aashe.org/institutions/west-virginia-university-wv/report/"	"https://reports.aashe.orgNA"
+"Western Colorado University"	"United States,
+              CO"	2.1	"Silver"	"May 15, 2022"	"https://reports.aashe.org/institutions/western-state-colorado-university-co/report/"	"https://reports.aashe.org/institutions/western-state-colorado-university-co/report/2019-05-16/"
+"Western Kentucky University"	"United States,
+              KY"	2.2	"Silver"	"March 5, 2023"	"https://reports.aashe.org/institutions/western-kentucky-university-ky/report/"	"https://reports.aashe.org/institutions/western-kentucky-university-ky/report/2020-03-05/"
+"Western Michigan University"	"United States,
+              MI"	2.1	"Silver"	"Feb. 27, 2022"	"https://reports.aashe.org/institutions/western-michigan-university-mi/report/"	"https://reports.aashe.org/institutions/western-michigan-university-mi/report/2019-02-28/"
+"Western Technical College"	"United States,
+              WI"	2.2	"Silver"	"April 29, 2024"	"https://reports.aashe.org/institutions/western-technical-college-wi/report/"	"https://reports.aashe.org/institutions/western-technical-college-wi/report/2020-12-22/"
+"Western Washington University"	"United States,
+              WA"	2.1	"Silver"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/western-washington-university-wa/report/"	"https://reports.aashe.org/institutions/western-washington-university-wa/report/2019-03-01/"
+"Westminster College - Utah"	"United States,
+              UT"	2.1	"Silver"	"Aug. 14, 2022"	"https://reports.aashe.org/institutions/westminster-college-ut/report/"	"https://reports.aashe.org/institutions/westminster-college-ut/report/2019-08-15/"
+"Whitman College"	"United States,
+              WA"	2.2	"Silver"	"Feb. 6, 2023"	"https://reports.aashe.org/institutions/whitman-college-wa/report/"	"https://reports.aashe.org/institutions/whitman-college-wa/report/2020-02-07/"
+"Williams College"	"United States,
+              MA"	2.1	"Silver"	"May 27, 2022"	"https://reports.aashe.org/institutions/williams-college-ma/report/"	"https://reports.aashe.org/institutions/williams-college-ma/report/2019-05-28/"
+"York University"	"Canada,
+              ON"	2	"Silver
+                
+                    *"	"April 20, 2019"	"https://reports.aashe.org/institutions/york-university-on/report/"	"https://reports.aashe.orgNA"
+"Alfred State College"	"United States,
+              NY"	1.2	"Bronze
+                
+                    *"	"Oct. 9, 2015"	"https://reports.aashe.org/institutions/alfred-state-college-ny/report/"	"https://reports.aashe.orgNA"
+"Austin College"	"United States,
+              TX"	2.1	"Bronze"	"Aug. 28, 2021"	"https://reports.aashe.org/institutions/austin-college-tx/report/"	"https://reports.aashe.org/institutions/austin-college-tx/report/2018-03-02/"
+"Bridgewater College"	"United States,
+              VA"	1.2	"Bronze
+                
+                    *"	"Sept. 16, 2016"	"https://reports.aashe.org/institutions/bridgewater-college-va/report/"	"https://reports.aashe.orgNA"
+"Brunswick Community College"	"United States,
+              NC"	1.1	"Bronze
+                
+                    *"	"Feb. 16, 2015"	"https://reports.aashe.org/institutions/brunswick-community-college-nc/report/"	"https://reports.aashe.orgNA"
+"Butler University"	"United States,
+              IN"	2.1	"Bronze"	"Oct. 9, 2021"	"https://reports.aashe.org/institutions/butler-university-in/report/"	"https://reports.aashe.orgNA"
+"California State University, East Bay"	"United States,
+              CA"	2.1	"Bronze"	"April 18, 2022"	"https://reports.aashe.org/institutions/california-state-university-east-bay-ca/report/"	"https://reports.aashe.orgNA"
+"California State University, Fresno"	"United States,
+              CA"	2.2	"Bronze"	"Nov. 24, 2023"	"https://reports.aashe.org/institutions/california-state-university-fresno-ca/report/"	"https://reports.aashe.orgNA"
+"Cascadia College"	"United States,
+              WA"	2.1	"Bronze"	"Sept. 1, 2021"	"https://reports.aashe.org/institutions/cascadia-community-college-wa/report/"	"https://reports.aashe.orgNA"
+"Central Ohio Technical College"	"United States,
+              OH"	1.2	"Bronze
+                
+                    *"	"Sept. 11, 2016"	"https://reports.aashe.org/institutions/central-ohio-technical-college-oh/report/"	"https://reports.aashe.orgNA"
+"Central Washington University"	"United States,
+              WA"	2.1	"Bronze"	"July 16, 2022"	"https://reports.aashe.org/institutions/central-washington-university-wa/report/"	"https://reports.aashe.orgNA"
+"Chandler-Gilbert Community College"	"United States,
+              AZ"	2.1	"Bronze"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/chandler-gilbert-community-college-az/report/"	"https://reports.aashe.orgNA"
+"Creighton University"	"United States,
+              NE"	2.1	"Bronze"	"Aug. 28, 2021"	"https://reports.aashe.org/institutions/creighton-university-ne/report/"	"https://reports.aashe.orgNA"
+"DePauw University"	"United States,
+              IN"	2.2	"Bronze"	"May 13, 2024"	"https://reports.aashe.org/institutions/depauw-university-in/report/"	"https://reports.aashe.org/institutions/depauw-university-in/report/2020-06-23/"
+"Dominican University of California"	"United States,
+              CA"	1.2	"Bronze
+                
+                    *"	"Jan. 7, 2016"	"https://reports.aashe.org/institutions/dominican-university-of-california-ca/report/"	"https://reports.aashe.orgNA"
+"Drake University"	"United States,
+              IA"	2.1	"Bronze"	"May 21, 2022"	"https://reports.aashe.org/institutions/drake-university-ia/report/"	"https://reports.aashe.orgNA"
+"Drexel University"	"United States,
+              PA"	2.1	"Bronze"	"June 16, 2024"	"https://reports.aashe.org/institutions/drexel-university-pa/report/"	"https://reports.aashe.orgNA"
+"East Tennessee State University"	"United States,
+              TN"	1	"Bronze
+                
+                    *"	"Aug. 21, 2014"	"https://reports.aashe.org/institutions/east-tennessee-state-university-tn/report/"	"https://reports.aashe.orgNA"
+"Eastern Kentucky University"	"United States,
+              KY"	2.1	"Bronze"	"Sept. 25, 2021"	"https://reports.aashe.org/institutions/eastern-kentucky-university-ky/report/"	"https://reports.aashe.orgNA"
+"Estrella Mountain Community College"	"United States,
+              AZ"	1.2	"Bronze
+                
+                    *"	"Feb. 9, 2017"	"https://reports.aashe.org/institutions/estrella-mountain-community-college-az/report/"	"https://reports.aashe.org/institutions/estrella-mountain-community-college-az/report/2014-02-10/"
+"Eureka College"	"United States,
+              IL"	2.1	"Bronze"	"Oct. 25, 2021"	"https://reports.aashe.org/institutions/eureka-college-il/report/"	"https://reports.aashe.orgNA"
+"Ferrum College"	"United States,
+              VA"	1.2	"Bronze
+                
+                    *"	"July 28, 2016"	"https://reports.aashe.org/institutions/ferrum-college-va/report/"	"https://reports.aashe.orgNA"
+"Franklin W. Olin College of Engineering"	"United States,
+              MA"	2.1	"Bronze"	"Dec. 24, 2021"	"https://reports.aashe.org/institutions/franklin-w-olin-college-of-engineering-ma/report/"	"https://reports.aashe.orgNA"
+"Georgia College & State University"	"United States,
+              GA"	2.2	"Bronze"	"May 17, 2024"	"https://reports.aashe.org/institutions/georgia-college-state-university-ga/report/"	"https://reports.aashe.org/institutions/georgia-college-state-university-ga/report/2021-03-05/"
+"Harrisburg Area Community College"	"United States,
+              PA"	1.1	"Bronze
+                
+                    *"	"July 18, 2015"	"https://reports.aashe.org/institutions/harrisburg-area-community-college-pa/report/"	"https://reports.aashe.orgNA"
+"Hawaii Pacific University"	"United States,
+              HI"	1.1	"Bronze
+                
+                    *"	"Oct. 2, 2015"	"https://reports.aashe.org/institutions/hawaii-pacific-university-hi/report/"	"https://reports.aashe.orgNA"
+"Hopkinsville Community College"	"United States,
+              KY"	1.2	"Bronze
+                
+                    *"	"March 26, 2016"	"https://reports.aashe.org/institutions/hopkinsville-community-college-ky/report/"	"https://reports.aashe.orgNA"
+"Houghton College"	"United States,
+              NY"	2.2	"Bronze"	"March 5, 2023"	"https://reports.aashe.org/institutions/houghton-college-ny/report/"	"https://reports.aashe.orgNA"
+"Illinois Central College"	"United States,
+              IL"	2	"Bronze
+                
+                    *"	"Nov. 23, 2018"	"https://reports.aashe.org/institutions/illinois-central-college-il/report/"	"https://reports.aashe.org/institutions/illinois-central-college-il/report/2015-11-24/"
+"Illinois Institute of Technology"	"United States,
+              IL"	2.1	"Bronze"	"Sept. 24, 2021"	"https://reports.aashe.org/institutions/illinois-institute-of-technology-il/report/"	"https://reports.aashe.org/institutions/illinois-institute-of-technology-il/report/2018-09-25/"
+"Illinois State University"	"United States,
+              IL"	2.1	"Bronze"	"Feb. 24, 2022"	"https://reports.aashe.org/institutions/illinois-state-university-il/report/"	"https://reports.aashe.org/institutions/illinois-state-university-il/report/2019-02-25/"
+"Indiana University South Bend"	"United States,
+              IN"	2.1	"Bronze"	"Feb. 5, 2024"	"https://reports.aashe.org/institutions/indiana-university-south-bend-in/report/"	"https://reports.aashe.orgNA"
+"Joliet Junior College"	"United States,
+              IL"	2	"Bronze
+                
+                    *"	"June 10, 2018"	"https://reports.aashe.org/institutions/joliet-junior-college-il/report/"	"https://reports.aashe.orgNA"
+"Judson University"	"United States,
+              IL"	1	"Bronze
+                
+                    *"	"Feb. 17, 2015"	"https://reports.aashe.org/institutions/judson-university-il/report/"	"https://reports.aashe.orgNA"
+"Juniata College"	"United States,
+              PA"	2	"Bronze
+                
+                    *"	"May 13, 2018"	"https://reports.aashe.org/institutions/juniata-college-pa/report/"	"https://reports.aashe.orgNA"
+"Kalamazoo College"	"United States,
+              MI"	2.2	"Reporter"	"Oct. 1, 2023"	"https://reports.aashe.org/institutions/kalamazoo-college-mi/report/"	"https://reports.aashe.orgNA"
+"Kent State University"	"United States,
+              OH"	2.2	"Bronze"	"May 12, 2024"	"https://reports.aashe.org/institutions/kent-state-university-oh/report/"	"https://reports.aashe.orgNA"
+"Lakehead University"	"Canada,
+              ON"	2	"Bronze
+                
+                    *"	"Nov. 11, 2017"	"https://reports.aashe.org/institutions/lakehead-university-on/report/"	"https://reports.aashe.orgNA"
+"Lebanon Valley College"	"United States,
+              PA"	2.1	"Bronze"	"May 19, 2022"	"https://reports.aashe.org/institutions/lebanon-valley-college-pa/report/"	"https://reports.aashe.org/institutions/lebanon-valley-college-pa/report/2019-05-20/"
+"Lewis University"	"United States,
+              IL"	2.2	"Bronze"	"May 5, 2024"	"https://reports.aashe.org/institutions/lewis-university-il/report/"	"https://reports.aashe.org/institutions/lewis-university-il/report/2021-03-05/"
+"Loyalist College"	"Canada,
+              ON"	2	"Bronze
+                
+                    *"	"July 22, 2018"	"https://reports.aashe.org/institutions/loyalist-college-on/report/"	"https://reports.aashe.orgNA"
+"Messiah University"	"United States,
+              PA"	2.2	"Bronze"	"May 18, 2024"	"https://reports.aashe.org/institutions/messiah-college-pa/report/"	"https://reports.aashe.org/institutions/messiah-college-pa/report/2021-02-22/"
+"Metropolitan Community College"	"United States,
+              NE"	2.2	"Bronze"	"Oct. 28, 2024"	"https://reports.aashe.org/institutions/metropolitan-community-college-ne/report/"	"https://reports.aashe.org/institutions/metropolitan-community-college-ne/report/2021-08-30/"
+"Moraine Valley Community College"	"United States,
+              IL"	1	"Bronze
+                
+                    *"	"Jan. 27, 2014"	"https://reports.aashe.org/institutions/moraine-valley-community-college-il/report/"	"https://reports.aashe.orgNA"
+"New Mexico State University"	"United States,
+              NM"	2.2	"Bronze"	"May 13, 2024"	"https://reports.aashe.org/institutions/new-mexico-state-university-nm/report/"	"https://reports.aashe.org/institutions/new-mexico-state-university-nm/report/2021-03-05/"
+"Nova Southeastern University"	"United States,
+              FL"	2.2	"Bronze"	"Feb. 18, 2024"	"https://reports.aashe.org/institutions/nova-southeastern-university-fl/report/"	"https://reports.aashe.org/institutions/nova-southeastern-university-fl/report/2020-12-03/"
+"Oklahoma City University"	"United States,
+              OK"	1	"Bronze
+                
+                    *"	"July 31, 2014"	"https://reports.aashe.org/institutions/oklahoma-city-university-ok/report/"	"https://reports.aashe.orgNA"
+"Oregon Institute of Technology"	"United States,
+              OR"	1	"Bronze
+                
+                    *"	"Dec. 12, 2014"	"https://reports.aashe.org/institutions/oregon-institute-of-technology-or/report/"	"https://reports.aashe.orgNA"
+"Paul Smith's College of Arts & Sciences"	"United States,
+              NY"	2.1	"Bronze"	"March 6, 2023"	"https://reports.aashe.org/institutions/paul-smiths-college-of-arts-sciences-ny/report/"	"https://reports.aashe.org/institutions/paul-smiths-college-of-arts-sciences-ny/report/2020-03-06/"
+"Penn State Erie, The Behrend College"	"United States,
+              PA"	2.1	"Bronze"	"Aug. 14, 2023"	"https://reports.aashe.org/institutions/penn-state-erie-the-behrend-college-pa/report/"	"https://reports.aashe.orgNA"
+"Ringling College of Art and Design"	"United States,
+              FL"	2.1	"Bronze
+                
+                    *"	"Jan. 10, 2020"	"https://reports.aashe.org/institutions/ringling-college-of-art-and-design-fl/report/"	"https://reports.aashe.org/institutions/ringling-college-of-art-and-design-fl/report/2017-01-10/"
+"Rocky Mountain College of Art + Design"	"United States,
+              CO"	1	"Bronze
+                
+                    *"	"July 14, 2014"	"https://reports.aashe.org/institutions/rocky-mountain-college-of-art-design-co/report/"	"https://reports.aashe.orgNA"
+"Roosevelt University"	"United States,
+              IL"	2	"Bronze
+                
+                    *"	"Dec. 17, 2018"	"https://reports.aashe.org/institutions/roosevelt-university-il/report/"	"https://reports.aashe.orgNA"
+"Saint Louis University"	"United States,
+              MO"	2.1	"Bronze"	"Aug. 28, 2021"	"https://reports.aashe.org/institutions/saint-louis-university-mo/report/"	"https://reports.aashe.org/institutions/saint-louis-university-mo/report/2018-03-02/"
+"Santa Rosa Junior College"	"United States,
+              CA"	2.1	"Bronze"	"Feb. 27, 2022"	"https://reports.aashe.org/institutions/santa-rosa-junior-college-ca/report/"	"https://reports.aashe.orgNA"
+"Scripps College"	"United States,
+              CA"	1.1	"Bronze
+                
+                    *"	"Jan. 18, 2016"	"https://reports.aashe.org/institutions/scripps-college-ca/report/"	"https://reports.aashe.orgNA"
+"Shoreline Community College"	"United States,
+              WA"	1	"Bronze
+                
+                    *"	"July 19, 2014"	"https://reports.aashe.org/institutions/shoreline-community-college-wa/report/"	"https://reports.aashe.orgNA"
+"Siena Heights University"	"United States,
+              MI"	2.1	"Bronze"	"June 16, 2022"	"https://reports.aashe.org/institutions/siena-heights-university-mi/report/"	"https://reports.aashe.orgNA"
+"Southern New Hampshire University"	"United States,
+              NH"	2.1	"Bronze"	"Oct. 10, 2022"	"https://reports.aashe.org/institutions/southern-new-hampshire-university-nh/report/"	"https://reports.aashe.orgNA"
+"St. Lawrence College"	"Canada,
+              ON"	2.1	"Bronze"	"Feb. 27, 2022"	"https://reports.aashe.org/institutions/st-lawrence-college-on/report/"	"https://reports.aashe.orgNA"
+"State University of New York at Fredonia"	"United States,
+              NY"	2.1	"Bronze
+                
+                    *"	"Nov. 12, 2020"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-fredonia-ny/report/"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-fredonia-ny/report/2017-05-17/"
+"State University of New York at Potsdam"	"United States,
+              NY"	2.1	"Bronze"	"Feb. 3, 2023"	"https://reports.aashe.org/institutions/state-university-of-new-york-at-potsdam-ny/report/"	"https://reports.aashe.orgNA"
+"Stetson University"	"United States,
+              FL"	1.1	"Bronze
+                
+                    *"	"Dec. 5, 2015"	"https://reports.aashe.org/institutions/stetson-university-fl/report/"	"https://reports.aashe.orgNA"
+"Tarleton State University"	"United States,
+              TX"	2	"Bronze
+                
+                    *"	"Dec. 22, 2020"	"https://reports.aashe.org/institutions/tarleton-state-university-tx/report/"	"https://reports.aashe.orgNA"
+"Taylor University"	"United States,
+              IN"	1.1	"Bronze
+                
+                    *"	"Feb. 14, 2015"	"https://reports.aashe.org/institutions/taylor-university-in/report/"	"https://reports.aashe.orgNA"
+"Texas State University, San Marcos"	"United States,
+              TX"	2.1	"Bronze"	"Dec. 15, 2022"	"https://reports.aashe.org/institutions/texas-state-university-san-marcos-tx/report/"	"https://reports.aashe.orgNA"
+"Texas Tech University"	"United States,
+              TX"	2.2	"Bronze"	"March 24, 2024"	"https://reports.aashe.org/institutions/texas-tech-university-tx/report/"	"https://reports.aashe.org/institutions/texas-tech-university-tx/report/2021-02-26/"
+"Towson University"	"United States,
+              MD"	1.2	"Bronze
+                
+                    *"	"May 13, 2016"	"https://reports.aashe.org/institutions/towson-university-md/report/"	"https://reports.aashe.orgNA"
+"Transylvania University"	"United States,
+              KY"	2	"Bronze
+                
+                    *"	"Dec. 12, 2018"	"https://reports.aashe.org/institutions/transylvania-university-ky/report/"	"https://reports.aashe.org/institutions/transylvania-university-ky/report/2015-12-13/"
+"Trinity College (CT)"	"United States,
+              CT"	2.1	"Bronze"	"Oct. 27, 2022"	"https://reports.aashe.org/institutions/trinity-college-ct/report/"	"https://reports.aashe.orgNA"
+"Truman State University"	"United States,
+              MO"	1.1	"Bronze
+                
+                    *"	"March 14, 2015"	"https://reports.aashe.org/institutions/truman-state-university-mo/report/"	"https://reports.aashe.orgNA"
+"United World College-USA"	"United States,
+              NM"	2.2	"Bronze"	"Dec. 16, 2022"	"https://reports.aashe.org/institutions/united-world-college-usa-nm/report/"	"https://reports.aashe.orgNA"
+"Universidade Aberta"	"Portugal"	2.1	"Bronze"	"April 4, 2022"	"https://reports.aashe.org/institutions/universidade-aberta-/report/"	"https://reports.aashe.orgNA"
+"University of Alabama in Huntsville"	"United States,
+              AL"	2.1	"Bronze"	"March 7, 2022"	"https://reports.aashe.org/institutions/university-of-alabama-in-huntsville-al/report/"	"https://reports.aashe.orgNA"
+"University of Alaska Southeast"	"United States,
+              AK"	1.2	"Bronze
+                
+                    *"	"Jan. 9, 2017"	"https://reports.aashe.org/institutions/university-of-alaska-southeast-ak/report/"	"https://reports.aashe.orgNA"
+"University of Arkansas at Little Rock"	"United States,
+              AR"	1.2	"Bronze
+                
+                    *"	"Sept. 24, 2015"	"https://reports.aashe.org/institutions/university-of-arkansas-at-little-rock-ar/report/"	"https://reports.aashe.orgNA"
+"University of Delaware"	"United States,
+              DE"	2.1	"Bronze"	"Jan. 30, 2023"	"https://reports.aashe.org/institutions/university-of-delaware-de/report/"	"https://reports.aashe.org/institutions/university-of-delaware-de/report/2020-01-31/"
+"University of Mississippi"	"United States,
+              MS"	2.1	"Bronze"	"July 16, 2022"	"https://reports.aashe.org/institutions/university-of-mississippi-ms/report/"	"https://reports.aashe.orgNA"
+"University of Montevallo"	"United States,
+              AL"	2.1	"Bronze"	"July 23, 2022"	"https://reports.aashe.org/institutions/university-of-montevallo-al/report/"	"https://reports.aashe.orgNA"
+"University of New Haven"	"United States,
+              CT"	2.1	"Bronze"	"July 31, 2022"	"https://reports.aashe.org/institutions/university-of-new-haven-ct/report/"	"https://reports.aashe.orgNA"
+"University of North Carolina, Pembroke"	"United States,
+              NC"	2	"Bronze
+                
+                    *"	"Feb. 11, 2019"	"https://reports.aashe.org/institutions/university-of-north-carolina-pembroke-nc/report/"	"https://reports.aashe.orgNA"
+"University of North Florida"	"United States,
+              FL"	1.2	"Bronze
+                
+                    *"	"Sept. 25, 2015"	"https://reports.aashe.org/institutions/university-of-north-florida-fl/report/"	"https://reports.aashe.orgNA"
+"University of North Georgia"	"United States,
+              GA"	2.2	"Bronze"	"Dec. 20, 2022"	"https://reports.aashe.org/institutions/university-of-north-georgia-ga/report/"	"https://reports.aashe.orgNA"
+"University of Texas at El Paso"	"United States,
+              TX"	2	"Bronze
+                
+                    *"	"April 29, 2019"	"https://reports.aashe.org/institutions/university-of-texas-at-el-paso-tx/report/"	"https://reports.aashe.orgNA"
+"University of Wyoming"	"United States,
+              WY"	2.1	"Bronze"	"April 28, 2022"	"https://reports.aashe.org/institutions/university-of-wyoming-wy/report/"	"https://reports.aashe.orgNA"
+"University of the District of Columbia"	"United States,
+              DC"	1.1	"Bronze
+                
+                    *"	"Feb. 16, 2015"	"https://reports.aashe.org/institutions/university-of-the-district-of-columbia-dc/report/"	"https://reports.aashe.orgNA"
+"Washtenaw Community College"	"United States,
+              MI"	2.1	"Bronze"	"Nov. 18, 2021"	"https://reports.aashe.org/institutions/washtenaw-community-college-mi/report/"	"https://reports.aashe.orgNA"
+"Whatcom Community College"	"United States,
+              WA"	2.1	"Bronze
+                
+                    *"	"May 1, 2021"	"https://reports.aashe.org/institutions/whatcom-community-college-wa/report/"	"https://reports.aashe.orgNA"
+"Yeshiva University"	"United States,
+              NY"	1.2	"Bronze
+                
+                    *"	"Feb. 10, 2017"	"https://reports.aashe.org/institutions/yeshiva-university-ny/report/"	"https://reports.aashe.orgNA"
+"Albion College"	"United States,
+              MI"	2.1	"Reporter"	"March 7, 2024"	"https://reports.aashe.org/institutions/albion-college-mi/report/"	"https://reports.aashe.orgNA"
+"Austin Peay State University"	"United States,
+              TN"	2.1	"Reporter"	"May 29, 2022"	"https://reports.aashe.org/institutions/austin-peay-state-university-tn/report/"	"https://reports.aashe.orgNA"
+"Bow Valley College"	"Canada,
+              AB"	2.1	"Reporter"	"Oct. 1, 2021"	"https://reports.aashe.org/institutions/bow-valley-college-ab/report/"	"https://reports.aashe.orgNA"
+"California College of the Arts"	"United States,
+              CA"	2.1	"Reporter"	"Aug. 28, 2021"	"https://reports.aashe.org/institutions/california-college-of-the-arts-ca/report/"	"https://reports.aashe.orgNA"
+"Chapman University"	"United States,
+              CA"	1	"Reporter
+                
+                    *"	"Aug. 3, 2014"	"https://reports.aashe.org/institutions/chapman-university-ca/report/"	"https://reports.aashe.orgNA"
+"Clark University"	"United States,
+              MA"	2.2	"Reporter"	"March 10, 2024"	"https://reports.aashe.org/institutions/clark-university-ma/report/"	"https://reports.aashe.org/institutions/clark-university-ma/report/2021-03-01/"
+"DePaul University"	"United States,
+              IL"	1.1	"Reporter
+                
+                    *"	"March 22, 2015"	"https://reports.aashe.org/institutions/depaul-university-il/report/"	"https://reports.aashe.orgNA"
+"Duke University"	"United States,
+              NC"	2	"Reporter
+                
+                    *"	"Feb. 24, 2018"	"https://reports.aashe.org/institutions/duke-university-nc/report/"	"https://reports.aashe.org/institutions/duke-university-nc/report/2015-02-25/"
+"El Centro College - DCCCD"	"United States,
+              TX"	1	"Reporter
+                
+                    *"	"Dec. 18, 2014"	"https://reports.aashe.org/institutions/el-centro-college-dcccd-tx/report/"	"https://reports.aashe.orgNA"
+"Euromed Management"	"France,
+              Marseille"	1.1	"Reporter
+                
+                    *"	"May 6, 2016"	"https://reports.aashe.org/institutions/euromed-management/report/"	"https://reports.aashe.orgNA"
+"Fayetteville State University"	"United States,
+              NC"	1.2	"Reporter
+                
+                    *"	"Feb. 9, 2016"	"https://reports.aashe.org/institutions/fayetteville-state-university-nc/report/"	"https://reports.aashe.orgNA"
+"Fort Lewis College"	"United States,
+              CO"	2.2	"Reporter"	"Feb. 8, 2024"	"https://reports.aashe.org/institutions/fort-lewis-college-co/report/"	"https://reports.aashe.org/institutions/fort-lewis-college-co/report/2021-02-01/"
+"Franklin University Switzerland"	"Switzerland,
+              Ticino"	1.2	"Reporter
+                
+                    *"	"Aug. 4, 2016"	"https://reports.aashe.org/institutions/franklin-college-switzerland/report/"	"https://reports.aashe.orgNA"
+"Georgia State University"	"United States,
+              GA"	2	"Reporter
+                
+                    *"	"March 22, 2018"	"https://reports.aashe.org/institutions/georgia-state-university-ga/report/"	"https://reports.aashe.orgNA"
+"Hibbing Community College"	"United States,
+              MN"	2	"Reporter
+                
+                    *"	"June 11, 2017"	"https://reports.aashe.org/institutions/hibbing-community-college-mn/report/"	"https://reports.aashe.orgNA"
+"Hokkaido University"	"Japan,
+              Hokkaido"	1.1	"Reporter
+                
+                    *"	"Dec. 20, 2015"	"https://reports.aashe.org/institutions/hokkaido-university/report/"	"https://reports.aashe.orgNA"
+"Instituto Tecnológico Metropolitano"	"Colombia,
+              Antioquia"	2.1	"Reporter"	"Oct. 1, 2023"	"https://reports.aashe.org/institutions/instituto-tecnologico-metropolitano-antioquia/report/"	"https://reports.aashe.orgNA"
+"Kyoto University"	"Japan"	1.2	"Reporter
+                
+                    *"	"Dec. 18, 2016"	"https://reports.aashe.org/institutions/kyoto-university/report/"	"https://reports.aashe.orgNA"
+"Lahore University of Management Sciences"	"Pakistan,
+              Cantt"	1.2	"Reporter
+                
+                    *"	"April 10, 2016"	"https://reports.aashe.org/institutions/lahore-university-of-management-sciences/report/"	"https://reports.aashe.orgNA"
+"Lakeland Community College"	"United States,
+              OH"	1	"Reporter
+                
+                    *"	"May 31, 2014"	"https://reports.aashe.org/institutions/lake-land-college-oh/report/"	"https://reports.aashe.orgNA"
+"Mount Holyoke College"	"United States,
+              MA"	2.1	"Reporter"	"Feb. 25, 2022"	"https://reports.aashe.org/institutions/mount-holyoke-college-ma/report/"	"https://reports.aashe.org/institutions/mount-holyoke-college-ma/report/2019-02-26/"
+"Northeastern University"	"United States,
+              MA"	2.1	"Reporter"	"June 8, 2024"	"https://reports.aashe.org/institutions/northeastern-university-ma/report/"	"https://reports.aashe.orgNA"
+"Old Dominion University"	"United States,
+              VA"	2	"Reporter
+                
+                    *"	"July 13, 2018"	"https://reports.aashe.org/institutions/old-dominion-university-va/report/"	"https://reports.aashe.org/institutions/old-dominion-university-va/report/2015-07-14/"
+"Pace University"	"United States,
+              NY"	2.2	"Reporter"	"March 6, 2023"	"https://reports.aashe.org/institutions/pace-university-ny/report/"	"https://reports.aashe.org/institutions/pace-university-ny/report/2020-03-06/"
+"Plymouth State University"	"United States,
+              NH"	2	"Reporter
+                
+                    *"	"Feb. 27, 2017"	"https://reports.aashe.org/institutions/plymouth-state-university-nh/report/"	"https://reports.aashe.orgNA"
+"Randolph College"	"United States,
+              VA"	2.2	"Reporter"	"Sept. 12, 2022"	"https://reports.aashe.org/institutions/randolph-college-va/report/"	"https://reports.aashe.orgNA"
+"State University of New York Polytechnic Institute"	"United States,
+              NY"	2.1	"Reporter"	"June 22, 2024"	"https://reports.aashe.org/institutions/state-university-of-new-york-polytechnic-institute-ny/report/"	"https://reports.aashe.org/institutions/state-university-of-new-york-polytechnic-institute-ny/report/2021-03-30/"
+"Stockton University"	"United States,
+              NJ"	2.1	"Reporter"	"Feb. 28, 2022"	"https://reports.aashe.org/institutions/richard-stockton-college-of-new-jersey-nj/report/"	"https://reports.aashe.org/institutions/richard-stockton-college-of-new-jersey-nj/report/2019-03-01/"
+"Stony Brook University"	"United States,
+              NY"	2	"Reporter
+                
+                    *"	"Nov. 10, 2019"	"https://reports.aashe.org/institutions/stony-brook-university-ny/report/"	"https://reports.aashe.orgNA"
+"University of Alaska Anchorage"	"United States,
+              AK"	2	"Reporter
+                
+                    *"	"Aug. 11, 2018"	"https://reports.aashe.org/institutions/university-of-alaska-anchorage-ak/report/"	"https://reports.aashe.org/institutions/university-of-alaska-anchorage-ak/report/2015-08-12/"
+"University of Nebraska at Kearney"	"United States,
+              NE"	1	"Reporter
+                
+                    *"	"Feb. 1, 2015"	"https://reports.aashe.org/institutions/university-of-nebraska-at-kearney-ne/report/"	"https://reports.aashe.orgNA"
+"University of Regina"	"Canada,
+              SK"	2	"Reporter
+                
+                    *"	"Nov. 25, 2018"	"https://reports.aashe.org/institutions/university-of-regina-sk/report/"	"https://reports.aashe.orgNA"
+"Utrecht University"	"Netherlands"	1.2	"Reporter
+                
+                    *"	"Dec. 17, 2016"	"https://reports.aashe.org/institutions/utrecht-university/report/"	"https://reports.aashe.orgNA"
+"Vanderbilt University"	"United States,
+              TN"	2.2	"Reporter"	"March 7, 2024"	"https://reports.aashe.org/institutions/vanderbilt-university-tn/report/"	"https://reports.aashe.org/institutions/vanderbilt-university-tn/report/2021-03-05/"
+"Virginia Theological Seminary"	"United States,
+              VA"	2.1	"Reporter"	"Nov. 14, 2021"	"https://reports.aashe.org/institutions/virginia-theological-seminary-va/report/"	"https://reports.aashe.orgNA"
+"Wentworth Institute of Technology"	"United States,
+              MA"	2.2	"Reporter"	"March 7, 2024"	"https://reports.aashe.org/institutions/wentworth-institute-of-technology-ma/report/"	"https://reports.aashe.org/institutions/wentworth-institute-of-technology-ma/report/2021-03-04/"
+"Southwestern University"	"United States,
+              TX"	2.1	"Bronze"	"Nov. 5, 2021"	"https://reports.aashe.org/institutions/southwestern-university-tx/report/"	"https://reports.aashe.org/institutions/southwestern-university-tx/report/2018-05-10/"
