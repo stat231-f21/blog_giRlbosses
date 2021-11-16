@@ -11,6 +11,7 @@ library(janitor)
 library(tidytext)
 library(wordcloud)
 library(textdata)
+library(ggh4x)
 ```
 
 ```{r}
@@ -30,7 +31,7 @@ word_frequencies <- report %>%
   count(word, sort = TRUE) 
 ```
 
-```{r}
+```{r, warning = FALSE}
 #Common words plot
 word_frequencies %>%
   slice(1:10) %>%
@@ -62,19 +63,18 @@ wordcloud(words = word_frequencies$word,
           family = "sans")
 ```
 
-```{r}
+```{r, fig.height = 6}
 #NRC Lexicon
 nrc_lexicon <- get_sentiments("nrc")
 
 nrc_lexicon_formatted <- inner_join(nrc_lexicon, word_frequencies, by = c("word" = "word"))
 
 nrc_graphic <- nrc_lexicon_formatted %>%
-  filter(sentiment == c("anger", "anticipation", "fear", "joy", "surprise", "trust")) %>%
+  filter(sentiment %in% c("anger", "anticipation", "disgust", "sadness", "fear", "joy", "surprise", "trust")) %>%
   group_by(sentiment) %>%
   arrange(desc(n)) %>%
   slice(1:10) %>%
   ungroup()
-
 
 nrc_graphic %>%
   ggplot(aes(x = reorder(word, n), y = n, 
@@ -84,7 +84,7 @@ nrc_graphic %>%
   facet_wrap(~ sentiment, ncol = 2, scales = "free") +
   labs(x = NULL,
        y = "Contribution to sentiment",
-       title = "The most common sentiments in Amherst's Sustainability Report")
+       title = "The most common sentiments in Amherst's Sustainability Report, NRC")
 ```
 
 ```{r}
@@ -95,14 +95,25 @@ afinn_lexicon_formatted <- inner_join(afinn_lexicon, word_frequencies, by = c("w
 
 ggplot(afinn_lexicon_formatted, aes(x = word, y = value, fill = n)) +
   geom_col() +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  labs(x = NULL,
+       y = "Contribution to sentiment",
+       title = "The most common sentiments in Amherst's Sustainability Report, AFINN") +
+        guides(fill = guide_legend(title = "Frequency"))
 ```
 
-```{r}
+```{r, fig.width = 10}
 #BING Lexicon
-bing_word_counts <- word_frequencies %>%
+bing_words <- word_frequencies %>%
   inner_join(get_sentiments("bing")) %>%
-  count(word, sentiment, sort = TRUE) %>%
-  ungroup()
+  ungroup() 
+
+ggplot(bing_words, aes(x = word, y = n)) +
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  facet_wrap(vars(sentiment), scales = 'free_x') +
+  labs(x = NULL,
+       y = "Contribution to sentiment",
+       title = "The most common sentiments in Amherst's Sustainability Report, BING") 
 ```
 
