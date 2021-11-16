@@ -87,7 +87,7 @@ nrc_graphic %>%
        title = "The most common sentiments in Amherst's Sustainability Report, NRC")
 ```
 
-```{r}
+```{r, fig.width = 10}
 #AFINN Lexicon
 afinn_lexicon <- get_sentiments("afinn")
 
