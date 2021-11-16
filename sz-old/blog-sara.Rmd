@@ -1,0 +1,68 @@
+---
+title: "valmenu"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(kableExtra)
+library(robotstxt) 
+library(rvest) 
+library(purrr)
+library(janitor)
+library(maps)
+library(leaflet)
+library(sf)
+library(ggspatial)
+library(DT)
+library(RColorBrewer)
+library(fuzzyjoin)
+library(leaflegend)
+```
+
+## R Markdown
+
+```{r cars}
+stars_data <- "https://reports.aashe.org/institutions/participants-and-reports/?sort=rating"
+
+schools <- read.delim(file = "data/school_dining.txt", header=TRUE, sep="\t") 
+
+map_df <- read.delim(file = "data/map_df.txt", header=TRUE, sep="\t") 
+```
+
+
+```{r}
+# Make list of icons
+medalIcons <- iconList(
+  Platinum = makeIcon(iconUrl = "icons/platinum.png",
+                      iconWidth = 15, iconHeight = 15),
+  Gold = makeIcon(iconUrl = "icons/gold.png",
+                      iconWidth = 10, iconHeight = 11),
+  Silver = makeIcon(iconUrl = "icons/silver.png",
+                      iconWidth = 10, iconHeight = 11),
+  Bronze = makeIcon(iconUrl = "icons/bronze.png",
+                      iconWidth = 10, iconHeight = 11)
+)
+
+leaflet(data = map_df) %>% 
+  addTiles() %>%
+  addMarkers(~long, 
+             ~lat, 
+             icon = ~medalIcons[rating],
+             popup = ~institution,
+             #clusterOptions = markerClusterOptions()
+             ) %>% 
+  addLegendImage(c('icons/platinum.png','icons/gold.png', 
+                   'icons/silver.png', 'icons/bronze.png'), 
+                 title = htmltools::tags$div('schools',
+       style = 'font-size: 14px; text-align: center; margin-bottom: 5px;'), 
+                 labels = c("Platinum", "Gold", "Silver", "Bronze"),
+                 labelStyle = "font-size:12px")
+```
+
+
+```{r}
+
+```
+ 
