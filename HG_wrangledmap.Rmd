@@ -22,6 +22,8 @@ library(purrr)
 library(readxl)
 library(readr)
 library(fuzzyjoin)
+library(readxl)
+library(leaflet)
 #url for dataset
 Top30_url <- "https://www.epa.gov/greenpower/green-power-partnership-top-30-college-university"
 #Confirm bots allowed to access page
@@ -52,6 +54,9 @@ Institutions <- read_csv("data/Institutions.csv")
 Tuition <- read_csv("data/Tuition Costs for Common Institutions.csv")
 Degrees_by_County <- read_csv("data/Degrees Awarded by County.csv")
 Growth_by_County <-  read_csv("data/Growth in Awarded Degrees.csv")
+colleges <- read_csv("data/ipeds_directory_info.csv") %>%
+  janitor::clean_names() %>%
+  rename("institution" = "institution_name")
 
 #working on making a map based on my data
 
@@ -68,35 +73,55 @@ clean_joined_uni <- joined_uni %>%
   select(id_university, university_x, year, state_tuition, total_graduates, out_of_state_tuition, sector, completions) %>%
 rename("institution" = "university_x") 
 fuzzy_uni <- stringdist_left_join(clean_joined_uni, colleges, by = "institution")
-fuzzy_uni %>%
-  filter(is.na(state)) %>%
-  distinct(institution.x)
-sum(is.na(fuzzy_uni$state))
+# fuzzy_uni %>%
+#   filter(is.na(state)) %>%
+#   distinct(institution.x)
+# sum(is.na(fuzzy_uni$state))
 
 uni_map <- fuzzy_uni %>%
   filter(!institution.x %in% c("Jefferson (Philadelphia University + Thomas Jefferson University)", "Messiah University", "Lyndon State College"))
 
+
+
+
+#importing class size data
+Summary_Tables <- read_excel("~/Documents/COLLEGE/Summary Tables.xlsx")
+Summary_Tables <- Summary_Tables[-c(1:4),] %>%
+  janitor::clean_names() %>%
+  rename("institution" = "x2", "id_university" = "national_center_for_education_statistics",
+         "enrollment_type" = "x3",
+         "total_enrollment" = "x4") %>%
+  
+enrollment <- Summary_Tables %>%
+  select(institution, id_university, enrollment_type, total_enrollment) %>%
+  #just want the undergrad
+  filter(enrollment_type == "Undergraduate Enrollment", !total_enrollment == "-") %>% 
+  mutate(id_university = parse_double(id_university),
+         total_enrollment = parse_double(total_enrollment))
+
+enroll_map <- left_join(uni_map, enrollment, by = "id_university") %>%
+  mutate(percentdegree = (completions/total_enrollment)*100)
+
 #making map
-uni_map <- uni_map %>%
+enroll_map <- enroll_map %>%
 mutate(size = case_when(out_of_state_tuition <= 20000 ~ 1,
                  (out_of_state_tuition > 20000) & (out_of_state_tuition <= 40000) ~ 2,
                  out_of_state_tuition > 40000 ~ 3)) %>%
   filter(!is.na(size))
 
-sum(is.na(uni_map$size))
+# sum(is.na(uni_map$size))
 pal <- colorFactor(
   palette = 'Dark2',
-  domain = uni_map$completions
+  domain = enroll_map$percentdegree
 )
 
-leaflet(data = uni_map) %>% 
+leaflet(data = enroll_map) %>% 
   addTiles() %>%
-  addCircleMarkers(lat = ~lat, lng = ~long, popup = ~ paste0("Institution: ", institution.x, "\nOut of state tuition: $", out_of_state_tuition), weight = 1,  color=~pal(completions), radius = ~size)
+  addCircleMarkers(lat = ~latitude_location_of_institution_hd2019, lng = ~longitude_location_of_institution_hd2019, popup = ~ paste0("Institution: ", institution.x, "\nOut of state tuition: $", out_of_state_tuition), weight = 1,  color=~pal(percentdegree), radius = ~size)
 
-hist(uni_map$out_of_state_tuition)
+# hist(uni_map$out_of_state_tuition)
 #changing the radius of the different circles
-
-
+  
 
 ```
 
