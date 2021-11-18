@@ -1,7 +1,7 @@
 ---
-title: "Your Project Title Here"
-author: "Your Names Here"
-date: "Add a date"
+title: "Sustainability on College Campuses across the US"
+author: "giRlbosses"
+date: "11/18/2021"
 output:
   rmdformats::readthedown:
     thumbnails: false
@@ -10,7 +10,19 @@ output:
 
 ```{r setup, include = FALSE}
 library(tidyverse)
-library(kableExtra) # for example code; delete if not needed
+library(kableExtra) 
+library(janitor)
+library(tidytext)
+library(wordcloud)
+library(textdata)
+library(robotstxt) 
+library(rvest) 
+library(purrr) 
+library(readxl)
+library(readr)
+library(fuzzyjoin)
+library(readxl)
+library(leaflet)
 
 # Set code chunk defaults 
 knitr::opts_chunk$set(echo = FALSE, 
@@ -22,11 +34,233 @@ knitr::opts_chunk$set(echo = FALSE,
 options(knitr.kable.NA = '')
 ```
 
-# Header 1 (Section heading)
+# Introduction
 
-## Header 2 (Subsection heading)
+## Sustainability Report Sentiment Analysis
 
-### Header 3 (Subsubsection heading)
+For the sentiment analysis section of our project, I (Gillian) scraped Amherst College's most recent sustainability report from 2017, which can be accessed [here](https://www.amherst.edu/amherst-story/today/green-amherst/reporting-and-operations/sustainability-reports/report-october-2017) through R code. I needed to be able to convert it into a data frame in R, which is why I scraped it. It is a .txt file with one string which I tokenized into words, removed the stop words, and counted the word frequencies to use in my sentiment analysis. We wanted to examine the sentiments found in this report because it will provide insight on how the college's administration discusses issues surrounding sustainability. 
+
+```{r, message = FALSE}
+#Read in sustainability report
+report <- read_csv("sentimentanalysis/data/amherstsustainabilityreport.txt")
+
+#Stop word data
+data(stop_words)
+
+#Wrangling
+word_frequencies <- report %>%
+  #Tokenize text into words
+  unnest_tokens(output = word, input = x) %>%
+  #Remove stop words
+  anti_join(stop_words, by = "word") %>%
+  #Word frequencies
+  count(word, sort = TRUE) 
+```
+
+First, I created a common words plot that displays the top ten most common words in the report. This plot shows that investment was the most common word in the report, being written 30 times. This is interesting because it shows the institution views investment and money as very important factors when considering sustainability policy. I also created a word cloud that displays words with a minimum frequency of 5 and colors and sizes them from least to most frequent. 
+
+```{r, warning = FALSE}
+#Common words plot
+word_frequencies %>%
+  slice(1:10) %>%
+  ggplot(aes(x = reorder(word, n), y = n, 
+             color = word, fill = word)) +
+  geom_col() +
+  coord_flip() +
+  guides(color = "none", fill = "none") +
+  labs(x = NULL,
+       y = "Number of instances",
+       title = "The Most Common Words in Amherst's Sustainability Report")
+
+#Word Cloud
+mypal <- brewer.pal(10, "Paired")
+
+wordcloud(words = word_frequencies$word, 
+          freq = word_frequencies$n,
+          min.freq = 5,
+          max.words = 50,
+          # plot the words in a random order
+          random.order = TRUE,
+          # specify the range of the size of the words
+          scale = c(2, 0.3),
+          # specify proportion of words with 90 degree rotation
+          rot.per = 0.15,
+          # colors words from least to most frequent
+          colors = mypal,
+          # font family
+          family = "sans")
+```
+
+Next, I examined three different Lexicons to try and summarize the sentiments in the report. 
+
+```{r, fig.height = 6}
+#NRC Lexicon
+nrc_lexicon <- get_sentiments("nrc")
+
+nrc_lexicon_formatted <- inner_join(nrc_lexicon, word_frequencies, by = c("word" = "word"))
+
+nrc_graphic <- nrc_lexicon_formatted %>%
+  filter(sentiment %in% c("anger", "anticipation", "disgust", "sadness", "fear", "joy", "surprise", "trust")) %>%
+  group_by(sentiment) %>%
+  arrange(desc(n)) %>%
+  slice(1:10) %>%
+  ungroup()
+
+nrc_graphic %>%
+  ggplot(aes(x = reorder(word, n), y = n, 
+             fill = sentiment)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  facet_wrap(~ sentiment, ncol = 2, scales = "free") +
+  labs(x = NULL,
+       y = "Contribution to sentiment",
+       title = "The most common sentiments in Amherst's Sustainability Report, NRC")
+```
+
+```{r, fig.width = 10}
+#AFINN Lexicon
+afinn_lexicon <- get_sentiments("afinn")
+
+afinn_lexicon_formatted <- inner_join(afinn_lexicon, word_frequencies, by = c("word" = "word"))
+
+ggplot(afinn_lexicon_formatted, aes(x = word, y = value, fill = n)) +
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  labs(x = NULL,
+       y = "Contribution to sentiment",
+       title = "The most common sentiments in Amherst's Sustainability Report, AFINN") +
+        guides(fill = guide_legend(title = "Frequency"))
+```
+
+```{r, fig.width = 10}
+#BING Lexicon
+bing_words <- word_frequencies %>%
+  inner_join(get_sentiments("bing")) %>%
+  ungroup() 
+
+ggplot(bing_words, aes(x = word, y = n)) +
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  facet_wrap(vars(sentiment), scales = 'free_x') +
+  labs(x = NULL,
+       y = "Contribution to sentiment",
+       title = "The most common sentiments in Amherst's Sustainability Report, BING") 
+```
+
+## Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
+
+```{r}
+#url for dataset
+Top30_url <- "https://www.epa.gov/greenpower/green-power-partnership-top-30-college-university"
+#Confirm bots allowed to access page
+paths_allowed(Top30_url)
+#get data
+Top30_data <- Top30_url %>%
+  read_html() %>%
+  html_elements("table") %>%
+  pluck(1) %>%
+  html_table
+
+#Print table
+
+Top30_data <- Top30_data %>%
+  janitor::clean_names()
+
+# Top30_text <- Top30_url %>%
+#   read_html() %>%
+#   html_elements("#listing") %>%
+#   html_text()
+
+#reading in sustainability data
+Institutions <- read_csv("data/Institutions.csv")
+Tuition <- read_csv("data/Tuition Costs for Common Institutions.csv")
+Degrees_by_County <- read_csv("data/Degrees Awarded by County.csv")
+Growth_by_County <-  read_csv("data/Growth in Awarded Degrees.csv")
+colleges <- read_csv("data/ipeds_directory_info.csv") %>%
+  janitor::clean_names() %>%
+  rename("institution" = "institution_name")
+
+#working on making a map based on my data
+
+#Getting college data
+
+joined_uni <- left_join(Tuition, Institutions, by = c("ID University", "Year"))
+
+View(joined_uni)
+sum(is.na(joined_uni))
+
+#cleaning up joined_uni data so only have information I need
+clean_joined_uni <- joined_uni %>%
+  janitor::clean_names() %>%
+  select(id_university, university_x, year, state_tuition, total_graduates, out_of_state_tuition, sector, completions) %>%
+rename("institution" = "university_x") 
+fuzzy_uni <- stringdist_left_join(clean_joined_uni, colleges, by = "institution")
+# fuzzy_uni %>%
+#   filter(is.na(state)) %>%
+#   distinct(institution.x)
+# sum(is.na(fuzzy_uni$state))
+
+uni_map <- fuzzy_uni %>%
+  filter(!institution.x %in% c("Jefferson (Philadelphia University + Thomas Jefferson University)", "Messiah University", "Lyndon State College"))
+
+#importing class size data
+Summary_Tables <- read_excel("data/Summary Tables.xlsx")
+Summary_Tables <- Summary_Tables[-c(1:4),] %>%
+  janitor::clean_names() %>%
+  rename("institution" = "x2", "id_university" = "national_center_for_education_statistics",
+         "enrollment_type" = "x3",
+         "total_enrollment" = "x4")
+  
+enrollment <- Summary_Tables %>%
+  select(institution, id_university, enrollment_type, total_enrollment) %>%
+  #just want the undergrad
+  filter(enrollment_type == "Undergraduate Enrollment", !total_enrollment == "-") %>% 
+  mutate(id_university = parse_double(id_university),
+         total_enrollment = parse_double(total_enrollment))
+
+enroll_map <- left_join(uni_map, enrollment, by = "id_university") %>%
+  mutate(percentdegree = (completions/total_enrollment)*100)
+
+#making map
+enroll_map <- enroll_map %>%
+mutate(size = case_when(out_of_state_tuition <= 20000 ~ 1,
+                 (out_of_state_tuition > 20000) & (out_of_state_tuition <= 40000) ~ 2,
+                 out_of_state_tuition > 40000 ~ 3)) %>%
+  filter(!is.na(size))
+
+# sum(is.na(uni_map$size))
+pal <- colorFactor(
+  palette = 'Dark2',
+  domain = enroll_map$percentdegree
+)
+
+leaflet(data = enroll_map) %>% 
+  addTiles() %>%
+  addCircleMarkers(lat = ~latitude_location_of_institution_hd2019, lng = ~longitude_location_of_institution_hd2019, popup = ~ paste0("Institution: ", institution.x, "\nOut of state tuition: $", out_of_state_tuition), weight = 1,  color=~pal(percentdegree), radius = ~size)
+
+# hist(uni_map$out_of_state_tuition)
+#changing the radius of the different circles
+  
+#working on the county map
+county_growth <- Growth_by_County %>%
+  janitor::clean_names()
+  county_growth <- county_growth %>%
+  separate(id_county, into = c("test", "fips"), sep = "US") %>%
+    select(fips, county, year, completions_growth)
+county_degrees <- Degrees_by_County %>%
+   janitor::clean_names()
+  county_degrees <- county_degrees %>%
+  separate(id_county, into = c("test", "fips"), sep = "US") %>%
+    select(fips, county, year, completions)
+#joinign datasets
+county_data <- left_join(county_growth,county_degrees, by = c("fips", "year"))  
+#leaflet dynamic
+#tigris shapefiles and fips code
+
+
+```
+
+## Header 3 (Subsubsection heading)
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For example, you can include **Bold** and _Italic_ and `Code` text.  For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
