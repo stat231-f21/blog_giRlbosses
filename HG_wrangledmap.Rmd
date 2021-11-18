@@ -85,12 +85,12 @@ uni_map <- fuzzy_uni %>%
 
 
 #importing class size data
-Summary_Tables <- read_excel("~/Documents/COLLEGE/Summary Tables.xlsx")
+Summary_Tables <- read_excel("data/Summary Tables.xlsx")
 Summary_Tables <- Summary_Tables[-c(1:4),] %>%
   janitor::clean_names() %>%
   rename("institution" = "x2", "id_university" = "national_center_for_education_statistics",
          "enrollment_type" = "x3",
-         "total_enrollment" = "x4") %>%
+         "total_enrollment" = "x4") 
   
 enrollment <- Summary_Tables %>%
   select(institution, id_university, enrollment_type, total_enrollment) %>%
