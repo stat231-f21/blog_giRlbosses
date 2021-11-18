@@ -149,7 +149,7 @@ ggplot(bing_words, aes(x = word, y = n)) +
 
 ## Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
 
-```{r}
+```{r, message = FALSE}
 #url for dataset
 Top30_url <- "https://www.epa.gov/greenpower/green-power-partnership-top-30-college-university"
 #Confirm bots allowed to access page
