@@ -91,7 +91,7 @@ wordcloud(words = word_frequencies$word,
           family = "sans")
 ```
 
-Next, I examined three different Lexicons to try and summarize the sentiments in the report. 
+Next, I examined three different lexicons to try and summarize the sentiments in the report. First is the NRC Lexicon which categorizes words by emotions. I created a visualization that displays all of the emotions sorted with the lexicon and the words with the highest contribution to those sentiments. Some notable aspects from this visualization include that the fear emotion included the word change 10 times and the trust and joy emotions included a large variety of words while emotions like sadness and disgust had many less words. This provides some context about how Amherst talks about sustainability coming more from a positive place with change rather than a place of fear or distrust.
 
 ```{r, fig.height = 6}
 #NRC Lexicon
@@ -117,6 +117,8 @@ nrc_graphic %>%
        title = "The most common sentiments in Amherst's Sustainability Report, NRC")
 ```
 
+Next, I created a visualization with the AFINN lexicon which looks at negative versus positive words with an integer between 5 and -5. The highest integer on this visualization is 3 with the word sucessful. However, the overall trend shows words with positive integers (positive words) with values between 1 and 2. Therefore, Amherst is talking about sustainability with generally slightly positive terms and very few negative terms. 
+
 ```{r, fig.width = 10}
 #AFINN Lexicon
 afinn_lexicon <- get_sentiments("afinn")
@@ -132,6 +134,8 @@ ggplot(afinn_lexicon_formatted, aes(x = word, y = value, fill = n)) +
         guides(fill = guide_legend(title = "Frequency"))
 ```
 
+Lastly, I looked at the BING Lexicon which just sorts words into negative or positive and created a visualization that shows the negative and positive words with their frequency. Again, you can see that there are many more positive words than negative words and that the positive words seem to have higher frequencies, with the word sustainability having the highest frequency.
+
 ```{r, fig.width = 10}
 #BING Lexicon
 bing_words <- word_frequencies %>%
@@ -146,6 +150,7 @@ ggplot(bing_words, aes(x = word, y = n)) +
        y = "Contribution to sentiment",
        title = "The most common sentiments in Amherst's Sustainability Report, BING") 
 ```
+The overall conclusion I drew from my sentiment analysis is that Amherst talks about sustainability from an overall positive viewpoint and tries to limit its use of negative words. There are some limitations to this conclusion. First, I only used the sustainability report Amherst published in 2017. Therefore, this is a very limited view into Amherst College's sentiments surrounding sustainability and is outdated, however, there is not a more recent report. Therefore, the population this can be applied to is very limited and the results can not be generalized beyond Amherst College within the last few years. Although the scope of this analysis is small, it is purposeful to pinpoint how the institution of our own college has recently talked about the issue of sustainability. This analysis could be extended by including all past reports, or broadening the scope to include other colleges. 
 
 ## Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
 
