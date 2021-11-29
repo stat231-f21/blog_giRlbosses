@@ -262,7 +262,7 @@ To investigate the spatial distribution of percent degrees awarded, we created a
 #creating scatterplot to investigate relationship between percent sustainability and the in state tuition
 
 ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), x = out_of_state_tuition)) +
-  geom_point(aes(color = institution.x)) + theme(legend.position = "none") 
+  geom_point(aes(color = institution.x)) + theme(legend.position = "none") + ggtitle("Transformed percent Sustainability Studies completions\ncompared to out of state tuition in ten thousands of dollars") + xlab("Out of State Tuition (ten thousands of dollars)") + ylab ("Percent Sustainability Studies degree completions")
 
 ```
 We then wanted to explore the relationship between the school's prioritization of Sustainability Studies and the out of state tuition. Percent completions of the Sustainability Studies degree were transformed in order to visualize the relationship. There appears to be no relationship between the percent completions and the tuition, although we can see a slight upwards trend in the percent completions with the out of state tuition. This could suggest that schools with higher tuition could have the finances to expand their degree options to Sustainability Studies, which would most likely be a newer discipline.
@@ -299,9 +299,9 @@ enroll2019 <- enroll_map %>%
   select(institution.x, year, percentdegree)
 
 #make sure to adjust the size: want x axis to about 1.5 times the y axis 
-anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + geom_density(col = "black",fill = "blue") + transition_time(year) + shadow_mark(alpha = .3) + ease_aes("linear") +
+anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + geom_density(col = "black",fill = "blue") + ggtitle("{frame_time}") + transition_time(year) + shadow_mark(alpha = .3) + ease_aes("linear") +
   enter_fade() +
-  exit_fade()
+  exit_fade() 
 animate(anim_plot, width = 700, height = 450)
 
 ```
