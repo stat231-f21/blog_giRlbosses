@@ -155,26 +155,25 @@ The overall conclusion I drew from my sentiment analysis is that Amherst talks a
 ## Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
 
 ```{r, message = FALSE}
-#url for dataset
-Top30_url <- "https://www.epa.gov/greenpower/green-power-partnership-top-30-college-university"
-#Confirm bots allowed to access page
-paths_allowed(Top30_url)
-#get data
-Top30_data <- Top30_url %>%
-  read_html() %>%
-  html_elements("table") %>%
-  pluck(1) %>%
-  html_table
+#Data wrangling for top 30 sustainable colleges data
+library(tidyverse)
+library(robotstxt) 
+library(rvest) 
+library(purrr) 
+library(readxl)
+library(readr)
+library(fuzzyjoin)
+library(readxl)
+library(leaflet)
+library(gganimate)
+library(transformr)
+library(gifski)
+library(png)
+#trying to read in my excel sheet
 
-#Print table
+Top30 <- read_excel("data/Top30.xlsx")
 
-Top30_data <- Top30_data %>%
-  janitor::clean_names()
-
-# Top30_text <- Top30_url %>%
-#   read_html() %>%
-#   html_elements("#listing") %>%
-#   html_text()
+#Can make a table of the top 30 schools using these different measurements
 
 #reading in sustainability data
 Institutions <- read_csv("data/Institutions.csv")
@@ -208,13 +207,16 @@ fuzzy_uni <- stringdist_left_join(clean_joined_uni, colleges, by = "institution"
 uni_map <- fuzzy_uni %>%
   filter(!institution.x %in% c("Jefferson (Philadelphia University + Thomas Jefferson University)", "Messiah University", "Lyndon State College"))
 
+
+
+
 #importing class size data
 Summary_Tables <- read_excel("data/Summary Tables.xlsx")
 Summary_Tables <- Summary_Tables[-c(1:4),] %>%
   janitor::clean_names() %>%
   rename("institution" = "x2", "id_university" = "national_center_for_education_statistics",
          "enrollment_type" = "x3",
-         "total_enrollment" = "x4")
+         "total_enrollment" = "x4") 
   
 enrollment <- Summary_Tables %>%
   select(institution, id_university, enrollment_type, total_enrollment) %>%
@@ -224,25 +226,81 @@ enrollment <- Summary_Tables %>%
          total_enrollment = parse_double(total_enrollment))
 
 enroll_map <- left_join(uni_map, enrollment, by = "id_university") %>%
-  mutate(percentdegree = (completions/total_enrollment)*100)
+  mutate(percentdegree = (completions/(total_enrollment/4)*100))
 
 #making map
 enroll_map <- enroll_map %>%
 mutate(size = case_when(out_of_state_tuition <= 20000 ~ 1,
                  (out_of_state_tuition > 20000) & (out_of_state_tuition <= 40000) ~ 2,
                  out_of_state_tuition > 40000 ~ 3)) %>%
-  filter(!is.na(size))
+  filter(!is.na(size)) %>%
+  filter(!is.na(percentdegree))
 
+max(enroll_map$percentdegree)
+min(enroll_map$percentdegree)
 # sum(is.na(uni_map$size))
-pal <- colorFactor(
+pal <- colorBin(
   palette = 'Dark2',
-  domain = enroll_map$percentdegree
+  domain = enroll_map$percentdegree,
+  bins = c(0, .1, .3, .6, .9, 1.1, 1.5, 2, 2.5, 5, 6, 10, 20, 30)
 )
 
 leaflet(data = enroll_map) %>% 
   addTiles() %>%
-  addCircleMarkers(lat = ~latitude_location_of_institution_hd2019, lng = ~longitude_location_of_institution_hd2019, popup = ~ paste0("Institution: ", institution.x, "\nOut of state tuition: $", out_of_state_tuition), weight = 1,  color=~pal(percentdegree), radius = ~size)
+  addCircleMarkers(lat = ~latitude_location_of_institution_hd2019, lng = ~longitude_location_of_institution_hd2019, popup = ~ paste0("Institution: ", institution.x, "\nOut of state tuition: $", out_of_state_tuition), weight = 1,  color=~pal(percentdegree), radius = ~out_of_state_tuition/10000) %>%
+  addLegend("bottomright", pal = pal, values = ~percentdegree,
+    title = "Percent sustainability degree",
+    labFormat = labelFormat(suffix = "%"),
+    opacity = 1
+  )
+#creating scatterplot to investigate relationship between percent sustainability and the in state tuition
 
+ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), x = out_of_state_tuition)) +
+  geom_point(aes(color = institution.x)) + theme(legend.position = "none") 
+
+#dynamic histogram to see if the percent sustainability degrees differ over time
+#gganimate
+#first create different datasets for the different years
+enroll2013 <- enroll_map %>%
+  filter(year == "2013") %>%
+  select(institution.x, year, percentdegree)
+
+enroll2014 <- enroll_map %>%
+  filter(year == "2014") %>%
+  select(institution.x, year, percentdegree)
+
+enroll2015 <- enroll_map %>%
+  filter(year == "2015") %>%
+  select(institution.x, year, percentdegree)
+
+enroll2016 <- enroll_map %>%
+  filter(year == "2016") %>%
+  select(institution.x, year, percentdegree)
+
+enroll2017 <- enroll_map %>%
+  filter(year == "2017") %>%
+  select(institution.x, year, percentdegree)
+
+enroll2018 <- enroll_map %>%
+  filter(year == "2018") %>%
+  select(institution.x, year, percentdegree)
+
+enroll2019 <- enroll_map %>%
+  filter(year == "2019") %>%
+  select(institution.x, year, percentdegree)
+
+#make sure to adjust the size: want x axis to about 1.5 times the y axis 
+anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + geom_density(col = "black",fill = "blue") + transition_time(year) + shadow_mark(alpha = .3) + ease_aes("linear") +
+  enter_fade() +
+  exit_fade()
+animate(anim_plot, width = 700, height = 450)
+
+
+# animate(anim_plot, fps = 10, width = 750, height = 450)
+# anim_save("nations.gif")
+# anim_plot %>%
+#   anim_save("animation.mp4")
+#transition state
 # hist(uni_map$out_of_state_tuition)
 #changing the radius of the different circles
   
@@ -257,7 +315,7 @@ county_degrees <- Degrees_by_County %>%
   county_degrees <- county_degrees %>%
   separate(id_county, into = c("test", "fips"), sep = "US") %>%
     select(fips, county, year, completions)
-#joinign datasets
+#joining datasets
 county_data <- left_join(county_growth,county_degrees, by = c("fips", "year"))  
 #leaflet dynamic
 #tigris shapefiles and fips code
