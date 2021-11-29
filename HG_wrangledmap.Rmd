@@ -117,7 +117,14 @@ pal <- colorFactor(
 
 leaflet(data = enroll_map) %>% 
   addTiles() %>%
-  addCircleMarkers(lat = ~latitude_location_of_institution_hd2019, lng = ~longitude_location_of_institution_hd2019, popup = ~ paste0("Institution: ", institution.x, "\nOut of state tuition: $", out_of_state_tuition), weight = 1,  color=~pal(percentdegree), radius = ~size)
+  addCircleMarkers(lat = ~latitude_location_of_institution_hd2019, lng = ~longitude_location_of_institution_hd2019, popup = ~ paste0("Institution: ", institution.x, "\nOut of state tuition: $", out_of_state_tuition), weight = 1,  color=~pal(percentdegree), radius = ~size) %>%
+  addLegend("bottomright", pal = pal, values = ~percentdegree,
+    title = "Percent sustainability degree",
+    labFormat = labelFormat(suffix = "%"),
+    opacity = 1
+  )
+#creating scatterplot to investigate relationship between percent sustainability and the in state tuition
+
 
 # hist(uni_map$out_of_state_tuition)
 #changing the radius of the different circles
@@ -141,7 +148,7 @@ county_degrees <- Degrees_by_County %>%
   county_degrees <- county_degrees %>%
   separate(id_county, into = c("test", "fips"), sep = "US") %>%
     select(fips, county, year, completions)
-#joinign datasets
+#joining datasets
 county_data <- left_join(county_growth,county_degrees, by = c("fips", "year"))  
 #leaflet dynamic
 #tigris shapefiles and fips code
