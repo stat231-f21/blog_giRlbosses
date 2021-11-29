@@ -26,21 +26,23 @@ library(readxl)
 library(leaflet)
 library(gganimate)
 library(transformr)
+library(gifski)
+library(png)
 #url for dataset
-Top30_url <- "https://www.epa.gov/sites/default/files/2019-10/documents/top30candu_july2019.pdf"
-#Confirm bots allowed to access page
-paths_allowed(Top30_url)
-#get data
-Top30_data <- Top30_url %>%
-  read_html() %>%
-  html_elements("table") %>%
-  pluck(1) %>%
-  html_table
+# Top30_url <- "https://www.epa.gov/sites/default/files/2019-10/documents/top30candu_july2019.pdf"
+# #Confirm bots allowed to access page
+# paths_allowed(Top30_url)
+# #get data
+# Top30_data <- Top30_url %>%
+#   read_html() %>%
+#   html_elements("table") %>%
+#   pluck(1) %>%
+#   html_table
 
 #Print table
 
-Top30_data <- Top30_data %>%
-  janitor::clean_names()
+# Top30_data <- Top30_data %>%
+#   janitor::clean_names()
 
 # Top30_text <- Top30_url %>%
 #   read_html() %>%
@@ -167,15 +169,17 @@ enroll2019 <- enroll_map %>%
   filter(year == "2019") %>%
   select(institution.x, year, percentdegree)
 
-anim_plot <- ggplot(enroll_map, aes(percentdegree)) + geom_density(col = "black",fill = "blue") + transition_time(year) + shadow_mark(alpha = .3) + ease_aes("linear") +
+#make sure to adjust the size: want x axis to about 1.5 times the y axis 
+anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + geom_density(col = "black",fill = "blue") + transition_time(year) + shadow_mark(alpha = .3) + ease_aes("linear") +
   enter_fade() +
   exit_fade()
-animate(anim_plot)
+animate(anim_plot, width = 700, height = 450)
 
-animate(anim_plot, fps = 10, width = 750, height = 450)
-anim_save("nations.gif")
-anim_plot %>%
-  anim_save("animation.mp4")
+
+# animate(anim_plot, fps = 10, width = 750, height = 450)
+# anim_save("nations.gif")
+# anim_plot %>%
+#   anim_save("animation.mp4")
 #transition state
 # hist(uni_map$out_of_state_tuition)
 #changing the radius of the different circles
