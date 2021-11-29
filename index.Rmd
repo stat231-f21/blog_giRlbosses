@@ -208,8 +208,6 @@ uni_map <- fuzzy_uni %>%
   filter(!institution.x %in% c("Jefferson (Philadelphia University + Thomas Jefferson University)", "Messiah University", "Lyndon State College"))
 
 
-
-
 #importing class size data
 Summary_Tables <- read_excel("data/Summary Tables.xlsx")
 Summary_Tables <- Summary_Tables[-c(1:4),] %>%
@@ -247,17 +245,28 @@ pal <- colorBin(
 
 leaflet(data = enroll_map) %>% 
   addTiles() %>%
-  addCircleMarkers(lat = ~latitude_location_of_institution_hd2019, lng = ~longitude_location_of_institution_hd2019, popup = ~ paste0("Institution: ", institution.x, "\nOut of state tuition: $", out_of_state_tuition), weight = 1,  color=~pal(percentdegree), radius = ~out_of_state_tuition/10000) %>%
+  addCircleMarkers(lat = ~latitude_location_of_institution_hd2019, lng = ~longitude_location_of_institution_hd2019, popup = ~ paste0("Institution: ", institution.x, " Percent degree completions: ", percentdegree, "%", "\nOut of state tuition: $", out_of_state_tuition), weight = 1,  color=~pal(percentdegree), radius = ~out_of_state_tuition/10000) %>%
   addLegend("bottomright", pal = pal, values = ~percentdegree,
     title = "Percent sustainability degree",
     labFormat = labelFormat(suffix = "%"),
     opacity = 1
   )
+
+
+```
+We also wanted to visualize how different universities across the United States prioritize educating their students on sustainability-related disciplines. Therefore, we used data collected by datausa on the amount of Sustainability Studies degrees awarded to students across institutions between 2013-2019 with 1014 total measurements of Sustainability Studies completions across these years. In order to consider differing sizes of the undergraduate class across institutions, these degree completions were divided by the 1/4 the number of undergraduate students during Fall 2020 from the National Center for Education Statistics and multiplied by 100 to calculate the percent of Sustainability Studies degrees awarded for each graduating year. Latitude and Longitude data was collected using the `colleges` dataset. 
+
+To investigate the spatial distribution of percent degrees awarded, we created an interactive map with the color of the points indicating the percent of all graduating undergraduate students that were awarded the Sustainability Studies degree. The sizes of the points are scaled by the in state tuition. This plot allows the user to zoom into different colleges to geographically visualize percent degrees awarded and the out of state tuition. 
+
+```{r, message = FALSE}
 #creating scatterplot to investigate relationship between percent sustainability and the in state tuition
 
 ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), x = out_of_state_tuition)) +
   geom_point(aes(color = institution.x)) + theme(legend.position = "none") 
 
+```
+We then wanted to explore the relationship between the school's prioritization of Sustainability Studies and the out of state tuition. Percent completions of the Sustainability Studies degree were transformed in order to visualize the relationship. There appears to be no relationship between the percent completions and the tuition, although we can see a slight upwards trend in the percent completions with the out of state tuition. This could suggest that schools with higher tuition could have the finances to expand their degree options to Sustainability Studies, which would most likely be a newer discipline.
+```{r, message = FALSE}
 #dynamic histogram to see if the percent sustainability degrees differ over time
 #gganimate
 #first create different datasets for the different years
@@ -295,7 +304,10 @@ anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + geom_density
   exit_fade()
 animate(anim_plot, width = 700, height = 450)
 
+```
+We also wanted to investigate the trend of Sustainability Studies degrees awarded as a proxy of institutions' changing prioritization of educating their students on sustainability. Between 2013 and 2019 there appears to be first an increase in the number of schools which documented Sustainability Studies completions, which is most likely because there are less data for 2013 than the other years. Notably, however, the density plot shifts to higher percentages of completitions from 2013-2019, which could suggest that institutions are starting to prioritize educating their students on Sustainability-related topics.
 
+```{r, message = FALSE}
 # animate(anim_plot, fps = 10, width = 750, height = 450)
 # anim_save("nations.gif")
 # anim_plot %>%
