@@ -6,7 +6,7 @@ output:
   rmdformats::readthedown:
     thumbnails: false
     highlight: "kate"
-runtime: shiny
+    self_contained: false
 ---
 
 ```{r setup, include = FALSE}
@@ -165,178 +165,178 @@ ggplot(bing_words, aes(x = word, y = n)) +
 ```
 The overall conclusion I drew from my sentiment analysis is that Amherst talks about sustainability from an overall positive viewpoint and tries to limit its use of negative words. There are some limitations to this conclusion. First, I only used the sustainability report Amherst published in 2017. Therefore, this is a very limited view into Amherst College's sentiments surrounding sustainability and is outdated, however, there is not a more recent report. Therefore, the population this can be applied to is very limited and the results can not be generalized beyond Amherst College within the last few years. Although the scope of this analysis is small, it is purposeful to pinpoint how the institution of our own college has recently talked about the issue of sustainability. This analysis could be extended by including all past reports, or broadening the scope to include other colleges. 
 
-## Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
+<!-- ## Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability -->
 
-```{r, message = FALSE}
-#Data wrangling for top 30 sustainable colleges data
+<!-- ```{r, message = FALSE} -->
+<!-- #Data wrangling for top 30 sustainable colleges data -->
 
-#trying to read in my excel sheet
+<!-- #trying to read in my excel sheet -->
 
-Top30 <- read_excel("data/Top30.xlsx")
+<!-- Top30 <- read_excel("data/Top30.xlsx") -->
 
-#Can make a table of the top 30 schools using these different measurements
+<!-- #Can make a table of the top 30 schools using these different measurements -->
 
-#reading in sustainability data
-Institutions <- read_csv("data/Institutions.csv")
-Tuition <- read_csv("data/Tuition Costs for Common Institutions.csv")
-Degrees_by_County <- read_csv("data/Degrees Awarded by County.csv")
-Growth_by_County <-  read_csv("data/Growth in Awarded Degrees.csv")
-colleges <- read_csv("data/ipeds_directory_info.csv") %>%
-  janitor::clean_names() %>%
-  rename("institution" = "institution_name")
+<!-- #reading in sustainability data -->
+<!-- Institutions <- read_csv("data/Institutions.csv") -->
+<!-- Tuition <- read_csv("data/Tuition Costs for Common Institutions.csv") -->
+<!-- Degrees_by_County <- read_csv("data/Degrees Awarded by County.csv") -->
+<!-- Growth_by_County <-  read_csv("data/Growth in Awarded Degrees.csv") -->
+<!-- colleges <- read_csv("data/ipeds_directory_info.csv") %>% -->
+<!--   janitor::clean_names() %>% -->
+<!--   rename("institution" = "institution_name") -->
 
-#working on making a map based on my data
+<!-- #working on making a map based on my data -->
 
-#Getting college data
+<!-- #Getting college data -->
 
-joined_uni <- left_join(Tuition, Institutions, by = c("ID University", "Year"))
+<!-- joined_uni <- left_join(Tuition, Institutions, by = c("ID University", "Year")) -->
 
-View(joined_uni)
-sum(is.na(joined_uni))
+<!-- View(joined_uni) -->
+<!-- sum(is.na(joined_uni)) -->
 
-#cleaning up joined_uni data so only have information I need
-clean_joined_uni <- joined_uni %>%
-  janitor::clean_names() %>%
-  select(id_university, university_x, year, state_tuition, total_graduates, out_of_state_tuition, sector, completions) %>%
-rename("institution" = "university_x")
-fuzzy_uni <- stringdist_left_join(clean_joined_uni, colleges, by = "institution")
-# fuzzy_uni %>%
-#   filter(is.na(state)) %>%
-#   distinct(institution.x)
-# sum(is.na(fuzzy_uni$state))
+<!-- #cleaning up joined_uni data so only have information I need -->
+<!-- clean_joined_uni <- joined_uni %>% -->
+<!--   janitor::clean_names() %>% -->
+<!--   select(id_university, university_x, year, state_tuition, total_graduates, out_of_state_tuition, sector, completions) %>% -->
+<!-- rename("institution" = "university_x") -->
+<!-- fuzzy_uni <- stringdist_left_join(clean_joined_uni, colleges, by = "institution") -->
+<!-- # fuzzy_uni %>% -->
+<!-- #   filter(is.na(state)) %>% -->
+<!-- #   distinct(institution.x) -->
+<!-- # sum(is.na(fuzzy_uni$state)) -->
 
-uni_map <- fuzzy_uni %>%
-  filter(!institution.x %in% c("Jefferson (Philadelphia University + Thomas Jefferson University)", "Messiah University", "Lyndon State College"))
-
-
-#importing class size data
-Summary_Tables <- read_excel("data/Summary Tables.xlsx")
-Summary_Tables <- Summary_Tables[-c(1:4),] %>%
-  janitor::clean_names() %>%
-  rename("institution" = "x2", "id_university" = "national_center_for_education_statistics",
-         "enrollment_type" = "x3",
-         "total_enrollment" = "x4")
-
-enrollment <- Summary_Tables %>%
-  select(institution, id_university, enrollment_type, total_enrollment) %>%
-  #just want the undergrad
-  filter(enrollment_type == "Undergraduate Enrollment", !total_enrollment == "-") %>%
-  mutate(id_university = parse_double(id_university),
-         total_enrollment = parse_double(total_enrollment))
-
-enroll_map <- left_join(uni_map, enrollment, by = "id_university") %>%
-  mutate(percentdegree = (completions/(total_enrollment/4)*100))
-
-#making map
-enroll_map <- enroll_map %>%
-mutate(size = case_when(out_of_state_tuition <= 20000 ~ 1,
-                 (out_of_state_tuition > 20000) & (out_of_state_tuition <= 40000) ~ 2,
-                 out_of_state_tuition > 40000 ~ 3)) %>%
-  filter(!is.na(size)) %>%
-  filter(!is.na(percentdegree))
-
-max(enroll_map$percentdegree)
-min(enroll_map$percentdegree)
-# sum(is.na(uni_map$size))
-pal <- colorBin(
-  palette = 'Dark2',
-  domain = enroll_map$percentdegree,
-  bins = c(0, .1, .3, .6, .9, 1.1, 1.5, 2, 2.5, 5, 6, 10, 20, 30)
-)
-
-leaflet(data = enroll_map) %>%
-  addTiles() %>%
-  addCircleMarkers(lat = ~latitude_location_of_institution_hd2019, lng = ~longitude_location_of_institution_hd2019, popup = ~ paste0("Institution: ", institution.x, " Percent degree completions: ", percentdegree, "%", "\nOut of state tuition: $", out_of_state_tuition), weight = 1,  color=~pal(percentdegree), radius = ~out_of_state_tuition/10000) %>%
-  addLegend("bottomright", pal = pal, values = ~percentdegree,
-    title = "Percent sustainability degree",
-    labFormat = labelFormat(suffix = "%"),
-    opacity = 1
-  )
-```
-We also wanted to visualize how different universities across the United States prioritize educating their students on sustainability-related disciplines. Therefore, we used data collected by datausa on the amount of Sustainability Studies degrees awarded to students across institutions between 2013-2019 with 1014 total measurements of Sustainability Studies completions across these years. In order to consider differing sizes of the undergraduate class across institutions, these degree completions were divided by the 1/4 the number of undergraduate students during Fall 2020 from the National Center for Education Statistics and multiplied by 100 to calculate the percent of Sustainability Studies degrees awarded for each graduating year. Latitude and Longitude data was collected using the `colleges` dataset.
-
-To investigate the spatial distribution of percent degrees awarded, we created an interactive map with the color of the points indicating the percent of all graduating undergraduate students that were awarded the Sustainability Studies degree. The sizes of the points are scaled by the in state tuition. This plot allows the user to zoom into different colleges to geographically visualize percent degrees awarded and the out of state tuition.
-
-```{r, message = FALSE}
-#creating scatterplot to investigate relationship between percent sustainability and the in state tuition
-
-ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), x = out_of_state_tuition)) +
-  geom_point(aes(color = institution.x)) + theme(legend.position = "none") + ggtitle("Transformed percent Sustainability Studies completions\ncompared to out of state tuition in ten thousands of dollars") + xlab("Out of State Tuition (ten thousands of dollars)") + ylab ("Percent Sustainability Studies degree completions")
-
-```
-We then wanted to explore the relationship between the school's prioritization of Sustainability Studies and the out of state tuition. Percent completions of the Sustainability Studies degree were transformed in order to visualize the relationship. There appears to be no relationship between the percent completions and the tuition, although we can see a slight upwards trend in the percent completions with the out of state tuition. This could suggest that schools with higher tuition could have the finances to expand their degree options to Sustainability Studies, which would most likely be a newer discipline.
-```{r, message = FALSE}
-#dynamic histogram to see if the percent sustainability degrees differ over time
-#gganimate
-#first create different datasets for the different years
-enroll2013 <- enroll_map %>%
-  filter(year == "2013") %>%
-  select(institution.x, year, percentdegree)
-
-enroll2014 <- enroll_map %>%
-  filter(year == "2014") %>%
-  select(institution.x, year, percentdegree)
-
-enroll2015 <- enroll_map %>%
-  filter(year == "2015") %>%
-  select(institution.x, year, percentdegree)
-
-enroll2016 <- enroll_map %>%
-  filter(year == "2016") %>%
-  select(institution.x, year, percentdegree)
-
-enroll2017 <- enroll_map %>%
-  filter(year == "2017") %>%
-  select(institution.x, year, percentdegree)
-
-enroll2018 <- enroll_map %>%
-  filter(year == "2018") %>%
-  select(institution.x, year, percentdegree)
-
-enroll2019 <- enroll_map %>%
-  filter(year == "2019") %>%
-  select(institution.x, year, percentdegree)
-
-#make sure to adjust the size: want x axis to about 1.5 times the y axis
-anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + geom_density(col = "black",fill = "blue") + ggtitle("{frame_time}") + transition_time(year) + shadow_mark(alpha = .3) + ease_aes("linear") +
-  enter_fade() +
-  exit_fade()
-animate(anim_plot, width = 700, height = 450)
-
-```
-We also wanted to investigate the trend of Sustainability Studies degrees awarded as a proxy of institutions' changing prioritization of educating their students on sustainability. Between 2013 and 2019 there appears to be first an increase in the number of schools which documented Sustainability Studies completions, which is most likely because there are less data for 2013 than the other years. Notably, however, the density plot shifts to higher percentages of completitions from 2013-2019, which could suggest that institutions are starting to prioritize educating their students on Sustainability-related topics.
-
-```{r, message = FALSE}
-# animate(anim_plot, fps = 10, width = 750, height = 450)
-# anim_save("nations.gif")
-# anim_plot %>%
-#   anim_save("animation.mp4")
-#transition state
-# hist(uni_map$out_of_state_tuition)
-#changing the radius of the different circles
-
-#working on the county map
-county_growth <- Growth_by_County %>%
-  janitor::clean_names()
-  county_growth <- county_growth %>%
-  separate(id_county, into = c("test", "fips"), sep = "US") %>%
-    select(fips, county, year, completions_growth)
-county_degrees <- Degrees_by_County %>%
-   janitor::clean_names()
-  county_degrees <- county_degrees %>%
-  separate(id_county, into = c("test", "fips"), sep = "US") %>%
-    select(fips, county, year, completions)
-#joining datasets
-county_data <- left_join(county_growth,county_degrees, by = c("fips", "year"))
-#leaflet dynamic
-#tigris shapefiles and fips code
+<!-- uni_map <- fuzzy_uni %>% -->
+<!--   filter(!institution.x %in% c("Jefferson (Philadelphia University + Thomas Jefferson University)", "Messiah University", "Lyndon State College")) -->
 
 
-```
+<!-- #importing class size data -->
+<!-- Summary_Tables <- read_excel("data/Summary Tables.xlsx") -->
+<!-- Summary_Tables <- Summary_Tables[-c(1:4),] %>% -->
+<!--   janitor::clean_names() %>% -->
+<!--   rename("institution" = "x2", "id_university" = "national_center_for_education_statistics", -->
+<!--          "enrollment_type" = "x3", -->
+<!--          "total_enrollment" = "x4") -->
+
+<!-- enrollment <- Summary_Tables %>% -->
+<!--   select(institution, id_university, enrollment_type, total_enrollment) %>% -->
+<!--   #just want the undergrad -->
+<!--   filter(enrollment_type == "Undergraduate Enrollment", !total_enrollment == "-") %>% -->
+<!--   mutate(id_university = parse_double(id_university), -->
+<!--          total_enrollment = parse_double(total_enrollment)) -->
+
+<!-- enroll_map <- left_join(uni_map, enrollment, by = "id_university") %>% -->
+<!--   mutate(percentdegree = (completions/(total_enrollment/4)*100)) -->
+
+<!-- #making map -->
+<!-- enroll_map <- enroll_map %>% -->
+<!-- mutate(size = case_when(out_of_state_tuition <= 20000 ~ 1, -->
+<!--                  (out_of_state_tuition > 20000) & (out_of_state_tuition <= 40000) ~ 2, -->
+<!--                  out_of_state_tuition > 40000 ~ 3)) %>% -->
+<!--   filter(!is.na(size)) %>% -->
+<!--   filter(!is.na(percentdegree)) -->
+
+<!-- max(enroll_map$percentdegree) -->
+<!-- min(enroll_map$percentdegree) -->
+<!-- # sum(is.na(uni_map$size)) -->
+<!-- pal <- colorBin( -->
+<!--   palette = 'Dark2', -->
+<!--   domain = enroll_map$percentdegree, -->
+<!--   bins = c(0, .1, .3, .6, .9, 1.1, 1.5, 2, 2.5, 5, 6, 10, 20, 30) -->
+<!-- ) -->
+
+<!-- leaflet(data = enroll_map) %>% -->
+<!--   addTiles() %>% -->
+<!--   addCircleMarkers(lat = ~latitude_location_of_institution_hd2019, lng = ~longitude_location_of_institution_hd2019, popup = ~ paste0("Institution: ", institution.x, " Percent degree completions: ", percentdegree, "%", "\nOut of state tuition: $", out_of_state_tuition), weight = 1,  color=~pal(percentdegree), radius = ~out_of_state_tuition/10000) %>% -->
+<!--   addLegend("bottomright", pal = pal, values = ~percentdegree, -->
+<!--     title = "Percent sustainability degree", -->
+<!--     labFormat = labelFormat(suffix = "%"), -->
+<!--     opacity = 1 -->
+<!--   ) -->
+<!-- ``` -->
+<!-- We also wanted to visualize how different universities across the United States prioritize educating their students on sustainability-related disciplines. Therefore, we used data collected by datausa on the amount of Sustainability Studies degrees awarded to students across institutions between 2013-2019 with 1014 total measurements of Sustainability Studies completions across these years. In order to consider differing sizes of the undergraduate class across institutions, these degree completions were divided by the 1/4 the number of undergraduate students during Fall 2020 from the National Center for Education Statistics and multiplied by 100 to calculate the percent of Sustainability Studies degrees awarded for each graduating year. Latitude and Longitude data was collected using the `colleges` dataset. -->
+
+<!-- To investigate the spatial distribution of percent degrees awarded, we created an interactive map with the color of the points indicating the percent of all graduating undergraduate students that were awarded the Sustainability Studies degree. The sizes of the points are scaled by the in state tuition. This plot allows the user to zoom into different colleges to geographically visualize percent degrees awarded and the out of state tuition. -->
+
+<!-- ```{r, message = FALSE} -->
+<!-- #creating scatterplot to investigate relationship between percent sustainability and the in state tuition -->
+
+<!-- ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), x = out_of_state_tuition)) + -->
+<!--   geom_point(aes(color = institution.x)) + theme(legend.position = "none") + ggtitle("Transformed percent Sustainability Studies completions\ncompared to out of state tuition in ten thousands of dollars") + xlab("Out of State Tuition (ten thousands of dollars)") + ylab ("Percent Sustainability Studies degree completions") -->
+
+<!-- ``` -->
+<!-- We then wanted to explore the relationship between the school's prioritization of Sustainability Studies and the out of state tuition. Percent completions of the Sustainability Studies degree were transformed in order to visualize the relationship. There appears to be no relationship between the percent completions and the tuition, although we can see a slight upwards trend in the percent completions with the out of state tuition. This could suggest that schools with higher tuition could have the finances to expand their degree options to Sustainability Studies, which would most likely be a newer discipline. -->
+<!-- ```{r, message = FALSE} -->
+<!-- #dynamic histogram to see if the percent sustainability degrees differ over time -->
+<!-- #gganimate -->
+<!-- #first create different datasets for the different years -->
+<!-- enroll2013 <- enroll_map %>% -->
+<!--   filter(year == "2013") %>% -->
+<!--   select(institution.x, year, percentdegree) -->
+
+<!-- enroll2014 <- enroll_map %>% -->
+<!--   filter(year == "2014") %>% -->
+<!--   select(institution.x, year, percentdegree) -->
+
+<!-- enroll2015 <- enroll_map %>% -->
+<!--   filter(year == "2015") %>% -->
+<!--   select(institution.x, year, percentdegree) -->
+
+<!-- enroll2016 <- enroll_map %>% -->
+<!--   filter(year == "2016") %>% -->
+<!--   select(institution.x, year, percentdegree) -->
+
+<!-- enroll2017 <- enroll_map %>% -->
+<!--   filter(year == "2017") %>% -->
+<!--   select(institution.x, year, percentdegree) -->
+
+<!-- enroll2018 <- enroll_map %>% -->
+<!--   filter(year == "2018") %>% -->
+<!--   select(institution.x, year, percentdegree) -->
+
+<!-- enroll2019 <- enroll_map %>% -->
+<!--   filter(year == "2019") %>% -->
+<!--   select(institution.x, year, percentdegree) -->
+
+<!-- #make sure to adjust the size: want x axis to about 1.5 times the y axis -->
+<!-- anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + geom_density(col = "black",fill = "blue") + ggtitle("{frame_time}") + transition_time(year) + shadow_mark(alpha = .3) + ease_aes("linear") + -->
+<!--   enter_fade() + -->
+<!--   exit_fade() -->
+<!-- animate(anim_plot, width = 700, height = 450) -->
+
+<!-- ``` -->
+<!-- We also wanted to investigate the trend of Sustainability Studies degrees awarded as a proxy of institutions' changing prioritization of educating their students on sustainability. Between 2013 and 2019 there appears to be first an increase in the number of schools which documented Sustainability Studies completions, which is most likely because there are less data for 2013 than the other years. Notably, however, the density plot shifts to higher percentages of completitions from 2013-2019, which could suggest that institutions are starting to prioritize educating their students on Sustainability-related topics. -->
+
+<!-- ```{r, message = FALSE} -->
+<!-- # animate(anim_plot, fps = 10, width = 750, height = 450) -->
+<!-- # anim_save("nations.gif") -->
+<!-- # anim_plot %>% -->
+<!-- #   anim_save("animation.mp4") -->
+<!-- #transition state -->
+<!-- # hist(uni_map$out_of_state_tuition) -->
+<!-- #changing the radius of the different circles -->
+
+<!-- #working on the county map -->
+<!-- county_growth <- Growth_by_County %>% -->
+<!--   janitor::clean_names() -->
+<!--   county_growth <- county_growth %>% -->
+<!--   separate(id_county, into = c("test", "fips"), sep = "US") %>% -->
+<!--     select(fips, county, year, completions_growth) -->
+<!-- county_degrees <- Degrees_by_County %>% -->
+<!--    janitor::clean_names() -->
+<!--   county_degrees <- county_degrees %>% -->
+<!--   separate(id_county, into = c("test", "fips"), sep = "US") %>% -->
+<!--     select(fips, county, year, completions) -->
+<!-- #joining datasets -->
+<!-- county_data <- left_join(county_growth,county_degrees, by = c("fips", "year")) -->
+<!-- #leaflet dynamic -->
+<!-- #tigris shapefiles and fips code -->
+
+
+<!-- ``` -->
 
 ## STARS Interactive Map
 
-```{r, out.width="100%", out.extra='style="border: none;"'}
+```{r, out.width="100%", out.extra='data-external=1; style="border: none;"'}
  knitr::include_app("https://sazhu24.shinyapps.io/shiny-map/", height = "950px")
 ```
 
