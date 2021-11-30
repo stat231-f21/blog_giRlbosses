@@ -162,20 +162,20 @@ ui <- navbarPage(id = "nav",
                 
                 fluidRow(
                   column(width=6, align = "right",
-                         div(style = "margin-top:10px;  font-size: 12px; line-height: 3; text-transform:uppercase;",
+                         div(style = "  font-size: 12px; text-transform:uppercase;",
                             pickerInput(inputId = "score_var",
-                                        label = tags$h5("view score:"),
+                                        label = div("VIEW SCORE:", style="font-size:12px; font-weight:bold; color:black; margin-bottom:10px"),
                                         choices = bar_values,
                                         selected = "total",
                                         options = list(`style` = "btn-info"),
                                         width = "83%"))),
                   
                   column(width=6, align = "left", 
-                         div(style = "margin-top:10px;",
+                         div(style = "",
                              conditionalPanel(
                                condition = "input.score_var == 'total'",
                                pickerInput(inputId = "report2_var",
-                                           label =  tags$h5('report card'),
+                                           label = div("REPORT CARD", style="font-size:12px; font-weight:bold; color:#626663; margin-bottom:10px"),
                                            choices = report_values,
                                            options = list(`style` = "btn-primary",
                                                           "dropupAuto" = FALSE),
@@ -185,32 +185,30 @@ ui <- navbarPage(id = "nav",
                 
                 fluidRow(
                   column(width=12, align = "center", 
-                         div(style = "",
+                         div(style = "margin-top:10px",
                              selectizeInput(inputId = "search_var",
-                                            label = tags$h6("search:"), 
+                                            label = div("SEARCH FOR AN INSTITUTION:", style="font-size:11px; "), 
                                             choices = map$institution,
                                             selected = "Amherst College",
                                             multiple = TRUE,
                                             width = "70%"))
                 )),
-                
+                div(style="font-size:13px;",
                 prettyRadioButtons(inputId = "threshold2", 
                                    label = "", 
                                    status = "danger",
                                    animation = "pulse",
                                    inline = T,
                                    choices = threshold2_values, 
-                                   selected = 100),
+                                   selected = 100)),
                 
-                br(),
-                
-                div(style = "margin-top:0px; font-size:17px; text-transform:uppercase; color:#3e84bd", textOutput("title_var3")),
+                div(style = "margin-top:30px; font-size:17px; text-transform:uppercase; color:#3e84bd; line-height:1", textOutput("title_var3")),
                 
                 fluidRow(
-                  column(3, align = "left",  div(style = "font-size:11px; text-transform:uppercase; margin-bottom: -200px; margin-right: 30px; margin-top: 130px; transform: rotate(-90deg)", htmlOutput("message"))),
+                  column(3, align = "left",  div(style = "font-size:11px; text-transform:uppercase; margin-bottom: -200px; margin-right: 35px; margin-top: 130px; transform: rotate(-90deg)", htmlOutput("message"))),
                   column(11, align = "right", div(style = "margin-left:12%; margin-right: -8%;  z-index: 2", plotOutput(outputId = "schools_bar")))
                 ),
-                div(style = "font-align: center; margin-left:12%; font-size:11px; text-transform:uppercase; margin-top: 0px; margin-bottom: 130px; margin-right: 10%", p("Percentile of Reporting Institutions"))
+                div(style = "font-align: center; margin-left:12%; font-size:11px; text-transform:uppercase; margin-top: 2px; margin-bottom: 130px; margin-right: 10%", p("Percentile of Reporting Institutions"))
                   
                 
                 
