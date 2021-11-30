@@ -101,7 +101,14 @@ nrc_lexicon <- get_sentiments("nrc")
 nrc_lexicon_formatted <- inner_join(nrc_lexicon, word_frequencies, by = c("word" = "word"))
 
 nrc_graphic <- nrc_lexicon_formatted %>%
-  filter(sentiment %in% c("anger", "anticipation", "disgust", "sadness", "fear", "joy", "surprise", "trust")) %>%
+  filter(sentiment %in% c("anger", 
+                          "anticipation", 
+                          "disgust", 
+                          "sadness", 
+                          "fear", 
+                          "joy", 
+                          "surprise", 
+                          "trust")) %>%
   group_by(sentiment) %>%
   arrange(desc(n)) %>%
   slice(1:10) %>%
