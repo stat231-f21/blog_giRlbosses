@@ -98,7 +98,7 @@ ui <- navbarPage(id = "nav",
     
       mainPanel(align = "center", width = "100%", 
                 absolutePanel(id = "controls", fixed = TRUE,
-                              draggable = TRUE, top = 200, left = "auto", right = 20, bottom = "auto",
+                              draggable = TRUE, top = 300, left = "auto", right = 20, bottom = "auto",
                               width = '25%', height = 550, style = "z-index: 10;",
                               
                               pickerInput(inputId = "map_var",
@@ -151,7 +151,7 @@ ui <- navbarPage(id = "nav",
                               
                               ),
                 
-                leafletOutput(outputId = "map2", height=600))
+                leafletOutput(outputId = "map2", height=700))
       
     )),
   
@@ -252,7 +252,7 @@ server <- function(input, output, session){
     
     leaflet(data = map) %>% 
       addTiles() %>% 
-      setView(lng = -90.85, lat = 31.45, zoom = 4) %>% 
+      setView(lng = -93.85, lat = 38.45, zoom = 4) %>% 
       addMarkers(~long, 
                  ~lat, 
                  group = "nc",
