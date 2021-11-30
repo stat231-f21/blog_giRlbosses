@@ -1,0 +1,13 @@
+name: shiny-map
+title: shiny-map
+username:
+account: sazhu24
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5227419
+bundleId: 5307515
+url: https://sazhu24.shinyapps.io/shiny-map/
+when: 1638232150.45367
+lastSyncTime: 1638232150.45369
+asMultiple: FALSE
+asStatic: FALSE

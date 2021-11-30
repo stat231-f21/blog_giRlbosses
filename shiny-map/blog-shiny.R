@@ -18,7 +18,7 @@ library(leaflegend)
 ######################
 
 # Import STARS data
-map <- read_csv("/Users/sara/Desktop/STAT231/blog_giRlbosses/shiny-map/data/map.csv") 
+map <- read_csv("map.csv") 
 
 ## For TAB 1 MAP selectInput
 score_values <- c("rating", "total", "endowment", "area", "size",  "climate", "locale", "renewables", "gge", "water", "waste", "recycling", "classes", "real_food", "plant_based", "monday") 
@@ -99,7 +99,7 @@ ui <- navbarPage(id = "nav",
       mainPanel(align = "center", width = "100%", 
                 absolutePanel(id = "controls", fixed = TRUE,
                               draggable = TRUE, top = 200, left = "auto", right = 20, bottom = "auto",
-                              width = '25%', height = 600, style = "z-index: 10;",
+                              width = '25%', height = 550, style = "z-index: 10;",
                               
                               pickerInput(inputId = "map_var",
                                           label = '',
@@ -151,7 +151,7 @@ ui <- navbarPage(id = "nav",
                               
                               ),
                 
-                leafletOutput(outputId = "map2", height=800))
+                leafletOutput(outputId = "map2", height=600))
       
     )),
   
@@ -164,7 +164,7 @@ ui <- navbarPage(id = "nav",
                   column(width=6, align = "right",
                          div(style = "margin-top:20px;  font-size: 12px; line-height: 3; text-transform:uppercase;",
                             pickerInput(inputId = "score_var",
-                                        label = tags$h5("view:"),
+                                        label = tags$h5("view score:"),
                                         choices = bar_values,
                                         selected = "total",
                                         options = list(`style` = "btn-info"),
