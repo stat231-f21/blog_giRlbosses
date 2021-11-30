@@ -6,7 +6,7 @@ output:
   rmdformats::readthedown:
     thumbnails: false
     highlight: "kate"
-runtime: shiny
+    self_contained: false
 ---
 
 ```{r setup, include = FALSE}
@@ -346,8 +346,8 @@ county_data <- left_join(county_growth,county_degrees, by = c("fips", "year"))
 
 # STARS Interactive Map
 
-```{r, out.width="100%", out.extra='style="border: none;"'}
- knitr::include_app("https://sazhu24.shinyapps.io/shiny-map/", height = "950px")
+```{r, out.width="100%", out.extra='data-external=1; style="border: none;"'}
+ knitr::include_app("https://sazhu24.shinyapps.io/shiny-map/", height = "920px")
 ```
 
 The Sustainability Tracking, Assessment & Rating System (STARS) was developed as a transparent, comprehensive tool to empower higher education faculty, administrators, staff and students to be effective change agents and drivers of sustainability innovation. The database, which includes reports for more than 500 institutions, provides a comprehensive look into all facets of sustainability and innovation across higher education, while establishing clear benchmarks and measures of accountability. Our project recognizes the unique challenges, constraints, and opportunities facing colleges and universities in the U.S. today, and created this interactive feature with the goal of aiding strategic planning, fostering cross-sector dialogue about sustainability on campus, and stimulating conversations and learning between institutions.  

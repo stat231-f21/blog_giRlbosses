@@ -29,8 +29,8 @@ report_values <- c("total", "curriculum", "researching", "campus_engagement", "p
 report_names <- c("Total", "Curriculum", "Research", "Campus Engagement", "Public Engagement", "Air", "Buildings", "Energy", "Food", "Planning", "Diversity", "Investment", "Wellbeing")
 names(report_values) <- toupper(report_names)
 
-bar_values <- c("total", "renewables", "gge", "water", "waste", "recycling", "research", "classes", "real_food", "endowment", "area", "size")
-bar_names <- c("STARS Report Card", "Renewables", "Emmissions", "Water", "Waste", "Recycling", "Research", "Classes", "Food Purchasing", "Endowment", "Area", "Population")
+bar_values <- c("total", "renewables", "gge", "water", "waste", "recycling", "classes", "real_food", "endowment", "area", "size")
+bar_names <- c("STARS Report Card", "Renewables", "Emmissions", "Water", "Waste", "Recycling", "Classes", "Food Purchasing", "Endowment", "Area", "Population")
 names(bar_values) <- bar_names
 
 threshold_values <- c(100, 10)
@@ -98,15 +98,16 @@ ui <- navbarPage(id = "nav",
     
       mainPanel(align = "center", width = "100%", 
                 absolutePanel(id = "controls", fixed = TRUE,
-                              draggable = TRUE, top = 300, left = "auto", right = 20, bottom = "auto",
-                              width = '25%', height = 550, style = "z-index: 10;",
+                              draggable = TRUE, top = 250, left = "auto", right = 20, bottom = "auto",
+                              width = '25%', height = 600, style = "z-index: 10;",
                               
+                              div(style = "margin-top: 20px;",
                               pickerInput(inputId = "map_var",
                                           label = '',
                                           choices = score_values,
                                           options = list(`style` = "btn-primary",
                                                          'dropdownAlignRight' = T),
-                                          selected = "rating"),
+                                          selected = "rating")),
                               
                               div(style = "margin-top: 20px; font-size:12px; text-transform:uppercase; color:#3e84bd", htmlOutput("description")),
                               
@@ -116,8 +117,28 @@ ui <- navbarPage(id = "nav",
                                             label = '',
                                             choices = report_values,
                                             options = list(`style` = "btn-danger",
-                                                           "dropupAuto" = FALSE))
+                                                           "dropupAuto" = FALSE)),
+                                hr(),
                                 ),
+                              hr(),
+                              
+                              div(style = "margin-top: 20px", 
+                                  switchInput(
+                                    inputId = "search_switch",
+                                    label = "SEARCH",
+                                    value = FALSE,
+                                    labelWidth = "80px"
+                                  )),
+                              
+                              conditionalPanel(
+                                condition = "Boolean(input.search_switch)",
+                                selectizeInput(inputId = "map_search",
+                                               label = tags$div("SEARCH FOR AN INSTITUTION:", style = 'font-size:10.5px; font-style: bold'), 
+                                               choices = map$institution,
+                                               selected = "Amherst College",
+                                               multiple = TRUE)
+                                
+                              ),
                               hr(),
                               conditionalPanel(
                                 condition = "input.map_var !== 'rating' & input.map_var !== 'climate' & input.map_var !== 'locale' & input.map_var !== 'monday'",
@@ -131,23 +152,7 @@ ui <- navbarPage(id = "nav",
                                 hr(),
                               ),
                               
-                              div(style = "margin-top: 20px", 
-                              switchInput(
-                                inputId = "search_switch",
-                                label = "SEARCH",
-                                value = FALSE,
-                                labelWidth = "80px"
-                              )),
                               
-                              conditionalPanel(
-                                condition = "Boolean(input.search_switch)",
-                                selectizeInput(inputId = "map_search",
-                                               label = tags$div("SEARCH FOR AN INSTITUTION:", style = 'font-size:10.5px; font-style: bold'), 
-                                               choices = map$institution,
-                                               selected = "Amherst College",
-                                               multiple = TRUE)
-                                
-                              ),
                               
                               ),
                 
@@ -162,20 +167,20 @@ ui <- navbarPage(id = "nav",
                 
                 fluidRow(
                   column(width=6, align = "right",
-                         div(style = "margin-top:20px;  font-size: 12px; line-height: 3; text-transform:uppercase;",
+                         div(style = "  font-size: 12px; text-transform:uppercase;",
                             pickerInput(inputId = "score_var",
-                                        label = tags$h5("view score:"),
+                                        label = div("VIEW SCORE:", style="font-size:12px; font-weight:bold; color:black; margin-bottom:10px"),
                                         choices = bar_values,
                                         selected = "total",
                                         options = list(`style` = "btn-info"),
                                         width = "83%"))),
                   
                   column(width=6, align = "left", 
-                         div(style = "margin-top:20px;",
+                         div(style = "",
                              conditionalPanel(
                                condition = "input.score_var == 'total'",
                                pickerInput(inputId = "report2_var",
-                                           label =  tags$h5('report card'),
+                                           label = div("REPORT CARD", style="font-size:12px; font-weight:bold; color:#626663; margin-bottom:10px"),
                                            choices = report_values,
                                            options = list(`style` = "btn-primary",
                                                           "dropupAuto" = FALSE),
@@ -185,30 +190,32 @@ ui <- navbarPage(id = "nav",
                 
                 fluidRow(
                   column(width=12, align = "center", 
-                         div(style = "",
+                         div(style = "margin-top:10px",
                              selectizeInput(inputId = "search_var",
-                                            label = tags$h6("search:"), 
+                                            label = div("SEARCH FOR AN INSTITUTION:", style="font-size:11px; "), 
                                             choices = map$institution,
                                             selected = "Amherst College",
                                             multiple = TRUE,
                                             width = "70%"))
                 )),
-                
+                div(style="font-size:13px;",
                 prettyRadioButtons(inputId = "threshold2", 
                                    label = "", 
                                    status = "danger",
                                    animation = "pulse",
                                    inline = T,
                                    choices = threshold2_values, 
-                                   selected = 100),
+                                   selected = 100)),
                 
-                br(),
+                div(style = "margin-top:30px; font-size:17px; text-transform:uppercase; color:#3e84bd; line-height:1", textOutput("title_var3")),
                 
-                div(style = "margin-top:0px; font-size:17px; text-transform:uppercase; color:#3e84bd", textOutput("title_var3")),
+                fluidRow(
+                  column(3, align = "left",  div(style = "font-size:9px; text-align: center; text-transform:uppercase; margin-bottom: -200px; margin-right: 40px; margin-top: 180px; transform: rotate(-90deg)", htmlOutput("message"))),
+                  column(11, align = "right", div(style = "margin-left:12%; margin-right: -8%;  z-index: 2", plotOutput(outputId = "schools_bar")))
+                ),
+                div(style = "font-align: center; margin-left:12%; font-size:11px; text-transform:uppercase; margin-top: 2px; margin-bottom: 180px; margin-right: 10%", p("Percentile of Reporting Institutions"))
+                  
                 
-                span(htmlOutput("message"), style = "font-size:11px; text-transform:uppercase; line-height:1.5"),
-                
-                div(style = "margin-left:10%, margin-right:10%;", plotOutput(outputId = "schools_bar")),
                 
                 )
     )
@@ -224,7 +231,6 @@ server <- function(input, output, session){
   
   # Account for 3200 metric tons of CO2, or 17.5% reduction from New England College Renewable Partnership project
   map[3, 29] <- lapply(map[3, 29], function (x) x*(0.825))
-  
   
   #Render reactive titles
   output$title_var2 <- renderText({
@@ -252,7 +258,7 @@ server <- function(input, output, session){
     
     leaflet(data = map) %>% 
       addTiles() %>% 
-      setView(lng = -93.85, lat = 38.45, zoom = 4) %>% 
+      setView(lng = -93.85, lat = 37.45, zoom = 4) %>% 
       addMarkers(~long, 
                  ~lat, 
                  group = "nc",
@@ -319,7 +325,7 @@ server <- function(input, output, session){
       y <- y %>% filter(!is.na(wellbeing)) %>% arrange(wellbeing) %>% top_n(m_bars)
     } else if(input$map_var == "endowment"){
       y <- map[c(1:5, 19)] 
-      y <- y %>% filter(!is.na(endowment)) %>% arrange(endowment) %>% top_n(m_bars)
+      y <- y %>% filter(!is.na(endowment)) %>% arrange(endowment) %>% top_n(m_bars) %>% mutate(endowment_lab = ifelse(endowment < 1000000000, paste("$", round(endowment/1000000, digits = 1), " MIL", sep = ""), paste("$", round(endowment/1000000000, digits = 1), " BIL", sep = ""))) %>% relocate(endowment_lab, .before = "endowment")
     } else if(input$map_var == "area"){
       y <- map[c(1:5, 20)] 
       y <- y %>% filter(!is.na(area)) %>% arrange(area) %>% top_n(m_bars)
@@ -364,7 +370,7 @@ server <- function(input, output, session){
       y <- y %>% filter(!is.na(monday)) %>% arrange(monday) 
     } 
     
-    
+
     
     #Function for Legend title
     if (input$map_var != "climate" & input$map_var != "locale" & input$map_var != "monday" & input$map_var != "total") {
@@ -419,7 +425,6 @@ server <- function(input, output, session){
                          title = htmltools::HTML(paste0('<h6>', 'Rating', '</h6>', '<hr>')),
                          labels = c("Platinum", "Gold", "Silver", "Bronze"),
                          labelStyle = "font-size:12px")
-        
       } else if (colorBy == "total") {
         colorData2 <- y[[colorReport]]
         pals <- colorQuantile(c("#520b06", "#cf3227", "#de6c49", "#eb976a", "#ffe291"), unique(colorData2), 5, reverse = TRUE)
@@ -465,6 +470,11 @@ server <- function(input, output, session){
       }
       else {
         y <- y %>% mutate(label = "")
+      }
+      
+      #address endowment case with extra column
+      if (input$map_var == "endowment"){
+        y <- y %>% relocate(label, .before = "endowment")
       }
       
     #Function to set marker/color values and map each case
@@ -577,7 +587,7 @@ server <- function(input, output, session){
     } else if(input$map_var == "gge"){
       HTML(paste("annual greenhouse gas emmissions (metric tons)"))
     } else if(input$map_var == "plant_based"){
-      HTML(paste("% of purchased food that's plant-bassed"))
+      HTML(paste("% of purchased food that's plant-based"))
     } else if(input$map_var == "climate"){
       HTML(paste("zone"))
     } else if(input$map_var == "locale"){
@@ -646,7 +656,7 @@ server <- function(input, output, session){
       x <- x %>% filter(!is.na(wellbeing)) %>% arrange(wellbeing) %>% top_n(n_bars)
     } else if(input$score_var == "endowment"){
       x <- map[c(1:5, 19)] 
-      x <- x %>% filter(!is.na(endowment)) %>% arrange(endowment) %>% top_n(n_bars)
+      x <- x %>% filter(!is.na(endowment)) %>% arrange(endowment) %>% top_n(n_bars) %>% mutate(endowment = endowment/1000000000)
     } else if(input$score_var == "area"){
       x <- map[c(1:5, 20)] 
       x <- x %>% filter(!is.na(area)) %>% arrange(area) %>% top_n(n_bars)
@@ -696,15 +706,29 @@ server <- function(input, output, session){
     x$institution = factor(x$institution, x$institution) #add ordered factors back
     
     #Determine x-axis label breaks for visualization clarity
-    breaks <- 10
     v <- c(as.character(x$institution[1]))
     
-    for(i in seq_len(breaks)){
-      if(n_bars > 10){
-        v[i+1] <- as.character(x$institution[round((i/breaks)*n_bars)])
-      } else{
-        v <- c(as.character(x$institution[1:n_bars]))
-      }}
+   if(input$threshold2 == 100 | input$threshold2 == "LAC"){
+        percentile_label <- c("0%", "20%", "40%", "60%", "80%", "100%")
+        breaks <- 5
+      } else if (input$threshold2 == 20){
+        percentile_label <- c("80%", "85%", "90%", "95%", "100%")
+        breaks <- 4
+      } else if (input$threshold2 == 10){
+        percentile_label <- c("90%", "92.5%", "95%", "97%", "100%")
+        breaks <- 4
+      } else if (input$threshold2 == 5 & nrow(x) < 15){
+        breaks <- 14
+        percentile_label <- c("95%", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "100%")
+      } else if (input$threshold2 == 5 & nrow(x) >= 15){
+        breaks <- 6
+        percentile_label <- c("95%", "________", "________", "________", "________", "________", "100%")
+      }
+    
+    for(i in seq_len(breaks)){ 
+      v[i+1] <- as.character(x$institution[round((i/breaks)*nrow(x))]) 
+      
+      }
     
     v[breaks+1] <- as.character(x$institution[nrow(x)])
     label <-  function(x) stringr::str_wrap(x, width = 30)
@@ -723,9 +747,10 @@ server <- function(input, output, session){
       ggplot(x, aes_string(x = "institution", y = y_val)) +
         geom_bar(stat = "identity", position = position_dodge(width=0.2), aes(fill = fill)) +
         labs(title = "", x = "", y = "") +
-        scale_x_discrete(breaks = v, labels = c("0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%")) +
+        scale_x_discrete(breaks = v, labels = stringr::str_wrap(paste(percentile_label, v, sep="\n"), width = 8)) +
         theme(legend.position = "none",
-              plot.margin = margin(10, 100, 10, 100)) +
+              plot.margin = margin(10, 100, 0, 0),
+              axis.title.x = element_text(size = 11, margin = margin(t = 0, r = 0, b = 0, l = 0), color = "#66686b")) +
         geom_text_repel(data = filter(x, institution %in% input$search_var),
                         aes(label = institution), nudge_y = 6, show.legend = FALSE, 
                         colour="black", segment.colour="grey")
@@ -733,6 +758,44 @@ server <- function(input, output, session){
     
   })
 
+  
+  #Render text for map variable description
+  output$description <- renderUI({
+    if(input$map_var == "rating"){
+      HTML(paste(""))
+    } else if(input$map_var == "total"){
+      HTML(paste("report card categories:"))
+    } else if(input$map_var == "endowment"){
+      HTML(paste("$"))
+    } else if(input$map_var == "area"){
+      HTML(paste("acres"))
+    } else if(input$map_var == "size"){
+      HTML(paste("weighted campus users"))
+    } else if(input$map_var == "classes"){
+      HTML(paste("% of classses engaged in sustainability"))
+    } else if(input$map_var == "renewables"){
+      HTML(paste("% of energy sourced from renewables"))
+    } else if(input$map_var == "water"){
+      HTML(paste("gallons of water consumed per person"))
+    } else if(input$map_var == "waste"){
+      HTML(paste("metric tons of waste produced per person"))
+    } else if(input$map_var == "recycling"){
+      HTML(paste("% of waste diverted to recycling or compost"))
+    } else if(input$map_var == "real_food"){
+      HTML(paste("% of purchased food verified as REAL"))
+    } else if(input$map_var == "gge"){
+      HTML(paste("annual greenhouse gas emmissions (metric tons)"))
+    } else if(input$map_var == "plant_based"){
+      HTML(paste("% of purchased food that's plant-based"))
+    } else if(input$map_var == "climate"){
+      HTML(paste("zone"))
+    } else if(input$map_var == "locale"){
+      HTML(paste(""))
+    } else if(input$map_var == "monday"){
+      HTML(paste("meatless monday"))
+    }
+  })
+  
   #Render text for plot variable description
   output$message <- renderUI({
     if(input$score_var == "total" & input$report2_var == "total"){
@@ -742,25 +805,24 @@ server <- function(input, output, session){
     } else if(input$score_var == "renewables"){
       HTML(paste("% of energy sourced from renewables"))
     } else if(input$score_var == "water"){
-      HTML(paste("cubic gallons of water consumed per weighted campus user"))
+      HTML(paste("water consumed per campus user (gallons)"))
     } else if(input$score_var == "waste"){
-      HTML(paste("metric tons of waste produced per weighted campus user"))
+      HTML(paste("metric tons of waste produced per campus user"))
     } else if(input$score_var == "recycling"){
       HTML(paste("% of waste diverted to recycling or compost"))
-    } else if(input$score_var == "research"){
-      HTML(paste("% of faculty engaged in sustainability research"))
     } else if(input$score_var == "classes"){
-      HTML(paste("% of classses engaged in sustainability"))
+      HTML(paste("% of classses focused on sustainability"))
+    } else if(input$score_var == "gge"){
+      HTML(paste("annual greenhouse gas emmissions (metric tons)"))
     } else if(input$score_var == "real_food"){
-      HTML(paste("% of food verified as REAL"))
+      HTML(paste("% of ethically or sustainably sourced food"))
     } else if(input$score_var == "endowment"){
-      HTML(paste("$ Millions"))
-    } else if(input$map_var == "area"){
+      HTML(paste("$ billions"))
+    } else if(input$score_var == "area"){
       HTML(paste("acres"))
-    } else if(input$map_var == "size"){
+    } else if(input$score_var == "size"){
       HTML(paste("weighted campus users"))
     } 
-    
   })
    
 }
