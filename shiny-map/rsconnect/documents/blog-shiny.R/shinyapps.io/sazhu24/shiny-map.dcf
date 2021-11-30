@@ -5,9 +5,9 @@ account: sazhu24
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5227419
-bundleId: 5307515
+bundleId: 5307690
 url: https://sazhu24.shinyapps.io/shiny-map/
-when: 1638232150.45367
-lastSyncTime: 1638232150.45369
+when: 1638236589.51315
+lastSyncTime: 1638236589.51316
 asMultiple: FALSE
 asStatic: FALSE
