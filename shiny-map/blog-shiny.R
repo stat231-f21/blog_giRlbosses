@@ -162,7 +162,7 @@ ui <- navbarPage(id = "nav",
                 
                 fluidRow(
                   column(width=6, align = "right",
-                         div(style = "margin-top:20px;  font-size: 12px; line-height: 3; text-transform:uppercase;",
+                         div(style = "margin-top:10px;  font-size: 12px; line-height: 3; text-transform:uppercase;",
                             pickerInput(inputId = "score_var",
                                         label = tags$h5("view score:"),
                                         choices = bar_values,
@@ -171,7 +171,7 @@ ui <- navbarPage(id = "nav",
                                         width = "83%"))),
                   
                   column(width=6, align = "left", 
-                         div(style = "margin-top:20px;",
+                         div(style = "margin-top:10px;",
                              conditionalPanel(
                                condition = "input.score_var == 'total'",
                                pickerInput(inputId = "report2_var",
@@ -206,9 +206,13 @@ ui <- navbarPage(id = "nav",
                 
                 div(style = "margin-top:0px; font-size:17px; text-transform:uppercase; color:#3e84bd", textOutput("title_var3")),
                 
-                span(htmlOutput("message"), style = "font-size:11px; text-transform:uppercase; line-height:1.5"),
+                fluidRow(
+                  column(3, align = "left",  div(style = "font-size:11px; text-transform:uppercase; margin-bottom: -200px; margin-right: 30px; margin-top: 130px; transform: rotate(-90deg)", htmlOutput("message"))),
+                  column(11, align = "right", div(style = "margin-left:12%; margin-right: -8%;  z-index: 2", plotOutput(outputId = "schools_bar")))
+                ),
+                div(style = "font-align: center; margin-left:12%; font-size:11px; text-transform:uppercase; margin-top: 0px; margin-bottom: 130px; margin-right: 10%", p("Percentile of Reporting Institutions"))
+                  
                 
-                div(style = "margin-left:10%, margin-right:10%;", plotOutput(outputId = "schools_bar")),
                 
                 )
     )
@@ -252,7 +256,7 @@ server <- function(input, output, session){
     
     leaflet(data = map) %>% 
       addTiles() %>% 
-      setView(lng = -93.85, lat = 38.45, zoom = 4) %>% 
+      setView(lng = -93.85, lat = 37.45, zoom = 4) %>% 
       addMarkers(~long, 
                  ~lat, 
                  group = "nc",
@@ -696,15 +700,29 @@ server <- function(input, output, session){
     x$institution = factor(x$institution, x$institution) #add ordered factors back
     
     #Determine x-axis label breaks for visualization clarity
-    breaks <- 10
     v <- c(as.character(x$institution[1]))
     
-    for(i in seq_len(breaks)){
-      if(n_bars > 10){
-        v[i+1] <- as.character(x$institution[round((i/breaks)*n_bars)])
-      } else{
-        v <- c(as.character(x$institution[1:n_bars]))
-      }}
+   if(input$threshold2 == 100 | input$threshold2 == "LAC"){
+        percentile_label <- c("0%", "20%", "40%", "60%", "80%", "100%")
+        breaks <- 5
+      } else if (input$threshold2 == 20){
+        percentile_label <- c("80%", "85%", "90%", "95%", "100%")
+        breaks <- 4
+      } else if (input$threshold2 == 10){
+        percentile_label <- c("90%", "92.5%", "95%", "97%", "100%")
+        breaks <- 4
+      } else if (input$threshold2 == 5 & nrow(x) < 15){
+        breaks <- 14
+        percentile_label <- c("95%", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "100%")
+      } else if (input$threshold2 == 5 & nrow(x) >= 15){
+        breaks <- 6
+        percentile_label <- c("95%", "________", "________", "________", "________", "________", "100%")
+      }
+    
+    for(i in seq_len(breaks)){ 
+      v[i+1] <- as.character(x$institution[round((i/breaks)*nrow(x))]) 
+      
+      }
     
     v[breaks+1] <- as.character(x$institution[nrow(x)])
     label <-  function(x) stringr::str_wrap(x, width = 30)
@@ -723,9 +741,10 @@ server <- function(input, output, session){
       ggplot(x, aes_string(x = "institution", y = y_val)) +
         geom_bar(stat = "identity", position = position_dodge(width=0.2), aes(fill = fill)) +
         labs(title = "", x = "", y = "") +
-        scale_x_discrete(breaks = v, labels = c("0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%")) +
+        scale_x_discrete(breaks = v, labels = stringr::str_wrap(paste(percentile_label, v, sep="\n"), width = 8)) +
         theme(legend.position = "none",
-              plot.margin = margin(10, 100, 10, 100)) +
+              plot.margin = margin(10, 100, 0, 0),
+              axis.title.x = element_text(size = 11, margin = margin(t = 0, r = 0, b = 0, l = 0), color = "#66686b")) +
         geom_text_repel(data = filter(x, institution %in% input$search_var),
                         aes(label = institution), nudge_y = 6, show.legend = FALSE, 
                         colour="black", segment.colour="grey")
@@ -733,6 +752,8 @@ server <- function(input, output, session){
     
   })
 
+  
+  
   #Render text for plot variable description
   output$message <- renderUI({
     if(input$score_var == "total" & input$report2_var == "total"){
@@ -760,7 +781,6 @@ server <- function(input, output, session){
     } else if(input$map_var == "size"){
       HTML(paste("weighted campus users"))
     } 
-    
   })
    
 }
