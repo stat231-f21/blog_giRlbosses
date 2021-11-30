@@ -40,9 +40,9 @@ knitr::opts_chunk$set(echo = FALSE,
 options(knitr.kable.NA = '')
 ```
 
-# Introduction
+# Motivations
 
-## Sustainability Report Sentiment Analysis
+# Sustainability Report Sentiment Analysis
 
 For the sentiment analysis section of our project, I (Gillian) scraped Amherst College's most recent sustainability report from 2017, which can be accessed [here](https://www.amherst.edu/amherst-story/today/green-amherst/reporting-and-operations/sustainability-reports/report-october-2017) through R code. I needed to be able to convert it into a data frame in R, which is why I scraped it. It is a .txt file with one string which I tokenized into words, removed the stop words, and counted the word frequencies to use in my sentiment analysis. We wanted to examine the sentiments found in this report because it will provide insight on how the college's administration discusses issues surrounding sustainability. 
 
@@ -62,6 +62,8 @@ word_frequencies <- report %>%
   #Word frequencies
   count(word, sort = TRUE) 
 ```
+
+## Common Words
 
 First, I created a common words plot that displays the top ten most common words in the report. This plot shows that investment was the most common word in the report, being written 30 times. This is interesting because it shows the institution views investment and money as very important factors when considering sustainability policy. I also created a word cloud that displays words with a minimum frequency of 5 and colors and sizes them from least to most frequent. 
 
@@ -97,6 +99,8 @@ wordcloud(words = word_frequencies$word,
           family = "sans")
 ```
 
+## NRC Lexicon
+
 Next, I examined three different lexicons to try and summarize the sentiments in the report. First is the NRC Lexicon which categorizes words by emotions. I created a visualization that displays all of the emotions sorted with the lexicon and the words with the highest contribution to those sentiments. Some notable aspects from this visualization include that the fear emotion included the word change 10 times and the trust and joy emotions included a large variety of words while emotions like sadness and disgust had many less words. This provides some context about how Amherst talks about sustainability coming more from a positive place with change rather than a place of fear or distrust.
 
 ```{r, fig.height = 6}
@@ -130,6 +134,8 @@ nrc_graphic %>%
        title = "The most common sentiments in Amherst's Sustainability Report, NRC")
 ```
 
+## AFINN Lexicon
+
 Next, I created a visualization with the AFINN lexicon which looks at negative versus positive words with an integer between 5 and -5. The highest integer on this visualization is 3 with the word sucessful. However, the overall trend shows words with positive integers (positive words) with values between 1 and 2. Therefore, Amherst is talking about sustainability with generally slightly positive terms and very few negative terms. 
 
 ```{r, fig.width = 10}
@@ -147,9 +153,10 @@ ggplot(afinn_lexicon_formatted, aes(x = word, y = value, fill = n)) +
         guides(fill = guide_legend(title = "Frequency"))
 ```
 
+## BING Lexicon
 Lastly, I looked at the BING Lexicon which just sorts words into negative or positive and created a visualization that shows the negative and positive words with their frequency. Again, you can see that there are many more positive words than negative words and that the positive words seem to have higher frequencies, with the word sustainability having the highest frequency.
 
-```{r, fig.width = 10}
+```{r, fig.width = 10, message = FALSE}
 #BING Lexicon
 bing_words <- word_frequencies %>%
   inner_join(get_sentiments("bing")) %>%
@@ -163,9 +170,12 @@ ggplot(bing_words, aes(x = word, y = n)) +
        y = "Contribution to sentiment",
        title = "The most common sentiments in Amherst's Sustainability Report, BING") 
 ```
+
+## Conclusions
+
 The overall conclusion I drew from my sentiment analysis is that Amherst talks about sustainability from an overall positive viewpoint and tries to limit its use of negative words. There are some limitations to this conclusion. First, I only used the sustainability report Amherst published in 2017. Therefore, this is a very limited view into Amherst College's sentiments surrounding sustainability and is outdated, however, there is not a more recent report. Therefore, the population this can be applied to is very limited and the results can not be generalized beyond Amherst College within the last few years. Although the scope of this analysis is small, it is purposeful to pinpoint how the institution of our own college has recently talked about the issue of sustainability. This analysis could be extended by including all past reports, or broadening the scope to include other colleges. 
 
-## Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
+# Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
 
 ```{r, message = FALSE}
 #Data wrangling for top 30 sustainable colleges data
@@ -334,7 +344,7 @@ county_data <- left_join(county_growth,county_degrees, by = c("fips", "year"))
 
 ```
 
-## STARS Interactive Map
+# STARS Interactive Map
 
 ```{r, out.width="100%", out.extra='style="border: none;"'}
  knitr::include_app("https://sazhu24.shinyapps.io/shiny-map/", height = "950px")
@@ -348,3 +358,4 @@ Our map shows that Amherst lags behind many of its peers across all STARS catego
 
 However, as comprehensive as the STARS database may be, the accuracy of cross-institutional comparisons still hinge on the range and accuracy of the self-reported data submitted by each institution. The STARS report allows institutions to submit data from as far back as three years before the report date. Since original report dates can range as far back as 2018 (like Amherst's does), the reported data can be up to 6 years old. The constant evolution the STARS report and rising popularity of sustainability values means newer reports are more likely to reflect accurate information and potentially higher scores. Moreover, since the report is a voluntary self-assessment tool, the map excludes reports for non-participating institutions, expired reports, and those not verified by the STARS assessment board. Although the 275 institutions mapped represent a wide range of higher education institutions, it by nature filters for schools that are actively pursuing the goals outlined by the STARS report. Even some of the most prestigious ivy-league institutions like Harvard, Dartmouth, and Brown University are not participating STARS members. The range in institution and report type also means that some variables only show information from institutions that were able to to report on certain prompts, such as the percentage of food products verified as ethically or sustainably sourced. Thus, any conclusions drawn from cross-institutional comparisons must take these considerationd into account. The interactive map and plot show us that in terms of greenhouse gas emissions per person and other similar metrics, Amherst has tremendous room for growth and a lot to learn from peer institutions with similar operating and geographic characteristics. However, it would not be accurate to say that they lie in the bottom 30th percentile of all institutions in the U.S..
 
+# Future Explorations
