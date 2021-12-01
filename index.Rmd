@@ -172,7 +172,7 @@ library(gifski)
 library(png)
 #trying to read in my excel sheet
 
-Top30 <- read_excel("data/Top30.xlsx")
+
 
 #Can make a table of the top 30 schools using these different measurements
 
@@ -306,32 +306,11 @@ anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + geom_density
 animate(anim_plot, width = 700, height = 450)
 
 ```
-We also wanted to investigate the trend of Sustainability Studies degrees awarded as a proxy of institutions' changing prioritization of educating their students on sustainability. Between 2013 and 2019 there appears to be first an increase in the number of schools which documented Sustainability Studies completions, which is most likely because there are less data for 2013 than the other years. Notably, however, the density plot shifts to higher percentages of completitions from 2013-2019, which could suggest that institutions are starting to prioritize educating their students on Sustainability-related topics.
+We also wanted to investigate the trend of Sustainability Studies degrees awarded as a proxy of institutions' changing prioritization of educating their students on sustainability. Between 2013 and 2019 there appears to be first an increase in the number of schools which documented Sustainability Studies completions, which is most likely because there are less data for 2013 than the other years. Notably, however, the density plot shifts to higher percentages of completions from 2013-2019, which could suggest that institutions are starting to prioritize educating their students on Sustainability-related topics.
 
 ```{r, message = FALSE}
-# animate(anim_plot, fps = 10, width = 750, height = 450)
-# anim_save("nations.gif")
-# anim_plot %>%
-#   anim_save("animation.mp4")
-#transition state
-# hist(uni_map$out_of_state_tuition)
-#changing the radius of the different circles
-
-#working on the county map
-county_growth <- Growth_by_County %>%
-  janitor::clean_names()
-  county_growth <- county_growth %>%
-  separate(id_county, into = c("test", "fips"), sep = "US") %>%
-    select(fips, county, year, completions_growth)
-county_degrees <- Degrees_by_County %>%
-   janitor::clean_names()
-  county_degrees <- county_degrees %>%
-  separate(id_county, into = c("test", "fips"), sep = "US") %>%
-    select(fips, county, year, completions)
-#joining datasets
-county_data <- left_join(county_growth,county_degrees, by = c("fips", "year"))
-#leaflet dynamic
-#tigris shapefiles and fips code
+#comparing the top 30 to the other top 30
+Top30 <- read_excel("data/Top30.xlsx")
 
 
 ```
