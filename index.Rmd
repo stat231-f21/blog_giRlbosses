@@ -201,9 +201,6 @@ colleges <- read_csv("data/ipeds_directory_info.csv") %>%
 
 joined_uni <- left_join(Tuition, Institutions, by = c("ID University", "Year"))
 
-View(joined_uni)
-sum(is.na(joined_uni))
-
 #cleaning up joined_uni data so only have information I need
 clean_joined_uni <- joined_uni %>%
   janitor::clean_names() %>%
@@ -245,8 +242,8 @@ mutate(size = case_when(out_of_state_tuition <= 20000 ~ 1,
   filter(!is.na(size)) %>%
   filter(!is.na(percentdegree))
 
-max(enroll_map$percentdegree)
-min(enroll_map$percentdegree)
+# max(enroll_map$percentdegree)
+# min(enroll_map$percentdegree)
 # sum(is.na(uni_map$size))
 pal <- colorBin(
   palette = 'Dark2',
