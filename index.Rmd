@@ -270,6 +270,10 @@ To investigate the spatial distribution of percent degrees awarded, we created a
 ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), x = out_of_state_tuition)) +
   geom_point(aes(color = institution.x)) + theme(legend.position = "none") + ggtitle("Transformed percent Sustainability Studies completions\ncompared to out of state tuition in ten thousands of dollars") + xlab("Out of State Tuition (ten thousands of dollars)") + ylab ("Percent Sustainability Studies degree completions")
 
+#filtering out the zeros so can look at trend line
+
+#creating a frequency plot with just the schools that have the most completions equal to zero, so count up how many zeros there were over all of the years
+
 ```
 We then wanted to explore the relationship between the school's prioritization of Sustainability Studies and the out of state tuition. Percent completions of the Sustainability Studies degree were transformed in order to visualize the relationship. There appears to be no relationship between the percent completions and the tuition, although we can see a slight upwards trend in the percent completions with the out of state tuition. This could suggest that schools with higher tuition could have the finances to expand their degree options to Sustainability Studies, which would most likely be a newer discipline.
 ```{r, message = FALSE}
