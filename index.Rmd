@@ -231,7 +231,8 @@ enrollment <- Summary_Tables %>%
 enroll_map <- left_join(uni_map, enrollment, by = "id_university") %>%
   #Creating new column to represent the percentage of each graduating class 
   #that receives a Sustainability Studies degree
-  mutate(percentdegree = (completions/(total_enrollment/4)*100))
+  mutate(percentdegree = (completions/(total_enrollment/4)*100)) %>%
+  filter(!is.na(percentdegree))
   
 #Creating color palette
 pal <- colorBin(
@@ -319,7 +320,7 @@ Between 2013 and 2019 there appears to be first an increase in the number of sch
 
 # How well do Sustainability Studies completions measure sustainability?
 
-We used data from the epa which ranked the top most sustainable colleges and universities in terms of the amount of green power they use. Below is a table ranking the top 10 most sustainable colleges as well as a table ranking the top 10 schools with the highest number of Sustainability Studies completions.
+We used data from the EPA which ranked the top most sustainable colleges and universities in terms of the amount of green power they use. Below is a table ranking the top 10 most sustainable colleges as well as a table ranking the top 10 schools with the highest number of Sustainability Studies completions.
 
 # Top 10 schools using the most green power
 
