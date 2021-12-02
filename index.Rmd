@@ -323,11 +323,22 @@ Between 2013 and 2019 there appears to be first an increase in the number of sch
 
 #Top 30 in terms of Green Power for 2019
 Top30 <- read_excel("data/Top30.xlsx") %>%
-  rename("Green Power Proportion of Total Energy Used" = "...4")
+  rename("Green Power Proportion of Total Energy Used" = "...4") %>%
+  select(Institution, `Green Power Proportion of Total Energy Used`,
+         `Green Power (kWh)`)
 knitr::kable(Top30)  
 
 #Top 30 in terms of percent Sustainability Studies completions
-Top30degree <-
+Top30degree <- enroll2019 %>%
+  filter(institution.x != "SIT Graduate Institute") %>%
+  mutate(percentdegree = round(percentdegree, 2)) %>%
+  distinct() %>%
+  arrange(desc(percentdegree)) %>%
+  slice(1:30) %>%
+  select(institution.x, percentdegree) %>%
+  rename("Institution" = "institution.x",
+         "Percent Sustainability Studies completions" = "percentdegree") 
+knitr::kable(Top30degree)
 
 ```
 ## Conclusions from Sustainability Studies Degree Analysis
