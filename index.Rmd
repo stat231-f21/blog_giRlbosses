@@ -43,6 +43,7 @@ options(knitr.kable.NA = '')
 # Motivations
 
 Similar to our Shiny project, we wanted to investigate sustainability at Amherst College and expand our study of sustainability to other colleges. Our goal is to assess how Amherst College prioritizes sustainability through their sustainability report and actions to both hold our campus accountable and make cross institutional comparisons. By making these comparisons, we hope to foster cross institutional dialogue to become a more sustainable campus through collaboration with other colleges to inspire our own 
+
 # Sustainability Report Sentiment Analysis
 
 For the sentiment analysis section of our project, I (Gillian) scraped Amherst College's most recent sustainability report from 2017, which can be accessed [here](https://www.amherst.edu/amherst-story/today/green-amherst/reporting-and-operations/sustainability-reports/report-october-2017) through R code. I needed to be able to convert it into a data frame in R, which is why I scraped it. It is a .txt file with one string which I tokenized into words, removed the stop words, and counted the word frequencies to use in my sentiment analysis. We wanted to examine the sentiments found in this report because it will provide insight on how the college's administration discusses issues surrounding sustainability. 
