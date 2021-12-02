@@ -305,7 +305,8 @@ enroll2018 <- enroll_map %>%
 enroll2019 <- enroll_map %>%
   filter(year == "2019") %>%
   select(institution.x, year, percentdegree)
-
+enroll_map <- enroll_map %>%
+  mutate(year = as.integer(year))
 #make sure to adjust the size: want x axis to about 1.5 times the y axis
 anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + geom_density(col = "black",fill = "blue") + ggtitle("{frame_time}") + xlab("percent degree completions") + ylab("frequency") + transition_time(year) + shadow_mark(alpha = .3) + ease_aes("linear") +
   enter_fade() +
@@ -320,6 +321,8 @@ Between 2013 and 2019 there appears to be first an increase in the number of sch
 
 We used data from the epa which ranked the top most sustainable colleges and universities in terms of the amount of green power they use. Below is a table ranking the top 10 most sustainable colleges as well as a table ranking the top 10 schools with the highest number of Sustainability Studies completions.
 
+# Top 10 schools using the most green power
+
 ```{r, message = FALSE}
 #comparing the top 30 to the other top 30
 
@@ -331,7 +334,11 @@ Top30 <- read_excel("data/Top30.xlsx") %>%
          `Green Power Proportion of Total Energy Used`) %>%
   slice(1:10)
 knitr::kable(Top30)  
+```
 
+# Top 10 schools with the most Sustainability Studies degree completions
+
+```{r, message = FALSE}
 #Top 30 in terms of percent Sustainability Studies completions
 Top30degree <- enroll2019 %>%
   filter(institution.x != "SIT Graduate Institute") %>%
@@ -345,11 +352,12 @@ Top30degree <- enroll2019 %>%
 knitr::kable(Top30degree)
 
 ```
+
 There does not appear to be any overlap between the ranked schools in the two tables. This is interesting because it suggests that different schools have different aspects of sustainability to offer.
 
 ## Conclusions from Sustainability Studies Degree Analysis
 
-From our analysis of the sustainability studies degrees awarded, the interactive map allows the user to check how a specific school of interest prioritizes Sustainability Studies. Overall, it seems that there is little relationship between sustainability studies degrees awarded and the tuition cost. According to the density plot, there appears to be a rise in sustainability studies degrees awarded, which is exciting! Lastyly the Sustainability Studies degree completions does not determine a school's "sustainability" and we need to consider many different factors in order to generate a more comprhensive survey of schools' sustainability.
+From our analysis of the sustainability studies degrees awarded, the interactive map allows the user to check how a specific school of interest prioritizes Sustainability Studies. Overall, it seems that there is little relationship between sustainability studies degrees awarded and the tuition cost. According to the density plot, there appears to be a rise in sustainability studies degrees awarded, which is exciting! Lastly the Sustainability Studies degree completions does not determine a school's "sustainability" and we need to consider many different factors in order to generate a more comprehensive survey of schools' sustainability.
 
 # STARS Interactive Map
 
@@ -367,6 +375,6 @@ However, as comprehensive as the STARS database may be, the accuracy of cross-in
 
 # Future Explorations
 
-For future directions, we want to examine where students from Amherst College and other colleges end up after graduation..;
+For future directions, we want to examine where students from Amherst College and other colleges end up after graduation. Although a student's upbringing before college shapes what they value, we are curious to investigate how schools differ in their students' career trajectories. The number of students who have careers in sustainability after graduation could provide insight into how schools could shape their students' decision to go into sustainability as a career. 
 
-Next year, when we get a new head of the office of sustainability, we expect that sustainability data for the college will be more available. We also will share our findings with the office to hold our campus and ourselves accountable.
+Next year, when we get a new head of the Office of Sustainability, we expect that sustainability data for the college will be more available. When we have access to these new data, we can conduct more analyses such as the school's emissions data. We are looking forward to sharing our findings with the office to hold our campus and ourselves accountable.
