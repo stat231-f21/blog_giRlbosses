@@ -316,7 +316,7 @@ animate(anim_plot, width = 700, height = 450)
 
 Between 2013 and 2019 there appears to be first an increase in the number of schools which documented Sustainability Studies completions, which is most likely because there are less data for 2013 than the other years. Notably, however, the density plot shifts to higher percentages of completions from 2013-2019, which could suggest that institutions are starting to prioritize educating their students on Sustainability-related topics.
 
-# How does using Sustainability Studies degree completions as a proxy for sustainability of colleges compare to using other methods of measurement of sustainability?
+# How well do Sustainability Studies completions measure sustainability?
 
 ```{r, message = FALSE}
 #comparing the top 30 to the other top 30
@@ -324,8 +324,10 @@ Between 2013 and 2019 there appears to be first an increase in the number of sch
 #Top 30 in terms of Green Power for 2019
 Top30 <- read_excel("data/Top30.xlsx") %>%
   rename("Green Power Proportion of Total Energy Used" = "...4") %>%
-  select(Institution, `Green Power Proportion of Total Energy Used`,
-         `Green Power (kWh)`)
+  select(Institution, 
+         `Green Power (kWh)`,
+         `Green Power Proportion of Total Energy Used`) %>%
+  slice(1:10)
 knitr::kable(Top30)  
 
 #Top 30 in terms of percent Sustainability Studies completions
@@ -334,7 +336,7 @@ Top30degree <- enroll2019 %>%
   mutate(percentdegree = round(percentdegree, 2)) %>%
   distinct() %>%
   arrange(desc(percentdegree)) %>%
-  slice(1:30) %>%
+  slice(1:10) %>%
   select(institution.x, percentdegree) %>%
   rename("Institution" = "institution.x",
          "Percent Sustainability Studies completions" = "percentdegree") 
