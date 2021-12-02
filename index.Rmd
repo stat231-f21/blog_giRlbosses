@@ -323,7 +323,8 @@ Top30 <- read_excel("data/Top30.xlsx")
 
 
 ```
-
+## Conclusions from Sustainability Studies Degree Analysis
+From our analysis of the sustainability studies degrees awarded, the interactive map allows the user to check how a specific school of interest prioritizes Sustainability Studies. Overall, it seems that there is little relationship between sustainability studies degrees awarded and the tuition cost, but the relationship does appear to be upwards, suggesting that more expensive schools could provide more access to sustainability studies degrees. Low-income students who cannot afford to attend these schools may not have access to these types of degrees. However, according to the density plot, there appears to be a rise in sustainability studies degrees awarded, which is exciting!
 # STARS Interactive Map
 
 ```{r, out.width="100%", out.extra='data-external=1; style="border: none;"'}
