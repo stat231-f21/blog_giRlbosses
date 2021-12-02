@@ -179,6 +179,10 @@ The overall conclusion I drew from my sentiment analysis is that Amherst talks a
 
 # Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
 
+We also wanted to visualize how different universities across the United States prioritize educating their students on sustainability-related disciplines. Therefore, we used data collected by datausa on the amount of Sustainability Studies degrees awarded to students across institutions between 2013-2019 with 1014 total measurements of Sustainability Studies completions across these years. In order to consider differing sizes of the undergraduate class across institutions, these degree completions were divided by 1/4 the number of undergraduate students during Fall 2020 from the National Center for Education Statistics. This ratio was then multiplied by 100 to calculate the percent of Sustainability Studies degrees awarded for each graduating year. We also collected out of state tuition data for these institutions using data from datausa to examine the relationship between sustainability degrees awarded for a given graduating class and the tuition cost. Latitude and longitude data for the institutions was collected using the `colleges` dataset to create the interactive map below.
+
+## Sustainability Studies degree and college tuition map 
+
 ```{r, message = FALSE}
 #Reading in sustainability studies data
 Institutions <- read_csv("data/Institutions.csv")
@@ -245,12 +249,15 @@ leaflet(data = enroll_map) %>%
     opacity = 1
   )
 ```
-We also wanted to visualize how different universities across the United States prioritize educating their students on sustainability-related disciplines. Therefore, we used data collected by datausa on the amount of Sustainability Studies degrees awarded to students across institutions between 2013-2019 with 1014 total measurements of Sustainability Studies completions across these years. In order to consider differing sizes of the undergraduate class across institutions, these degree completions were divided by the 1/4 the number of undergraduate students during Fall 2020 from the National Center for Education Statistics and multiplied by 100 to calculate the percent of Sustainability Studies degrees awarded for each graduating year. Latitude and Longitude data was collected using the `colleges` dataset.
 
-To investigate the spatial distribution of percent degrees awarded, we created an interactive map with the color of the points indicating the percent of all graduating undergraduate students that were awarded the Sustainability Studies degree. The sizes of the points are scaled by the in state tuition. This plot allows the user to zoom into different colleges to geographically visualize percent degrees awarded and the out of state tuition.
+To investigate the spatial distribution of percent degrees awarded, we created an interactive map with the color of the points indicating the percent of all graduating undergraduate students for a given year between 2013 and 2019 that were awarded the Sustainability Studies degree. The sizes of the points are scaled by the out of state tuition. This plot allows the user to zoom into different colleges to geographically visualize percent degrees awarded and the out of state tuition.
+
+# Relationship between Sustainability Studies degrees awarded and college tuition
+
+We then wanted to explore the relationship between the school's prioritization of the Sustainability Studies department and the out of state tuition. We hypothesized that schools with higher tuition would have higher percent Sustainability Studies degree completions because schools with higher tuition could have the finances to expand their degree options to Sustainability Studies and provide more support and resources in this department.
 
 ```{r, message = FALSE}
-#creating scatterplot to investigate relationship between percent sustainability and the in state tuition
+#creating scatterplot to investigate relationship between percent sustainability and the out of state tuition
 
 ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), x = out_of_state_tuition)) +
   geom_point(aes(color = institution.x)) + theme(legend.position = "none") + ggtitle("Transformed percent Sustainability Studies completions\ncompared to out of state tuition in ten thousands of dollars") + xlab("Out of State Tuition (ten thousands of dollars)") + ylab ("Percent Sustainability Studies degree completions")
@@ -260,7 +267,13 @@ ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), x = out_of_state_
 #creating a frequency plot with just the schools that have the most completions equal to zero, so count up how many zeros there were over all of the years
 
 ```
-We then wanted to explore the relationship between the school's prioritization of Sustainability Studies and the out of state tuition. Percent completions of the Sustainability Studies degree were transformed in order to visualize the relationship. There appears to be no relationship between the percent completions and the tuition, although we can see a slight upwards trend in the percent completions with the out of state tuition. This could suggest that schools with higher tuition could have the finances to expand their degree options to Sustainability Studies, which would most likely be a newer discipline.
+
+Percent completions of the Sustainability Studies degree were transformed in order to visualize the relationship. There appears to be no relationship between the percent completions and the tuition. This suggests that tuition may not affect the school's prioritization of Sustainability Studies and thus may not limit students' access to the Sustainability Studies degree.
+
+# Change in degrees awarded over time
+
+We also wanted to investigate the trend of Sustainability Studies degrees awarded as a proxy of institutions' changing prioritization of educating their students on sustainability over time.
+
 ```{r, message = FALSE}
 #dynamic histogram to see if the percent sustainability degrees differ over time
 #gganimate
@@ -300,15 +313,25 @@ anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + geom_density
 animate(anim_plot, width = 700, height = 450)
 
 ```
-We also wanted to investigate the trend of Sustainability Studies degrees awarded as a proxy of institutions' changing prioritization of educating their students on sustainability. Between 2013 and 2019 there appears to be first an increase in the number of schools which documented Sustainability Studies completions, which is most likely because there are less data for 2013 than the other years. Notably, however, the density plot shifts to higher percentages of completions from 2013-2019, which could suggest that institutions are starting to prioritize educating their students on Sustainability-related topics.
+
+Between 2013 and 2019 there appears to be first an increase in the number of schools which documented Sustainability Studies completions, which is most likely because there are less data for 2013 than the other years. Notably, however, the density plot shifts to higher percentages of completions from 2013-2019, which could suggest that institutions are starting to prioritize educating their students on Sustainability-related topics.
+
+# How does using Sustainability Studies degree completions as a proxy for sustainability of colleges compare to using other methods of measurement of sustainability?
 
 ```{r, message = FALSE}
 #comparing the top 30 to the other top 30
-Top30 <- read_excel("data/Top30.xlsx")
 
+#Top 30 in terms of Green Power for 2019
+Top30 <- read_excel("data/Top30.xlsx") %>%
+  rename("Green Power Proportion of Total Energy Used" = "...4")
+knitr::kable(Top30)  
+
+#Top 30 in terms of percent Sustainability Studies completions
+Top30degree <-
 
 ```
 ## Conclusions from Sustainability Studies Degree Analysis
+
 From our analysis of the sustainability studies degrees awarded, the interactive map allows the user to check how a specific school of interest prioritizes Sustainability Studies. Overall, it seems that there is little relationship between sustainability studies degrees awarded and the tuition cost, but the relationship does appear to be upwards, suggesting that more expensive schools could provide more access to sustainability studies degrees. Low-income students who cannot afford to attend these schools may not have access to these types of degrees. However, according to the density plot, there appears to be a rise in sustainability studies degrees awarded, which is exciting!
 
 # STARS Interactive Map
