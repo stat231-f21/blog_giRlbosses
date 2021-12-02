@@ -180,15 +180,7 @@ The overall conclusion I drew from my sentiment analysis is that Amherst talks a
 # Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
 
 ```{r, message = FALSE}
-#Data wrangling for top 30 sustainable colleges data
-
-#trying to read in my excel sheet
-
-
-
-#Can make a table of the top 30 schools using these different measurements
-
-#reading in sustainability data
+#Reading in sustainability studies data
 Institutions <- read_csv("data/Institutions.csv")
 Tuition <- read_csv("data/Tuition Costs for Common Institutions.csv")
 Degrees_by_County <- read_csv("data/Degrees Awarded by County.csv")
@@ -197,29 +189,28 @@ colleges <- read_csv("data/ipeds_directory_info.csv") %>%
   janitor::clean_names() %>%
   rename("institution" = "institution_name")
 
-#working on making a map based on my data
-
-#Getting college data
+#Creating joined dataset with tuition and degree completions
 
 joined_uni <- left_join(Tuition, Institutions, by = c("ID University", "Year"))
 
-#cleaning up joined_uni data so only have information I need
+#Wrangling joined_uni data 
 clean_joined_uni <- joined_uni %>%
   janitor::clean_names() %>%
   select(id_university, university_x, year, state_tuition, total_graduates, out_of_state_tuition, sector, completions) %>%
 rename("institution" = "university_x")
-fuzzy_uni <- stringdist_left_join(clean_joined_uni, colleges, by = "institution")
-# fuzzy_uni %>%
-#   filter(is.na(state)) %>%
-#   distinct(institution.x)
-# sum(is.na(fuzzy_uni$state))
 
+#Joining tuition and degree completion data with colleges data
+fuzzy_uni <- stringdist_left_join(clean_joined_uni, colleges, by = "institution")
+
+#Wrangling joined dataset to prepare for creating map figure
 uni_map <- fuzzy_uni %>%
   filter(!institution.x %in% c("Jefferson (Philadelphia University + Thomas Jefferson University)", "Messiah University", "Lyndon State College"))
 
 
-#importing class size data
+#Reading in class size data to calculate percent degrees awarded
 Summary_Tables <- read_excel("data/Summary Tables.xlsx")
+
+#Wrangling class size data so can join with the enrollment map later
 Summary_Tables <- Summary_Tables[-c(1:4),] %>%
   janitor::clean_names() %>%
   rename("institution" = "x2", "id_university" = "national_center_for_education_statistics",
@@ -232,27 +223,19 @@ enrollment <- Summary_Tables %>%
   filter(enrollment_type == "Undergraduate Enrollment", !total_enrollment == "-") %>%
   mutate(id_university = parse_double(id_university),
          total_enrollment = parse_double(total_enrollment))
-
+#Joining the tuition and completion data with the class size data
 enroll_map <- left_join(uni_map, enrollment, by = "id_university") %>%
+  #Creating new column to represent the percentage of each graduating class 
+  #that receives a Sustainability Studies degree
   mutate(percentdegree = (completions/(total_enrollment/4)*100))
-
-#making map
-enroll_map <- enroll_map %>%
-mutate(size = case_when(out_of_state_tuition <= 20000 ~ 1,
-                 (out_of_state_tuition > 20000) & (out_of_state_tuition <= 40000) ~ 2,
-                 out_of_state_tuition > 40000 ~ 3)) %>%
-  filter(!is.na(size)) %>%
-  filter(!is.na(percentdegree))
-
-# max(enroll_map$percentdegree)
-# min(enroll_map$percentdegree)
-# sum(is.na(uni_map$size))
+  
+#Creating color palette
 pal <- colorBin(
   palette = 'Dark2',
   domain = enroll_map$percentdegree,
   bins = c(0, .1, .3, .6, .9, 1.1, 1.5, 2, 2.5, 5, 6, 10, 20, 30)
 )
-
+#Creating
 leaflet(data = enroll_map) %>%
   addTiles() %>%
   addCircleMarkers(lat = ~latitude_location_of_institution_hd2019, lng = ~longitude_location_of_institution_hd2019, popup = ~ paste0("Institution: ", institution.x, " Percent degree completions: ", percentdegree, "%", "\nOut of state tuition: $", out_of_state_tuition), weight = 1,  color=~pal(percentdegree), radius = ~out_of_state_tuition/10000) %>%
