@@ -179,7 +179,7 @@ The overall conclusion I drew from my sentiment analysis is that Amherst talks a
 
 # Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
 
-We also wanted to visualize how different universities across the United States prioritize educating their students on sustainability-related disciplines. Therefore, we used data collected by datausa on the amount of Sustainability Studies degrees awarded to students across institutions between 2013-2019 with 1014 total measurements of Sustainability Studies completions across these years. In order to consider differing sizes of the undergraduate class across institutions, these degree completions were divided by 1/4 the number of undergraduate students during Fall 2020 from the National Center for Education Statistics. This ratio was then multiplied by 100 to calculate the percent of Sustainability Studies degrees awarded for each graduating year. We also collected out of state tuition data for these institutions using data from datausa to examine the relationship between sustainability degrees awarded for a given graduating class and the tuition cost. Latitude and longitude data for the institutions was collected using the `colleges` dataset to create the interactive map below.
+We also wanted to visualize how different universities across the United States prioritize educating their students on sustainability-related disciplines. Therefore, we used data collected from [https://datausa.io/profile/cip/sustainability-studies#about] on the amount of Sustainability Studies degrees awarded to students across institutions between 2013-2019 with 1014 total measurements of Sustainability Studies completions across these years. In order to consider differing sizes of the undergraduate class across institutions, these degree completions were divided by 1/4 the number of undergraduate students during Fall 2020 from the National Center for Education Statistics at [https://nces.ed.gov/ipeds/SummaryTables/report/202?templateId=20202&year=2020&expand_by=0&tt=institutional&instType=2]. This ratio was then multiplied by 100 to calculate the percent of Sustainability Studies degrees awarded for each graduating year. We also collected out of state tuition data for these institutions using data from datausa to examine the relationship between sustainability degrees awarded for a given graduating class and the tuition cost. Latitude and longitude data for the institutions was collected using the `colleges` dataset to create the interactive map below.
 
 ## Sustainability Studies degree and college tuition map 
 
@@ -261,7 +261,7 @@ We then wanted to explore the relationship between the school's prioritization o
 #creating scatterplot to investigate relationship between percent sustainability and the out of state tuition
 
 ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), x = out_of_state_tuition)) +
-  geom_point(aes(color = institution.x)) + theme(legend.position = "none") + ggtitle("Transformed percent Sustainability Studies completions\ncompared to out of state tuition in ten thousands of dollars") + xlab("Out of State Tuition (ten thousands of dollars)") + ylab ("Log(% Sustainability Studies degree completions)")
+  geom_point(aes(color = institution.x)) + theme(legend.position = "none") + ggtitle("Transformed percent Sustainability Studies completions\ncompared to out of state tuition in ten thousands of dollars") + xlab("Out of State Tuition (ten thousands of dollars)") + ylab ("Transformed % Sustainability Studies degrees (log-log transformed)")
 
 #filtering out the zeros so can look at trend line
 
@@ -279,37 +279,13 @@ We also wanted to investigate the trend of Sustainability Studies degrees awarde
 #dynamic histogram to see if the percent sustainability degrees differ over time
 #gganimate
 #first create different datasets for the different years
-enroll2013 <- enroll_map %>%
-  filter(year == "2013") %>%
-  select(institution.x, year, percentdegree)
-
-enroll2014 <- enroll_map %>%
-  filter(year == "2014") %>%
-  select(institution.x, year, percentdegree)
-
-enroll2015 <- enroll_map %>%
-  filter(year == "2015") %>%
-  select(institution.x, year, percentdegree)
-
-enroll2016 <- enroll_map %>%
-  filter(year == "2016") %>%
-  select(institution.x, year, percentdegree)
-
-enroll2017 <- enroll_map %>%
-  filter(year == "2017") %>%
-  select(institution.x, year, percentdegree)
-
-enroll2018 <- enroll_map %>%
-  filter(year == "2018") %>%
-  select(institution.x, year, percentdegree)
-
 enroll2019 <- enroll_map %>%
   filter(year == "2019") %>%
   select(institution.x, year, percentdegree)
 enroll_map <- enroll_map %>%
   mutate(year = as.integer(year))
 #make sure to adjust the size: want x axis to about 1.5 times the y axis
-anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + geom_density(col = "black",fill = "blue") + ggtitle("{frame_time}") + xlab("percent degree completions") + ylab("frequency") + transition_time(year) + shadow_mark(alpha = .3) + ease_aes("linear") +
+anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + geom_density(col = "black",fill = "blue") + ggtitle("{frame_time}") + xlab("Transformed percent degree completions(log-log transformed)") + ylab("frequency") + transition_time(year) + shadow_mark(alpha = .3) + ease_aes("linear") +
   enter_fade() +
   exit_fade()
 animate(anim_plot, width = 700, height = 450)
@@ -320,7 +296,7 @@ Between 2013 and 2019 there appears to be first an increase in the number of sch
 
 # How well do Sustainability Studies completions measure sustainability?
 
-We used data from the EPA which ranked the top most sustainable colleges and universities in terms of the amount of green power they use. Below is a table ranking the top 10 most sustainable colleges as well as a table ranking the top 10 schools with the highest number of Sustainability Studies completions.
+We used data from the EPA [https://www.epa.gov/greenpower/green-power-partnership-top-30-college-university] which ranked the top most sustainable colleges and universities in terms of the amount of green power they use. Below is a table ranking the top 10 most sustainable colleges as well as a table ranking the top 10 schools with the highest number of Sustainability Studies completions.
 
 # Top 10 schools using the most green power
 
