@@ -261,7 +261,7 @@ We then wanted to explore the relationship between the school's prioritization o
 #creating scatterplot to investigate relationship between percent sustainability and the out of state tuition
 
 ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), x = out_of_state_tuition)) +
-  geom_point(aes(color = institution.x)) + theme(legend.position = "none") + ggtitle("Transformed percent Sustainability Studies completions\ncompared to out of state tuition in ten thousands of dollars") + xlab("Out of State Tuition (ten thousands of dollars)") + ylab ("Percent Sustainability Studies degree completions")
+  geom_point(aes(color = institution.x)) + theme(legend.position = "none") + ggtitle("Transformed percent Sustainability Studies completions\ncompared to out of state tuition in ten thousands of dollars") + xlab("Out of State Tuition (ten thousands of dollars)") + ylab ("Log(% Sustainability Studies degree completions)")
 
 #filtering out the zeros so can look at trend line
 
