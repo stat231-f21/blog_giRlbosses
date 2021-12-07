@@ -252,40 +252,40 @@ server <- function(input, output, session){
     m_bars <- as.numeric(input$threshold)*(nrow(y)/100)
     
     #Select input variables
-    colorBy <- input$map_var
-    colorReport <- input$report_var
+    mapMain <- input$map_var
+    mapReport <- input$report_var
     
     #Function to mutate input variable directly
-    if(input$map_var != "climate" & input$map_var != "locale" & input$map_var != "monday"){
+    if(mapMain != "climate" & mapMain != "locale" & mapMain != "monday"){
       
-      if(input$map_var == "total" & input$report_var == "total"){
+      if(mapMain == "total" & mapReport == "total"){
         y <- map[c(1:5, 6)]
-      } else if(input$map_var == "total" & input$report_var == "curriculum"){
+      } else if(mapMain == "total" & mapReport == "curriculum"){
         y <- map[c(1:5, 7)] 
-      } else if(input$map_var == "total" & input$report_var == "researching"){
+      } else if(mapMain == "total" & mapReport == "researching"){
         y <- map[c(1:5, 8)] 
-      } else if(input$map_var == "total" & input$report_var == "campus_engagement"){
+      } else if(mapMain == "total" & mapReport == "campus_engagement"){
         y <- map[c(1:5, 9)] 
-      } else if(input$map_var == "total" & input$report_var == "public_engagement"){
+      } else if(mapMain == "total" & mapReport == "public_engagement"){
         y <- map[c(1:5, 10)] 
-      } else if(input$map_var == "total" & input$report_var == "air"){
+      } else if(mapMain == "total" & mapReport == "air"){
         y <- map[c(1:5, 11)] 
         y <- y %>% filter(!is.na(air)) %>% arrange(air) %>% top_n(m_bars)
-      } else if(input$map_var == "total" & input$report_var == "buildings"){
+      } else if(mapMain == "total" & mapReport == "buildings"){
         y <- map[c(1:5, 12)] 
-      } else if(input$map_var == "total" & input$report_var == "energy"){
+      } else if(mapMain == "total" & mapReport == "energy"){
         y <- map[c(1:5, 13)] 
-      } else if(input$map_var == "total" & input$report_var == "food"){
+      } else if(mapMain == "total" & mapReport == "food"){
         y <- map[c(1:5, 14)] 
-      } else if(input$map_var == "total" & input$report_var == "planning"){
+      } else if(mapMain == "total" & mapReport == "planning"){
         y <- map[c(1:5, 15)] 
-      } else if(input$map_var == "total" & input$report_var == "diversity"){
+      } else if(mapMain == "total" & mapReport == "diversity"){
         y <- map[c(1:5, 16)] 
-      } else if(input$map_var == "total" & input$report_var == "investment"){
+      } else if(mapMain == "total" & mapReport == "investment"){
         y <- map[c(1:5, 17)] 
-      } else if(input$map_var == "total" & input$report_var == "wellbeing"){
+      } else if(mapMain == "total" & mapReport == "wellbeing"){
         y <- map[c(1:5, 18)] 
-      } else if(input$map_var == "endowment"){
+      } else if(mapMain == "endowment"){
         y <- map[c(1:5, 19)] %>% 
           filter(!is.na(endowment)) %>% 
           #Create new variable for formatting endowment labels on the map
@@ -293,68 +293,68 @@ server <- function(input, output, session){
                                         paste("$", round(endowment/1000000, digits = 1), " MIL", sep = ""), 
                                         paste("$", round(endowment/1000000000, digits = 1), " BIL", sep = ""))) %>% 
           relocate(endowment_lab, .before = "endowment")
-      } else if(input$map_var == "area"){
+      } else if(mapMain == "area"){
         y <- map[c(1:5, 20)] 
-      } else if(input$map_var == "size"){
+      } else if(mapMain == "size"){
         y <- map[c(1:5, 21)] 
-      } else if(input$map_var == "classes"){
+      } else if(mapMain == "classes"){
         y <- map[c(1:5, 22)] 
-      } else if(input$map_var == "renewables"){
+      } else if(mapMain == "renewables"){
         y <- map[c(1:5, 23)] 
-      } else if(input$map_var == "water"){
+      } else if(mapMain == "water"){
         y <- map[c(1:5, 24)] 
-      } else if(input$map_var == "waste"){
+      } else if(mapMain == "waste"){
         y <- map[c(1:5, 25)] 
-      } else if(input$map_var == "recycling"){
+      } else if(mapMain == "recycling"){
         y <- map[c(1:5, 26)] 
-      } else if(input$map_var == "resesarch"){
+      } else if(mapMain == "resesarch"){
         y <- map[c(1:5, 27)] 
-      } else if(input$map_var == "real_food"){
+      } else if(mapMain == "real_food"){
         y <- map[c(1:5, 28)] 
-      } else if(input$map_var == "gge"){
+      } else if(mapMain == "gge"){
         y <- map[c(1:5, 29)] 
-      } else if(input$map_var == "plant_based"){
+      } else if(mapMain == "plant_based"){
         y <- map[c(1:5, 30)] 
       }
       
       #Filter out NA and arrange from highest to lowest value
       #Select top n % of institutions
-      y <- y %>% filter(!is.na(input$map_var)) %>% arrange(input$map_var) %>% top_n(m_bars)
+      y <- y %>% filter(!is.na(mapMain)) %>% arrange(mapMain) %>% top_n(m_bars)
       
-    } else if(input$map_var == "climate" | input$map_var == "locale" | input$map_var == "monday") {
+    } else if(mapMain == "climate" | mapMain == "locale" | mapMain == "monday") {
       
-      if(input$map_var == "climate"){
+      if(mapMain == "climate"){
         y <- map[c(1:5, 31)] 
-      } else if(input$map_var == "locale"){
+      } else if(mapMain == "locale"){
         y <- map[c(1:5, 32)] 
-      } else if(input$map_var == "monday"){
+      } else if(mapMain == "monday"){
         y <- map[c(1:5, 34)] 
       }
       
       #Filter out NA and arrange from highest to lowest value
-      y <- y %>% filter(!is.na(input$map_var)) %>% arrange(input$map_var) 
+      y <- y %>% filter(!is.na(mapMain)) %>% arrange(mapMain) 
       
     }
     
     
     #Generate reactive legend title
-    if (input$map_var != "climate" & input$map_var != "locale" & input$map_var != "monday" & input$map_var != "total") {
-      legend_title <- htmltools::HTML(paste0('<h6>', score_names[score_values == colorBy], '</h6>', '<h5>', "percentile", '</h5>', '<hr>'))
-    } else if (input$map_var == 'total' & input$report_var == 'total'){
+    if (mapMain != "climate" & mapMain != "locale" & mapMain != "monday" & mapMain != "total") {
+      legend_title <- htmltools::HTML(paste0('<h6>', score_names[score_values == mapMain], '</h6>', '<h5>', "percentile", '</h5>', '<hr>'))
+    } else if (mapMain == 'total' & mapReport == 'total'){
       legend_title <- htmltools::HTML(paste0('<h6>', 'Total Score', '</h6>', '<h5>', "percentile", '</h5>', '<hr>'))
-    } else if (input$map_var == 'total' & input$report_var != 'total'){
-      legend_title <- htmltools::HTML(paste0('<h6>', report_names[report_values == colorReport], '</h6>', '<h5>', "percentile", '</h5>', '<hr>'))
+    } else if (mapMain == 'total' & mapReport != 'total'){
+      legend_title <- htmltools::HTML(paste0('<h6>', report_names[report_values == mapReport], '</h6>', '<h5>', "percentile", '</h5>', '<hr>'))
     } else {
-      legend_title <- htmltools::HTML(paste0('<h6>', score_names[score_values == colorBy], '</h6>', '<hr>'))
+      legend_title <- htmltools::HTML(paste0('<h6>', score_names[score_values == mapMain], '</h6>', '<hr>'))
     }
     
     
     #Function to transform non-numeric legend values
-    if(input$map_var == "climate"){
+    if(mapMain == "climate"){
       legend_var <- function(x) c("Very Hot", "Hot", "Warm", "Mixed", "Cool", "Cold", "Very Cold")
-    } else if(input$map_var == "locale"){
+    } else if(mapMain == "locale"){
       legend_var <- function(x) c("Large City", "Large Town", "Mid-Size City", "Small Town", "Rural", "Urban Fringe of Large City", "Urban Fringe of Mid-Size City")
-    } else if(input$map_var == "monday"){
+    } else if(mapMain == "monday"){
       legend_var <- function(x) c("No", "Yes")
     } else {legend_var <- function(x) 5}
     
@@ -362,11 +362,11 @@ server <- function(input, output, session){
     school_label <- paste0('<b>', y[[1]], '</b><br>', y[[2]], ' | ', y[[5]],' | ', y[[6]])
     
     #Extract values for selected variable to define color palette
-    colorData <- y[[colorBy]]
+    colorData <- y[[mapMain]]
     
     ##IF statement : generates leaflet map for each case
     #On ratings page, generate icon markers
-    if (colorBy == "rating") {
+    if (mapMain == "rating") {
       
       #When search feature is OFF, display labels for markers when mouse hovers over
       if (input$search_switch == FALSE) {
@@ -403,15 +403,15 @@ server <- function(input, output, session){
       
       
       #Use colorFactor for climate, locale, and monday because the values are categorical instead of continuous.
-      if (colorBy == "climate" | colorBy == "locale") {
+      if (mapMain == "climate" | mapMain == "locale") {
         pals <- colorFactor("plasma", unique(colorData), reverse = TRUE)
-      } else if (colorBy == "monday") {
+      } else if (mapMain == "monday") {
         pals <- colorFactor(c("#e07767", "#77c775"), unique(colorData))
       #When viewing report card scores, use values from report card selector
-      } else if (colorBy == "total") {
-        colorData <- y[[colorReport]]
+      } else if (mapMain == "total") {
+        colorData <- y[[mapReport]]
         pals <- colorQuantile(c("#520b06", "#cf3227", "#de6c49", "#eb976a", "#ffe291"), unique(colorData), 5, reverse = TRUE)
-      } else if (colorBy != "rating" | colorBy != "climate" | colorBy != "locale" | colorBy != "monday"){
+      } else if (mapMain != "rating" | mapMain != "climate" | mapMain != "locale" | mapMain != "monday"){
         pals <- colorQuantile(c("#520b06", "#cf3227", "#de6c49", "#eb976a", "#ffe291"), unique(colorData), 5, reverse = TRUE)
       } 
       
@@ -433,7 +433,7 @@ server <- function(input, output, session){
         #New column for searched institutions 
         y <- y %>% mutate(label = ifelse(!is.null(input$map_search) & institution %in% input$map_search, school_label, ""))
         #Relocate variable in endowment case with extra column
-        if (input$map_var == "endowment"){ y <- y %>% relocate(label, .before = "endowment") }
+        if (mapMain == "endowment"){ y <- y %>% relocate(label, .before = "endowment") }
         
         leafletProxy("map2", data = y) %>%
           clearControls() %>%
@@ -469,37 +469,42 @@ server <- function(input, output, session){
   
   #Render text description for selected map variable
   output$description <- renderUI({
-    if(input$map_var == "rating"){
+    
+    #Select input variables
+    mapMain <- input$map_var
+    mapReport <- input$report_var
+    
+    if(mapMain == "rating"){
       HTML(paste(""))
-    } else if(input$map_var == "total"){
+    } else if(mapMain == "total"){
       HTML(paste("report card categories:"))
-    } else if(input$map_var == "endowment"){
+    } else if(mapMain == "endowment"){
       HTML(paste("$"))
-    } else if(input$map_var == "area"){
+    } else if(mapMain == "area"){
       HTML(paste("acres"))
-    } else if(input$map_var == "size"){
+    } else if(mapMain == "size"){
       HTML(paste("weighted campus users"))
-    } else if(input$map_var == "classes"){
+    } else if(mapMain == "classes"){
       HTML(paste("% of classses engaged in sustainability"))
-    } else if(input$map_var == "renewables"){
+    } else if(mapMain == "renewables"){
       HTML(paste("% of energy sourced from renewables"))
-    } else if(input$map_var == "water"){
+    } else if(mapMain == "water"){
       HTML(paste("gallons of water consumed per person"))
-    } else if(input$map_var == "waste"){
+    } else if(mapMain == "waste"){
       HTML(paste("metric tons of waste produced per person"))
-    } else if(input$map_var == "recycling"){
+    } else if(mapMain == "recycling"){
       HTML(paste("% of waste diverted to recycling or compost"))
-    } else if(input$map_var == "real_food"){
+    } else if(mapMain == "real_food"){
       HTML(paste("% of purchased food verified as REAL"))
-    } else if(input$map_var == "gge"){
+    } else if(mapMain == "gge"){
       HTML(paste("annual greenhouse gas emmissions (metric tons)"))
-    } else if(input$map_var == "plant_based"){
+    } else if(mapMain == "plant_based"){
       HTML(paste("% of purchased food that's plant-based"))
-    } else if(input$map_var == "climate"){
+    } else if(mapMain == "climate"){
       HTML(paste("zone"))
-    } else if(input$map_var == "locale"){
+    } else if(mapMain == "locale"){
       HTML(paste(""))
-    } else if(input$map_var == "monday"){
+    } else if(mapMain == "monday"){
       HTML(paste("meatless monday"))
     }
   })
@@ -511,6 +516,10 @@ server <- function(input, output, session){
   
   observe({
     
+    #Select input variables
+    barMain <- input$score_var
+    barReport <- input$report2_var
+    
     if(input$threshold2 != "LAC") { #Threshold variable to select top n % of institutions
       n_bars <- as.numeric(input$threshold2)*(nrow(x)/100)
     } else { #Threshold variable to select Liberal Arts Colleges - schools in us_news dataset
@@ -519,85 +528,85 @@ server <- function(input, output, session){
       n_bars <- 53
     }
     
-    if(input$score_var == "total"){ #When selecting from report card variables
+    if(barMain == "total"){ #When selecting from report card variables
       
-        if(input$report2_var == "total"){
+        if(barReport == "total"){
           x <- map[c(1:5, 6)]
           x <- x %>% filter(!is.na(total)) %>% arrange(total) %>% top_n(n_bars)
-        } else if(input$report2_var == "curriculum"){
+        } else if(barReport == "curriculum"){
           x <- map[c(1:5, 7)] 
           x <- x %>% filter(!is.na(curriculum)) %>% arrange(curriculum) %>% top_n(n_bars)
-        } else if(input$report2_var == "researching"){
+        } else if(barReport == "researching"){
           x <- map[c(1:5, 8)] 
           x <- x %>% filter(!is.na(researching)) %>% arrange(researching) %>% top_n(n_bars)
-        } else if(input$report2_var == "campus_engagement"){
+        } else if(barReport == "campus_engagement"){
           x <- map[c(1:5, 9)] 
           x <- x %>% filter(!is.na(campus_engagement)) %>% arrange(campus_engagement) %>% top_n(n_bars)
-        } else if(input$report2_var == "public_engagement"){
+        } else if(barReport == "public_engagement"){
           x <- map[c(1:5, 10)] 
           x <- x %>% filter(!is.na(public_engagement)) %>% arrange(public_engagement) %>% top_n(n_bars)
-        } else if(input$report2_var == "air"){
+        } else if(barReport == "air"){
           x <- map[c(1:5, 11)] 
           x <- x %>% filter(!is.na(air)) %>% arrange(air) %>% top_n(n_bars)
-        } else if(input$report2_var == "buildings"){
+        } else if(barReport == "buildings"){
           x <- map[c(1:5, 12)] 
           x <- x %>% filter(!is.na(buildings)) %>% arrange(buildings) %>% top_n(n_bars)
-        } else if(input$report2_var == "energy"){
+        } else if(barReport == "energy"){
           x <- map[c(1:5, 13)] 
           x <- x %>% filter(!is.na(energy)) %>% arrange(energy) %>% top_n(n_bars)
-        } else if(input$report2_var == "food"){
+        } else if(barReport == "food"){
           x <- map[c(1:5, 14)] 
           x <- x %>% filter(!is.na(food)) %>% arrange(food) %>% top_n(n_bars)
-        } else if(input$report2_var == "planning"){
+        } else if(barReport == "planning"){
           x <- map[c(1:5, 15)] 
           x <- x %>% filter(!is.na(planning)) %>% arrange(planning) %>% top_n(n_bars)
-        } else if(input$report2_var == "diversity"){
+        } else if(barReport == "diversity"){
           x <- map[c(1:5, 16)] 
           x <- x %>% filter(!is.na(diversity)) %>% arrange(diversity) %>% top_n(n_bars)
-        } else if(input$report2_var == "investment"){
+        } else if(barReport == "investment"){
           x <- map[c(1:5, 17)] 
           x <- x %>% filter(!is.na(investment)) %>% arrange(investment) %>% top_n(n_bars)
-        } else if(input$report2_var == "wellbeing"){
+        } else if(barReport == "wellbeing"){
           x <- map[c(1:5, 18)] 
           x <- x %>% filter(!is.na(wellbeing)) %>% arrange(wellbeing) %>% top_n(n_bars)
         }
       
     } else { #When selecting variables not from report card
       
-        if(input$score_var == "endowment"){
+        if(barMain == "endowment"){
           x <- map[c(1:5, 19)] 
           x <- x %>% filter(!is.na(endowment)) %>% arrange(endowment) %>% top_n(n_bars) %>% mutate(endowment = endowment/1000000000)
-        } else if(input$score_var == "area"){
+        } else if(barMain == "area"){
           x <- map[c(1:5, 20)] 
           x <- x %>% filter(!is.na(area)) %>% arrange(area) %>% top_n(n_bars)
-        } else if(input$score_var == "size"){
+        } else if(barMain == "size"){
           x <- map[c(1:5, 21)] 
           x <- x %>% filter(!is.na(size)) %>% arrange(size) %>% top_n(n_bars)
-        } else if(input$score_var == "classes"){
+        } else if(barMain == "classes"){
           x <- map[c(1:5, 22)] 
           x <- x %>% filter(!is.na(classes)) %>% arrange(classes) %>% top_n(n_bars)
-        } else if(input$score_var == "renewables"){
+        } else if(barMain == "renewables"){
           x <- map[c(1:5, 23)] 
           x <- x %>% filter(!is.na(renewables)) %>% arrange(renewables) %>% top_n(n_bars)
-        } else if(input$score_var == "water"){
+        } else if(barMain == "water"){
           x <- map[c(1:5, 24)] 
           x <- x %>% filter(!is.na(water)) %>% arrange(water) %>% top_n(n_bars)
-        } else if(input$score_var == "waste"){
+        } else if(barMain == "waste"){
           x <- map[c(1:5, 25)] 
           x <- x %>% filter(!is.na(waste)) %>% arrange(waste) %>% top_n(n_bars)
-        } else if(input$score_var == "recycling"){
+        } else if(barMain == "recycling"){
           x <- map[c(1:5, 26)] 
           x <- x %>% filter(!is.na(recycling)) %>% arrange(recycling) %>% top_n(n_bars)
-        } else if(input$score_var == "resesarch"){
+        } else if(barMain == "resesarch"){
           x <- map[c(1:5, 27)] 
           x <- x %>% filter(!is.na(resesarch)) %>% arrange(resesarch) %>% top_n(n_bars)
-        } else if(input$score_var == "real_food"){
+        } else if(barMain == "real_food"){
           x <- map[c(1:5, 28)] 
           x <- x %>% filter(!is.na(real_food)) %>% arrange(real_food) %>% top_n(n_bars)
-        } else if(input$score_var == "gge"){
+        } else if(barMain == "gge"){
           x <- map[c(1:5, 29)] 
           x <- x %>% filter(!is.na(gge)) %>% arrange(gge) %>% top_n(n_bars)
-        } else if(input$score_var == "plant_based"){
+        } else if(barMain == "plant_based"){
           x <- map[c(1:5, 30)] 
           x <- x %>% filter(!is.na(plant_based)) %>% arrange(plant_based) %>% top_n(n_bars)
         }
@@ -613,11 +622,11 @@ server <- function(input, output, session){
     })
     
     ##Create x-axis label breaks for visualization clarity
-    #Varies by threshold value
+    #Dependent on threshold value
     
     if(input$threshold2 == 100 | input$threshold2 == "LAC"){
-      percentile_label <- c("0%", "20%", "40%", "60%", "80%", "100%")
-      breaks <- 5
+      percentile_label <- c("0%", "20%", "40%", "60%", "80%", "100%") #Break labels
+      breaks <- 5 #Set number of breaks
     } else if (input$threshold2 == 20){
       percentile_label <- c("80%", "85%", "90%", "95%", "100%")
       breaks <- 4
@@ -626,32 +635,36 @@ server <- function(input, output, session){
       breaks <- 4
     } else if (input$threshold2 == 5 & nrow(x) < 15){
       breaks <- 14
+      #Use dashes to add institution names without percentile labels
       percentile_label <- c("95%", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "100%")
     } else if (input$threshold2 == 5 & nrow(x) >= 15){
       breaks <- 6
+      #Use dashes to add institution names without percentile labels
       percentile_label <- c("95%", "________", "________", "________", "________", "________", "100%")
     }
     
-    ##Arrange institutions on x-axis in ascending order
+    ## Arrange institutions on x-axis in ascending order
+    
     x$institution <- as.vector(x$institution) #Get rid of factors
     x$institution = factor(x$institution, x$institution) #Add back ordered factors 
     
-    ##Create list for storing label values
-    #Add lowest scoring institution to the beginning of the list
-    v <- c(as.character(x$institution[1])) 
+    #Create list for storing label values
+    plot_label <- c(as.character(x$institution[1])) #Add lowest scoring institution to the beginning of the list
     
-    #Sequence through list to create breaks depending on threshold value
-    for(i in seq_len(breaks)){ v[i+1] <- as.character(x$institution[round((i/breaks)*nrow(x))]) }
+    for(i in seq_len(breaks)){ #Sequence through list to create breaks depending on threshold value
+      plot_label[i+1] <- as.character(x$institution[round((i/breaks)*nrow(x))]) 
+    }
     
-    #Add highest scoring institution to the end of the list
-    v[breaks+1] <- as.character(x$institution[nrow(x)])
+    plot_label[breaks+1] <- as.character(x$institution[nrow(x)]) #Add highest scoring institution to the end of the list
+    
+    ##
     
     #Variable to highlight institutions from search bar
-    #When search bar is not empty, categorical variable fill = 1 or 0 depending on whether or not institution has been searched for
+    #Categorical variable fill = 1 or 0 depending on whether or not institution has been searched for
     x <- x %>% mutate(fill = ifelse(!is.null(input$map_search) & institution %in% input$search_var, 0, 1))
     
     #Variable to alternate between main select input and report card input for y-axis 
-    y_val <- ifelse(input$score_var == "total" & input$report2_var != "total", input$report2_var, input$score_var)
+    y_val <- ifelse(barMain == "total" & barReport != "total", barReport, barMain)
     
     #Reactive bar plot
     output$schools_bar <- renderPlot({
@@ -660,7 +673,7 @@ server <- function(input, output, session){
         geom_bar(stat = "identity", position = position_dodge(width = 0.2), aes(fill = fill)) +
         labs(title = "", x = "", y = "") +
         #Wrap labels to avoid overlap on x-axis
-        scale_x_discrete(breaks = v, labels = stringr::str_wrap(paste(percentile_label, v, sep = "\n"), width = 8)) +
+        scale_x_discrete(breaks = plot_label, labels = stringr::str_wrap(paste(percentile_label, plot_label, sep = "\n"), width = 8)) +
         theme(legend.position = "none",
               plot.margin = margin(10, 100, 0, 0),
               axis.title.x = element_text(size = 11, margin = margin(t = 0, r = 0, b = 0, l = 0), color = "#66686b")) +
@@ -678,29 +691,34 @@ server <- function(input, output, session){
   
   #Render y-axis label based on selected variable
   output$message <- renderUI({
-    if(input$score_var == "total" & input$report2_var == "total"){
+    
+    #Select input variables
+    barMain <- input$score_var
+    barReport <- input$report2_var
+    
+    if(barMain == "total" & barReport == "total"){
       HTML(paste("Total Score"))
-    } else if(input$score_var == "total" & input$report2_var != "total"){
-      HTML(paste(report_names[report_values == input$report2_var], "Score"))
-    } else if(input$score_var == "renewables"){
+    } else if(barMain == "total" & barReport != "total"){
+      HTML(paste(report_names[report_values == barReport], "Score"))
+    } else if(barMain == "renewables"){
       HTML(paste("% of energy sourced from renewables"))
-    } else if(input$score_var == "water"){
+    } else if(barMain == "water"){
       HTML(paste("water consumed per campus user (gallons)"))
-    } else if(input$score_var == "waste"){
+    } else if(barMain == "waste"){
       HTML(paste("metric tons of waste produced per campus user"))
-    } else if(input$score_var == "recycling"){
+    } else if(barMain == "recycling"){
       HTML(paste("% of waste diverted to recycling or compost"))
-    } else if(input$score_var == "classes"){
+    } else if(barMain == "classes"){
       HTML(paste("% of classses focused on sustainability"))
-    } else if(input$score_var == "gge"){
+    } else if(barMain == "gge"){
       HTML(paste("annual greenhouse gas emmissions (metric tons)"))
-    } else if(input$score_var == "real_food"){
+    } else if(barMain == "real_food"){
       HTML(paste("% of ethically or sustainably sourced food"))
-    } else if(input$score_var == "endowment"){
+    } else if(barMain == "endowment"){
       HTML(paste("$ billions"))
-    } else if(input$score_var == "area"){
+    } else if(barMain == "area"){
       HTML(paste("acres"))
-    } else if(input$score_var == "size"){
+    } else if(barMain == "size"){
       HTML(paste("weighted campus users"))
     } 
   })
