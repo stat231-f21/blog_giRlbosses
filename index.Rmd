@@ -137,7 +137,7 @@ theme(axis.text = element_text(size = 10))
 
 Next, I created a visualization with the AFINN lexicon which looks at negative versus positive words with an integer between 5 and -5. The highest integer on this visualization is 3 with the word sucessful. However, the overall trend shows words with positive integers (positive words) with values between 1 and 2. I calculated the average weighted sentiment value by dividing the sum of the weighted scores (frequency times value) by the total frequency (sum of frequency). The average was 1.297, which is slightly higher. Therefore, Amherst is talking about sustainability with generally slightly positive terms and very few negative terms. 
 
-```{r, echo = FALSE}
+```{r, include = FALSE}
 #AFINN Lexicon
 afinn_lexicon <- get_sentiments("afinn")
 
@@ -159,7 +159,7 @@ ggplot(afinn_lexicon_formatted, aes(x = value)) +
 ## BING Lexicon
 Lastly, I looked at the BING Lexicon which just sorts words into negative or positive and created a visualization that shows the negative and positive words with their frequency. Again, you can see that there are many more positive words than negative words and that the positive words seem to have higher frequencies, with the word sustainability having the highest frequency.
 
-```{r, message = FALSE, echo = FALSE}
+```{r, message = FALSE, include = FALSE}
 #BING Lexicon
 bing_words <- word_tokenized %>%
   inner_join(get_sentiments("bing")) %>%
