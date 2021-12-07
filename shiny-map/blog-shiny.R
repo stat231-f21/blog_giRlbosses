@@ -17,8 +17,8 @@ library(leaflegend)
 #    Import Data     #
 ######################
 
-# Import STARS data
-map <- read_csv("map.csv") 
+# Import wrangled STARS data
+map <- read_csv("data/map.csv") 
 
 ## For TAB 1 MAP selectInput
 score_values <- c("rating", "total", "endowment", "area", "size",  "climate", "locale", "renewables", "gge", "water", "waste", "recycling", "classes", "real_food", "plant_based", "monday") 
