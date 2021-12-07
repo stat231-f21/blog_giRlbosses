@@ -69,7 +69,7 @@ word_frequencies <- word_tokenized %>%
 
 ## Common Words
 
-First, I created a common words plot that displays the top ten most common words in the report. This plot shows that investment was the most common word in the report, being written 30 times. This is interesting because it shows the institution views investment and money as very important factors when considering sustainability policy. I also created a word cloud that displays words with a minimum frequency of 5 and colors and sizes them from least to most frequent. 
+First, I created a common words plot that displays the top ten most common words in the report using the word frequency data set I created. This plot shows that investment was the most common word in the report, being written 30 times. This is interesting because it shows the institution views investment and money as very important factors when considering sustainability policy. I also created a word cloud that displays words with a minimum frequency of 5 and colors and sizes them from least to most frequent. 
 
 ```{r, warning = FALSE}
 #Common words plot
@@ -112,8 +112,10 @@ Next, I examined three different lexicons to try and summarize the sentiments in
 #NRC Lexicon
 nrc_lexicon <- get_sentiments("nrc")
 
+#Make dataset
 nrc_lexicon_formatted <- inner_join(nrc_lexicon, word_frequencies, by = c("word" = "word"))
 
+#Create data for visualization for top words in each emotion
 nrc_graphic <- nrc_lexicon_formatted %>%
   filter(sentiment %in% c("anger", "anticipation", "disgust", "sadness", "fear", "joy", "surprise", "trust")) %>%
   group_by(sentiment) %>%
@@ -121,6 +123,7 @@ nrc_graphic <- nrc_lexicon_formatted %>%
   slice(1:10) %>%
   ungroup() 
 
+#Create visualization for top words in each emotion
 nrc_graphic %>%
   ggplot(aes(x = reorder(word, n), y = n, 
              fill = sentiment)) +
@@ -135,18 +138,21 @@ theme(axis.text = element_text(size = 10))
 
 ## AFINN Lexicon
 
-Next, I created a visualization with the AFINN lexicon which looks at negative versus positive words with an integer between 5 and -5. The highest integer on this visualization is 3 with the word sucessful. However, the overall trend shows words with positive integers (positive words) with values between 1 and 2. I calculated the average weighted sentiment value by dividing the sum of the weighted scores (frequency times value) by the total frequency (sum of frequency). The average was 1.297, which is slightly higher. Therefore, Amherst is talking about sustainability with generally slightly positive terms and very few negative terms. 
+Next, I created a visualization with the AFINN lexicon which looks at negative versus positive words with an integer between 5 and -5. The highest integer on this visualization is 3 with the word successful. However, the overall trend shows words with positive integers (positive words) with values between 1 and 2. I used the tokenized word data set rather than the word frequencies to calculate the average sentiment value. The average was 1.297, which shows the average sentiment in the sustainability report was slightly positive. Therefore, Amherst is talking about sustainability with generally slightly positive terms and very few negative terms. I also created a histogram to show the distribution of sentiments using this Lexicon and plotted a line for the average sentiment value. This again shows that the report was slightly positive, which makes sense since Amherst would want to shine a positive light on their sustainability practices.
 
 ```{r, include = FALSE}
 #AFINN Lexicon
 afinn_lexicon <- get_sentiments("afinn")
 
+#Create data set with tokenized words
 afinn_lexicon_formatted <- inner_join(afinn_lexicon, word_tokenized, by = c("word" = "word"))
 
+#Calculate mean sentiment
 mean(afinn_lexicon_formatted$value)
 ```
 
 ```{r, , fig.width = 6}
+#Create histogram of sentiment distribution
 ggplot(afinn_lexicon_formatted, aes(x = value)) +
   geom_histogram(binwidth = 1, color = "black", fill = "lightblue") +
   labs(x = "Frequency",
@@ -157,7 +163,8 @@ ggplot(afinn_lexicon_formatted, aes(x = value)) +
 ```
 
 ## BING Lexicon
-Lastly, I looked at the BING Lexicon which just sorts words into negative or positive and created a visualization that shows the negative and positive words with their frequency. Again, you can see that there are many more positive words than negative words and that the positive words seem to have higher frequencies, with the word sustainability having the highest frequency.
+
+Lastly, I looked at the BING Lexicon which just sorts words into negative or positive. A visualization would not be very helpful here since it is only two categories so I calculated the average sentiment of the whole report. To do this, I mutated the sentiment variable so that if it was positive, it would be a 1 and if it was negative it would be -1. Therefore, a neutral report would get a sentiment of 0. Then, I calculated the mean of the sentiment variable and got .71698. This shows that the report is on the more positive side of the BING Lexicon, which aligns with the findings from the other sentiments discussed above.
 
 ```{r, message = FALSE, include = FALSE}
 #BING Lexicon
@@ -165,9 +172,11 @@ bing_words <- word_tokenized %>%
   inner_join(get_sentiments("bing")) %>%
   ungroup() 
 
+#Create data set with tokenized words
 bing_lexicon_average <- bing_words %>%
   mutate(sentiment = ifelse(sentiment == "positive", 1, -1))
 
+#Calculate the mean sentiment
 mean(bing_lexicon_average$sentiment)
 ```
 
