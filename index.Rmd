@@ -42,7 +42,7 @@ options(knitr.kable.NA = '')
 
 # Motivations
 
-As an extension of our Shiny project, our project examines how Amherst College prioritizes sustainability, and looks at the broader trajectory of sustainability embodied by higher education institutions in the US. By analyzing Amherst's expressed sentiment and benchmark measures of performance in a national context, it provides a comprehensive tool for students, faculty, and administration to to hold our campus accountable. We hope to ultimately share our blog with Amherst's incoming director of sustainability to highlight areas with the greatest potential for growth, and to promote collaboration across institutions.
+As an extension of our [Shiny project](https://sazhu24.shinyapps.io/SHINY/?_ga=2.39471459.1743845453.1638909670-2119895326.1632228173), our blog project continues to investigate how Amherst College embodies principles of sustainability and looks at the broader trajectory of sustainability throughout higher education in the US. By analyzing Amherst's expressed sentiment and benchmark measures of performance in a national context, our blog is designed to help students, faculty, and administration hold our campus accountable. We hope to ultimately share our blog with Amherst's incoming director of sustainability to highlight areas with the greatest potential for growth, and to promote collaboration across institutions.
 
 # Sustainability Report Sentiment Analysis
 
