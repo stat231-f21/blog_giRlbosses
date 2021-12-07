@@ -42,7 +42,7 @@ options(knitr.kable.NA = '')
 
 # Motivations
 
-Similar to our Shiny project, we wanted to investigate sustainability at Amherst College and expand our study of sustainability to other colleges. Our goal is to assess how Amherst College prioritizes sustainability through their sustainability report and actions to both hold our campus accountable and make cross institutional comparisons. By making these comparisons, we hope to foster cross institutional dialogue to become a more sustainable campus through collaboration with other colleges to inspire our own. 
+As an extension of our Shiny project, our project examines how Amherst College prioritizes sustainability as an institution and visualizes the trajectory of sustainability principles across all of higher education in the US. It specifically examines Amherst's  sentiment and benchmark measures of performance in a national context to hold our campus accountable. We hope to ultimately share our blog with Amherst's incoming director of sustainability to highlight regions for growth, foster meaningful dialogue, and promote collaboration across institutions.
 
 # Sustainability Report Sentiment Analysis
 
@@ -175,7 +175,9 @@ mean(bing_lexicon_average$sentiment)
 
 The overall conclusion I drew from my sentiment analysis is that Amherst talks about sustainability from an overall positive viewpoint and tries to limit its use of negative words. There are some limitations to this conclusion. First, I only used the sustainability report Amherst published in 2017. Therefore, this is a very limited view into Amherst College's sentiments surrounding sustainability and is outdated, however, there is not a more recent report. Therefore, the population this can be applied to is very limited and the results can not be generalized beyond Amherst College within the last few years. Although the scope of this analysis is small, it is purposeful to pinpoint how the institution of our own college has recently talked about the issue of sustainability. This analysis could be extended by including all past reports, or broadening the scope to include other colleges. 
 
-# Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
+#Sustainability on A National Level
+
+## Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
 
 We also wanted to visualize how different universities across the United States prioritize educating their students on sustainability-related disciplines. Therefore, we used data collected from [datausa](https://datausa.io/profile/cip/sustainability-studies#about) on the amount of Sustainability Studies degrees awarded to students across institutions between 2013-2019 with 1014 total measurements of Sustainability Studies completions across these years. In order to consider differing sizes of the undergraduate class across institutions, these degree completions were divided by 1/4 the number of undergraduate students during Fall 2020 from the [National Center for Education Statistics](https://nces.ed.gov/ipeds/SummaryTables/report/202?templateId=20202&year=2020&expand_by=0&tt=institutional&instType=2). This ratio was then multiplied by 100 to calculate the percent of Sustainability Studies degrees awarded for each graduating year. We also collected out of state tuition data for these institutions using data from datausa to examine the relationship between sustainability degrees awarded for a given graduating class and the tuition cost. Latitude and longitude data for the institutions was collected using the `colleges` dataset to create the interactive map below.
 
@@ -251,7 +253,7 @@ leaflet(data = enroll_map) %>%
 
 To investigate the spatial distribution of percent degrees awarded, we created an interactive map with the color of the points indicating the percent of all graduating undergraduate students for a given year between 2013 and 2019 that were awarded the Sustainability Studies degree. The sizes of the points are scaled by the out of state tuition. This plot allows the user to zoom into different colleges to geographically visualize percent degrees awarded and the out of state tuition.
 
-# Relationship between Sustainability Studies degrees awarded and college tuition
+## Relationship between Sustainability Studies degrees awarded and college tuition
 
 We then wanted to explore the relationship between the school's prioritization of the Sustainability Studies department and the out of state tuition. We hypothesized that schools with higher tuition would have higher percent Sustainability Studies degree completions because schools with higher tuition could have the finances to expand their degree options to Sustainability Studies and provide more support and resources in this department.
 
@@ -269,7 +271,7 @@ ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), x = out_of_state_
 
 Percent completions of the Sustainability Studies degree were transformed in order to visualize the relationship. There appears to be no relationship between the percent completions and the tuition. This suggests that tuition may not affect the school's prioritization of Sustainability Studies and thus may not limit students' access to the Sustainability Studies degree.
 
-# Change in degrees awarded over time
+## Change in degrees awarded over time
 
 We also wanted to investigate the trend of Sustainability Studies degrees awarded as a proxy of institutions' changing prioritization of educating their students on sustainability over time.
 
@@ -292,11 +294,11 @@ animate(anim_plot, width = 700, height = 450)
 
 Between 2013 and 2019 there appears to be first an increase in the number of schools which documented Sustainability Studies completions, which is most likely because there are less data for 2013 than the other years. Notably, however, the density plot shifts to higher percentages of completions from 2013-2019, which could suggest that institutions are starting to prioritize educating their students on Sustainability-related topics.
 
-# How well do Sustainability Studies completions measure sustainability?
+## How well do Sustainability Studies completions measure sustainability?
 
 We used data from the [EPA](https://www.epa.gov/greenpower/green-power-partnership-top-30-college-university) which ranked the top most sustainable colleges and universities in terms of the amount of green power they use. Below is a table ranking the top 10 most sustainable colleges as well as a table ranking the top 10 schools with the highest number of Sustainability Studies completions.
 
-# Top 10 schools using the most green power
+## Top 10 schools using the most green power
 
 ```{r, message = FALSE}
 #comparing the top 30 to the other top 30
@@ -311,7 +313,7 @@ Top30 <- read_excel("data/Top30.xlsx") %>%
 knitr::kable(Top30)  
 ```
 
-# Top 10 schools with the most Sustainability Studies degree completions
+## Top 10 schools with the most Sustainability Studies degree completions
 
 ```{r, message = FALSE}
 #Top 30 in terms of percent Sustainability Studies completions
@@ -336,20 +338,51 @@ From our analysis of the sustainability studies degrees awarded, the interactive
 
 # STARS Interactive Map
 
+## STARS Database
+
+After examining Amherst's expressed commitment to sustainability, and sustainability as a growing field in higher education, we wanted to develop a tool to visualize our college's performance, and more importantly, to understand how Amherst compares to other institutions using a common set of benchmarks.
+
+Our project recognizes the unique challenges, constraints, and opportunities facing colleges and universities in the U.S. today, and created these interactive features with the goal of aiding strategic planning, fostering cross-sector dialogue about sustainability on campus, and stimulating conversations and learning between institutions.  
+
+We ended up scraping the entire [STARS Database](https://stars.aashe.org/) of higher education institutions in the US. After filtering out reports that were expired or non-scoring, our final data set consisted of scraped reports for 275 institutions.
+
+![](img/stars-head.png)
+
+!["Amherst STARS Report Card"](img/stars-amherst.png)
+
+
+## Interactive Features
+
 ```{r, out.width="100%", out.extra='data-external=1; style="border: none;"'}
  knitr::include_app("https://sazhu24.shinyapps.io/shiny-map/", height = "920px")
 ```
 
-The Sustainability Tracking, Assessment & Rating System (STARS) was developed as a transparent, comprehensive tool to empower higher education faculty, administrators, staff and students to be effective change agents and drivers of sustainability innovation. The database, which includes reports for more than 500 institutions, provides a comprehensive look into all facets of sustainability and innovation across higher education, while establishing clear benchmarks and measures of accountability. Our project recognizes the unique challenges, constraints, and opportunities facing colleges and universities in the U.S. today, and created this interactive feature with the goal of aiding strategic planning, fostering cross-sector dialogue about sustainability on campus, and stimulating conversations and learning between institutions.  
+The aggregate scores of each section on the STARS Report Card – Curriculum, Research, Campus Engagement, Public Engagement, Air, Buildings, Energy, Food, Planning, Diversity, Investment, Wellbeing, and a few additional points for Innovation and Leadership – culminate in the total score and overall STARS rating for each institution. The first page of our interactive leaflet map displays the overall rating, component scores, as well as scraped answers for many of the highest-weighted response items on the STARS report. These range from questions of greenhouse gas emissions produced per weighted campus user, to the percentage of course offerings that focus on sustainability at each institution. 
 
-Our final data set consisted of 275 American institutions after scraping the entire STARS report database and filtering out expired, non-scoring, or non-US based reports. The aggregate scores of each section on the STARS Report Card – Curriculum, Research, Campus Engagement, Public Engagement, Air, Buildings, Energy, Food, Planning, Diversity, Investment, Wellbeing, and a few additional points for Innovation and Leadership – culminate in the total score and overall STARS rating for each institution. The first page of our interactive leaflet map displays the distribution of ratings for institutions across the US. Among all scored institutions in the STARS database, 2.9% are platinum-rated, 36.8% are gold-rated, 46% are silver-rated, and 12.6% are bronze-rated. The map also displays scores for each component of the report card, as well as scraped answers the highest-weighted response items on the STARS report. These range from greenhouse gas emissions and waste produced per weighted campus user, to the percentage of course offerings or current research that focuses on sustainability at each institution. Percentile scores for each institution are mapped to a corresponding color scale on the map, and to bar heights on the plot in the next tab. Operational characteristics including endowment, area, population, climate, and locale are also provided to contextualize each institution's score. A search feature also allows users to highlight institutions of their choosing for easy comparison, while radio buttons enable users to filter for top scoring institutions or for liberal arts colleges bearing similar characteristics to Amherst. 
+Percentile scores for each institution are mapped to a corresponding color scale on the map, and to bar heights on the plot in the corresponding tab. Operational characteristics including endowment, area, population, climate, and locale are also provided to contextualize each institution's score. A search feature also allows users to highlight institutions of their choosing for easy comparison, while radio buttons enable users to filter for top scoring institutions, or for liberal arts colleges bearing similar characteristics to Amherst. 
 
-Our map shows that Amherst lags behind many of its peers across all STARS categories. For example, even after factoring in Amherst's recent announcement of the New England College Renewable Partnership – a joint solar energy facility collectively owned and managed by Amherst, Bowdoin, Hampshire, Smith and Williams that will reduce Amherst's CO2 emissions by "more than 3,200 metric tons per year, or 17.5 percent" – Amherst still places it the top 70% of largest greenhouse gas producers per capita. Among all liberal arts schools in our database, Amherst places even higher, among the top 80% of largest greenhouse gas producers per capita. Amherst scores just as poorly when it comes to sustainability in curriculum, waste production and diversion, energy and water efficiency, ethical/sustainable food-sourcing, and more.
+## Assesing Amherst's Performance
+After factoring in Amherst's recent announcement of the New England College Renewable Partnership – a joint solar energy facility collectively owned and managed by Amherst, Bowdoin, Hampshire, Smith and Williams that will reduce Amherst's CO2 emissions by "more than 3,200 metric tons per year, or 17.5 percent" – we found that it still places in the top 80% of largest greenhouse gas producers per capita. And the same finding pretty much holds when we're only talking about liberal arts colleges too. 
+
+```{r, echo = TRUE, eval = FALSE}
+# Account for 3200 metric tons of CO2, or 17.5% reduction from the New England College Renewable Partnership project
+map[3, 29] <- lapply(map[3, 29], function (x) x*(0.825))
+```
+
+
+![](img/emmissions-plot.png)
+
+
+To our disappointment, we discovered this was pretty much the case across the board. Amherst scores just as poorly when it comes to sustainability integrated into curriculum, waste production and diversion, energy and water efficiency, ethical and sustainable sourcing, and other regions.
+
+## Limitations
 
 However, as comprehensive as the STARS database may be, the accuracy of cross-institutional comparisons still hinge on the range and accuracy of the self-reported data submitted by each institution. The STARS report allows institutions to submit data from as far back as three years before the report date. Since original report dates can range as far back as 2018 (like Amherst's does), the reported data can be up to 6 years old. The constant evolution the STARS report and rising popularity of sustainability values means newer reports are more likely to reflect accurate information and potentially higher scores. Moreover, since the report is a voluntary self-assessment tool, the map excludes reports for non-participating institutions, expired reports, and those not verified by the STARS assessment board. Although the 275 institutions mapped represent a wide range of higher education institutions, it by nature filters for schools that are actively pursuing the goals outlined by the STARS report. Even some of the most prestigious ivy-league institutions like Harvard, Dartmouth, and Brown University are not participating STARS members. The range in institution and report type also means that some variables only show information from institutions that were able to to report on certain prompts, such as the percentage of food products verified as ethically or sustainably sourced. Thus, any conclusions drawn from cross-institutional comparisons must take these considerationd into account. The interactive map and plot show us that in terms of greenhouse gas emissions per person and other similar metrics, Amherst has tremendous room for growth and a lot to learn from peer institutions with similar operating and geographic characteristics. However, it would not be accurate to say that they lie in the bottom 30th percentile of all institutions in the U.S..
 
 # Future Explorations
 
-For future directions, we want to examine where students from Amherst College and other colleges end up after graduation. Although a student's upbringing before college shapes what they value, we are curious to investigate how schools differ in their students' career trajectories. The number of students who have careers in sustainability after graduation could provide insight into how schools could shape their students' decision to go into sustainability as a career. 
+In a future exploration, we hope to take a closer look at the reports oftop performing institutions to gain a better understanding of how these schools are developing different initiatives and integrating sustainability principles into all facets of the institution. 
 
-Next year, when we get a new head of the Office of Sustainability, we expect that sustainability data for the college will be more available. When we have access to these new data, we can conduct more analyses such as the school's emissions data. We are looking forward to sharing our findings with the office to hold our campus and ourselves accountable.
+We also want to examine where students from Amherst College and other colleges end up after graduation. Although a student's upbringing before college shapes what they value, we are curious to investigate how schools differ in their students' career trajectories. The number of students who have careers in sustainability after graduation could provide insight into how schools could shape their students' decision to go into sustainability as a career. 
+
+Most of all want, we hope to proceed with our analysis by sharing these findings with the community. This great to to see for ourselves, but for a school that prizes itself so much on being a leader in higher education and contributing to the well-being and longevity of society, these analyses show that there is a lot of for growth. We hope to share these findings with the incoming director of sustainability next year to to hold our campus and ourselves accountable, to provide a useful tool for seeking out potential models for Amherst, and ultimately move us all toward our common goal of building a more sustainable and prosperous tomorrow.

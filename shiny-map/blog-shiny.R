@@ -48,17 +48,17 @@ names(threshold2_values) <- threshold2_names
 
 ui <- navbarPage(id = "nav",
                  
-   theme = bs_theme(base_font = font_google("Lato"), 
-                    heading_font = font_google("Lato"),
-                    version = 4, bootswatch = "lux"),  
-
-  title = img(src = "green.png", height = 100, width = 90),
-
-  tabPanel("MAP",
-           div(class="outer",
-               
-               tags$head(
-                tags$style('#controls {
+                 theme = bs_theme(base_font = font_google("Lato"), 
+                                  heading_font = font_google("Lato"),
+                                  version = 4, bootswatch = "lux"),  
+                 
+                 title = img(src = "green.png", height = 100, width = 90),
+                 
+                 tabPanel("MAP",
+                          div(class="outer",
+                              
+                              tags$head(
+                                tags$style('#controls {
                               background-color: #edf1f2;
                               padding: 0 20px 0px 20px;
                               cursor: move;
@@ -95,130 +95,128 @@ ui <- navbarPage(id = "nav",
                               color: grey;
                               margin-top: -4px;}
                               ')),
-    
-      mainPanel(align = "center", width = "100%", 
-                absolutePanel(id = "controls", fixed = TRUE,
-                              draggable = TRUE, top = 250, left = "auto", right = 20, bottom = "auto",
-                              width = '25%', height = 600, style = "z-index: 10;",
                               
-                              div(style = "margin-top: 20px;",
-                              pickerInput(inputId = "map_var",
-                                          label = '',
-                                          choices = score_values,
-                                          options = list(`style` = "btn-primary",
-                                                         'dropdownAlignRight' = T),
-                                          selected = "rating")),
+                              mainPanel(align = "center", width = "100%", 
+                                        absolutePanel(id = "controls", fixed = TRUE,
+                                                      draggable = TRUE, top = 250, left = "auto", right = 20, bottom = "auto", width = '25%', height = 600, style = "z-index: 10;",
+                                                      
+                                                      div(style = "margin-top: 20px;",
+                                                          pickerInput(inputId = "map_var",
+                                                                      label = '',
+                                                                      choices = score_values,
+                                                                      options = list(`style` = "btn-primary",
+                                                                                     'dropdownAlignRight' = T),
+                                                                      selected = "rating")),
+                                                      
+                                                      div(style = "margin-top: 20px; font-size:12px; text-transform:uppercase; color:#3e84bd", htmlOutput("description")),
+                                                      
+                                                      conditionalPanel(
+                                                        condition = "input.map_var == 'total'",
+                                                        pickerInput(inputId = "report_var",
+                                                                    label = '',
+                                                                    choices = report_values,
+                                                                    options = list(`style` = "btn-danger",
+                                                                                   "dropupAuto" = FALSE)),
+                                                        hr(),
+                                                      ),
+                                                      hr(),
+                                                      
+                                                      div(style = "margin-top: 20px", 
+                                                          switchInput(
+                                                            inputId = "search_switch",
+                                                            label = "SEARCH",
+                                                            value = FALSE,
+                                                            labelWidth = "80px"
+                                                          )),
+                                                      
+                                                      
+                                                      conditionalPanel(
+                                                        condition = "Boolean(input.search_switch)",
+                                                        selectizeInput(inputId = "map_search",
+                                                                       label = tags$div("SEARCH FOR AN INSTITUTION:", style = 'font-size:10.5px; font-style: bold'), 
+                                                                       choices = map$institution,
+                                                                       selected = "Amherst College",
+                                                                       multiple = TRUE)
+                                                        
+                                                      ),
+                                                      hr(),
+                                                      conditionalPanel(
+                                                        condition = "input.map_var !== 'rating' & input.map_var !== 'climate' & input.map_var !== 'locale' & input.map_var !== 'monday'",
+                                                        prettyRadioButtons(inputId = "threshold", 
+                                                                           label = tags$div("VIEW:", style = 'font-size:13px; font-weight: bold; line-height:1.2'),
+                                                                           status = "danger",
+                                                                           animation = "pulse",
+                                                                           inline = T,
+                                                                           choices = threshold_values, 
+                                                                           selected = 100),
+                                                        hr(),
+                                                      )),
+                                        
+                                        leafletOutput(outputId = "map2", height=700))
                               
-                              div(style = "margin-top: 20px; font-size:12px; text-transform:uppercase; color:#3e84bd", htmlOutput("description")),
-                              
-                              conditionalPanel(
-                                condition = "input.map_var == 'total'",
-                                pickerInput(inputId = "report_var",
-                                            label = '',
-                                            choices = report_values,
-                                            options = list(`style` = "btn-danger",
-                                                           "dropupAuto" = FALSE)),
-                                hr(),
-                                ),
-                              hr(),
-                              
-                              div(style = "margin-top: 20px", 
-                                  switchInput(
-                                    inputId = "search_switch",
-                                    label = "SEARCH",
-                                    value = FALSE,
-                                    labelWidth = "80px"
-                                  )),
-                              
-                              conditionalPanel(
-                                condition = "Boolean(input.search_switch)",
-                                selectizeInput(inputId = "map_search",
-                                               label = tags$div("SEARCH FOR AN INSTITUTION:", style = 'font-size:10.5px; font-style: bold'), 
-                                               choices = map$institution,
-                                               selected = "Amherst College",
-                                               multiple = TRUE)
-                                
-                              ),
-                              hr(),
-                              conditionalPanel(
-                                condition = "input.map_var !== 'rating' & input.map_var !== 'climate' & input.map_var !== 'locale' & input.map_var !== 'monday'",
-                                prettyRadioButtons(inputId = "threshold", 
-                                                   label = tags$div("VIEW:", style = 'font-size:13px; font-weight: bold; line-height:1.2'),
-                                                   status = "danger",
-                                                   animation = "pulse",
-                                                   inline = T,
-                                                   choices = threshold_values, 
-                                                   selected = 100),
-                                hr(),
-                              ),
-                              
-                              
-                              
-                              ),
-                
-                leafletOutput(outputId = "map2", height=700))
-      
-    )),
-  
-  tabPanel(
-    title = "PLOT",
-
-      mainPanel(align = "center", width = "80%",
-                
-                fluidRow(
-                  column(width=6, align = "right",
-                         div(style = "  font-size: 12px; text-transform:uppercase;",
-                            pickerInput(inputId = "score_var",
-                                        label = div("VIEW SCORE:", style="font-size:12px; font-weight:bold; color:black; margin-bottom:10px"),
-                                        choices = bar_values,
-                                        selected = "total",
-                                        options = list(`style` = "btn-info"),
-                                        width = "83%"))),
-                  
-                  column(width=6, align = "left", 
-                         div(style = "",
-                             conditionalPanel(
-                               condition = "input.score_var == 'total'",
-                               pickerInput(inputId = "report2_var",
-                                           label = div("REPORT CARD", style="font-size:12px; font-weight:bold; color:#626663; margin-bottom:10px"),
-                                           choices = report_values,
-                                           options = list(`style` = "btn-primary",
-                                                          "dropupAuto" = FALSE),
-                                           width = "83%")))
-                         )
-                  ),
-                
-                fluidRow(
-                  column(width=12, align = "center", 
-                         div(style = "margin-top:10px",
-                             selectizeInput(inputId = "search_var",
-                                            label = div("SEARCH FOR AN INSTITUTION:", style="font-size:11px; "), 
-                                            choices = map$institution,
-                                            selected = "Amherst College",
-                                            multiple = TRUE,
-                                            width = "70%"))
-                )),
-                div(style="font-size:13px;",
-                prettyRadioButtons(inputId = "threshold2", 
-                                   label = "", 
-                                   status = "danger",
-                                   animation = "pulse",
-                                   inline = T,
-                                   choices = threshold2_values, 
-                                   selected = 100)),
-                
-                div(style = "margin-top:30px; font-size:17px; text-transform:uppercase; color:#3e84bd; line-height:1", textOutput("title_var3")),
-                
-                fluidRow(
-                  column(3, align = "left",  div(style = "font-size:9px; text-align: center; text-transform:uppercase; margin-bottom: -200px; margin-right: 40px; margin-top: 180px; transform: rotate(-90deg)", htmlOutput("message"))),
-                  column(11, align = "right", div(style = "margin-left:12%; margin-right: -8%;  z-index: 2", plotOutput(outputId = "schools_bar")))
-                ),
-                div(style = "font-align: center; margin-left:12%; font-size:11px; text-transform:uppercase; margin-top: 2px; margin-bottom: 180px; margin-right: 10%", p("Percentile of Reporting Institutions"))
-                  
-                
-                
-                )
-    )
+                          )),
+                 
+                 tabPanel(
+                   title = "PLOT",
+                   
+                   mainPanel(align = "center", width = "80%",
+                             
+                             fluidRow(
+                               column(width=6, align = "right",
+                                      div(style = "  font-size: 12px; text-transform:uppercase;",
+                                          pickerInput(inputId = "score_var",
+                                                      label = div("VIEW SCORE:", style="font-size:12px; font-weight:bold; color:black; margin-bottom:10px"),
+                                                      choices = bar_values,
+                                                      selected = "total",
+                                                      options = list(`style` = "btn-info"),
+                                                      width = "83%"))),
+                               
+                               column(width=6, align = "left", 
+                                      div(style = "",
+                                          conditionalPanel(
+                                            condition = "input.score_var == 'total'",
+                                            pickerInput(inputId = "report2_var",
+                                                        label = div("REPORT CARD", style="font-size:12px; font-weight:bold; color:#626663; margin-bottom:10px"),
+                                                        choices = report_values,
+                                                        options = list(`style` = "btn-primary",
+                                                                       "dropupAuto" = FALSE),
+                                                        width = "83%")))
+                               )
+                             ),
+                             
+                             fluidRow(
+                               column(width=12, align = "center", 
+                                      div(style = "margin-top:10px",
+                                          selectizeInput(inputId = "search_var",
+                                                         label = div("SEARCH FOR AN INSTITUTION:", style="font-size:11px; "), 
+                                                         choices = map$institution,
+                                                         selected = "Amherst College",
+                                                         multiple = TRUE,
+                                                         width = "70%"))
+                               )),
+                             
+                             div(style="font-size:13px;",
+                                 prettyRadioButtons(inputId = "threshold2", 
+                                                    label = "", 
+                                                    status = "danger",
+                                                    animation = "pulse",
+                                                    inline = T,
+                                                    choices = threshold2_values, 
+                                                    selected = 100)),
+                             
+                             div(style = "margin-top:30px; font-size:17px; text-transform:uppercase; color:#3e84bd; line-height:1", textOutput("title_var3")),
+                             
+                             fluidRow(
+                               column(3, align = "left",  div(style = "font-size:9px; text-align: center; text-transform:uppercase; margin-bottom: -200px; margin-right: 40px; margin-top: 180px; transform: rotate(-90deg)", htmlOutput("message"))),
+                               column(11, align = "right", div(style = "margin-left:12%; margin-right: -8%;  z-index: 2", plotOutput(outputId = "schools_bar")))
+                             ),
+                             
+                             div(style = "font-align: center; margin-left:12%; font-size:11px; text-transform:uppercase; margin-top: 2px; margin-bottom: 180px; margin-right: 10%", p("Percentile of Reporting Institutions"))
+                             
+                             
+                             
+                   )
+                 )
 )
 
 ############
@@ -240,7 +238,7 @@ server <- function(input, output, session){
   output$title_var3 <- renderText({
     paste(score_names[score_values == input$score_var])
   })
-
+  
   #Make icons for ratings map
   medalIcons <- iconList(
     Platinum = makeIcon(iconUrl = "icons/platinum.png",
@@ -254,123 +252,118 @@ server <- function(input, output, session){
     
   )
   
+  #Plot default leaflet map with icons
   output$map2 <- renderLeaflet({
     
     leaflet(data = map) %>% 
       addTiles() %>% 
+      #Set map default map view to center on the US
       setView(lng = -93.85, lat = 37.45, zoom = 4) %>% 
-      addMarkers(~long, 
-                 ~lat, 
-                 group = "nc",
+      #Add markers with medal icons
+      addMarkers(~long, ~lat, 
                  icon = ~medalIcons[rating],
+                 #Add labels with institution, state, and rating information
                  label = lapply(paste0( '<b>', y[[1]], '</b><br>', y[[2]], ' | ', 
                                         y[[5]],' | ', y[[6]]), htmltools::HTML),
-                 labelOptions = labelOptions(noHide = F, direction = "bottom",
-                                             style = list(
-                                               "font-size" = 12,
-                                               "font-family" = "lato"))) %>% 
+                 #View when mouses hovers over
+                 labelOptions = labelOptions(noHide = F, direction = "bottom", style = list(
+                   "font-size" = 12,
+                   "font-family" = "lato"))) %>% 
+      #Add legend for icons
       addLegendImage(c('icons/platinum.png','icons/gold.png', 'icons/silver.png', 'icons/bronze.png'), 
                      title = htmltools::HTML(paste0('<h6>', 'Rating', '</h6>', '<hr>')), 
                      labels = c("Platinum", "Gold", "Silver", "Bronze"),
                      labelStyle = "font-size:12px") 
   })
   
+  #Create new copy of data set for map
   y <- map[c(1:6)]
   
   observe({
     
+    #Threshold variable which takes in the radio button input and filters data set for top n% of bars
     m_bars <- as.numeric(input$threshold)*(nrow(y)/100)
+    #Input Selectize variables
     colorBy <- input$map_var
     colorReport <- input$report_var
     
     #Function to mutate input variable directly
-    if(input$map_var == "total" & input$report_var == "total"){
-      y <- map[c(1:5, 6)]
-      y <- y %>% filter(!is.na(total)) %>% arrange(total) %>% top_n(m_bars)
-    } else if(input$map_var == "total" & input$report_var == "curriculum"){
-      y <- map[c(1:5, 7)] 
-      y <- y %>% filter(!is.na(curriculum)) %>% arrange(curriculum) %>% top_n(m_bars)
-    } else if(input$map_var == "total" & input$report_var == "researching"){
-      y <- map[c(1:5, 8)] 
-      y <- y %>% filter(!is.na(researching)) %>% arrange(researching) %>% top_n(m_bars)
-    } else if(input$map_var == "total" & input$report_var == "campus_engagement"){
-      y <- map[c(1:5, 9)] 
-      y <- y %>% filter(!is.na(campus_engagement)) %>% arrange(campus_engagement) %>% top_n(m_bars)
-    } else if(input$map_var == "total" & input$report_var == "public_engagement"){
-      y <- map[c(1:5, 10)] 
-      y <- y %>% filter(!is.na(public_engagement)) %>% arrange(public_engagement) %>% top_n(m_bars)
-    } else if(input$map_var == "total" & input$report_var == "air"){
-      y <- map[c(1:5, 11)] 
-      y <- y %>% filter(!is.na(air)) %>% arrange(air) %>% top_n(m_bars)
-    } else if(input$map_var == "total" & input$report_var == "buildings"){
-      y <- map[c(1:5, 12)] 
-      y <- y %>% filter(!is.na(buildings)) %>% arrange(buildings) %>% top_n(m_bars)
-    } else if(input$map_var == "total" & input$report_var == "energy"){
-      y <- map[c(1:5, 13)] 
-      y <- y %>% filter(!is.na(energy)) %>% arrange(energy) %>% top_n(m_bars)
-    } else if(input$map_var == "total" & input$report_var == "food"){
-      y <- map[c(1:5, 14)] 
-      y <- y %>% filter(!is.na(food)) %>% arrange(food) %>% top_n(m_bars)
-    } else if(input$map_var == "total" & input$report_var == "planning"){
-      y <- map[c(1:5, 15)] 
-      y <- y %>% filter(!is.na(planning)) %>% arrange(planning) %>% top_n(m_bars)
-    } else if(input$map_var == "total" & input$report_var == "diversity"){
-      y <- map[c(1:5, 16)] 
-      y <- y %>% filter(!is.na(diversity)) %>% arrange(diversity) %>% top_n(m_bars)
-    } else if(input$map_var == "total" & input$report_var == "investment"){
-      y <- map[c(1:5, 17)] 
-      y <- y %>% filter(!is.na(investment)) %>% arrange(investment) %>% top_n(m_bars)
-    } else if(input$map_var == "total" & input$report_var == "wellbeing"){
-      y <- map[c(1:5, 18)] 
-      y <- y %>% filter(!is.na(wellbeing)) %>% arrange(wellbeing) %>% top_n(m_bars)
-    } else if(input$map_var == "endowment"){
-      y <- map[c(1:5, 19)] 
-      y <- y %>% filter(!is.na(endowment)) %>% arrange(endowment) %>% top_n(m_bars) %>% mutate(endowment_lab = ifelse(endowment < 1000000000, paste("$", round(endowment/1000000, digits = 1), " MIL", sep = ""), paste("$", round(endowment/1000000000, digits = 1), " BIL", sep = ""))) %>% relocate(endowment_lab, .before = "endowment")
-    } else if(input$map_var == "area"){
-      y <- map[c(1:5, 20)] 
-      y <- y %>% filter(!is.na(area)) %>% arrange(area) %>% top_n(m_bars)
-    } else if(input$map_var == "size"){
-      y <- map[c(1:5, 21)] 
-      y <- y %>% filter(!is.na(size)) %>% arrange(size) %>% top_n(m_bars)
-    } else if(input$map_var == "classes"){
-      y <- map[c(1:5, 22)] 
-      y <- y %>% filter(!is.na(classes)) %>% arrange(classes) %>% top_n(m_bars)
-    } else if(input$map_var == "renewables"){
-      y <- map[c(1:5, 23)] 
-      y <- y %>% filter(!is.na(renewables)) %>% arrange(renewables) %>% top_n(m_bars)
-    } else if(input$map_var == "water"){
-      y <- map[c(1:5, 24)] 
-      y <- y %>% filter(!is.na(water)) %>% arrange(water) %>% top_n(m_bars)
-    } else if(input$map_var == "waste"){
-      y <- map[c(1:5, 25)] 
-      y <- y %>% filter(!is.na(waste)) %>% arrange(waste) %>% top_n(m_bars)
-    } else if(input$map_var == "recycling"){
-      y <- map[c(1:5, 26)] 
-      y <- y %>% filter(!is.na(recycling)) %>% arrange(recycling) %>% top_n(m_bars)
-    } else if(input$map_var == "resesarch"){
-      y <- map[c(1:5, 27)] 
-      y <- y %>% filter(!is.na(resesarch)) %>% arrange(resesarch) %>% top_n(m_bars)
-    } else if(input$map_var == "real_food"){
-      y <- map[c(1:5, 28)] 
-      y <- y %>% filter(!is.na(real_food)) %>% arrange(real_food) %>% top_n(m_bars)
-    } else if(input$map_var == "gge"){
-      y <- map[c(1:5, 29)] 
-      y <- y %>% filter(!is.na(gge)) %>% arrange(gge) %>% top_n(m_bars)
-    } else if(input$map_var == "plant_based"){
-      y <- map[c(1:5, 30)] 
-      y <- y %>% filter(!is.na(plant_based)) %>% arrange(plant_based) %>% top_n(m_bars)
-    } else if(input$map_var == "climate"){
-      y <- map[c(1:5, 31)] 
-      y <- y %>% filter(!is.na(climate)) %>% arrange(climate) 
-    } else if(input$map_var == "locale"){
-      y <- map[c(1:5, 32)] 
-      y <- y %>% filter(!is.na(locale)) %>% arrange(locale) 
-    } else if(input$map_var == "monday"){
-      y <- map[c(1:5, 34)] 
-      y <- y %>% filter(!is.na(monday)) %>% arrange(monday) 
-    } 
+    if(input$map_var != "climate" & input$map_var != "locale" & input$map_var != "monday"){
+      
+      if(input$map_var == "total" & input$report_var == "total"){
+        y <- map[c(1:5, 6)]
+      } else if(input$map_var == "total" & input$report_var == "curriculum"){
+        y <- map[c(1:5, 7)] 
+      } else if(input$map_var == "total" & input$report_var == "researching"){
+        y <- map[c(1:5, 8)] 
+      } else if(input$map_var == "total" & input$report_var == "campus_engagement"){
+        y <- map[c(1:5, 9)] 
+      } else if(input$map_var == "total" & input$report_var == "public_engagement"){
+        y <- map[c(1:5, 10)] 
+      } else if(input$map_var == "total" & input$report_var == "air"){
+        y <- map[c(1:5, 11)] 
+        y <- y %>% filter(!is.na(air)) %>% arrange(air) %>% top_n(m_bars)
+      } else if(input$map_var == "total" & input$report_var == "buildings"){
+        y <- map[c(1:5, 12)] 
+      } else if(input$map_var == "total" & input$report_var == "energy"){
+        y <- map[c(1:5, 13)] 
+      } else if(input$map_var == "total" & input$report_var == "food"){
+        y <- map[c(1:5, 14)] 
+      } else if(input$map_var == "total" & input$report_var == "planning"){
+        y <- map[c(1:5, 15)] 
+      } else if(input$map_var == "total" & input$report_var == "diversity"){
+        y <- map[c(1:5, 16)] 
+      } else if(input$map_var == "total" & input$report_var == "investment"){
+        y <- map[c(1:5, 17)] 
+      } else if(input$map_var == "total" & input$report_var == "wellbeing"){
+        y <- map[c(1:5, 18)] 
+      } else if(input$map_var == "endowment"){
+        y <- map[c(1:5, 19)] %>% 
+          filter(!is.na(endowment)) %>% 
+          mutate(endowment_lab = ifelse(endowment < 1000000000, 
+                                        paste("$", round(endowment/1000000, digits = 1), " MIL", sep = ""), 
+                                        paste("$", round(endowment/1000000000, digits = 1), " BIL", sep = ""))) %>% 
+          relocate(endowment_lab, .before = "endowment")
+      } else if(input$map_var == "area"){
+        y <- map[c(1:5, 20)] 
+      } else if(input$map_var == "size"){
+        y <- map[c(1:5, 21)] 
+      } else if(input$map_var == "classes"){
+        y <- map[c(1:5, 22)] 
+      } else if(input$map_var == "renewables"){
+        y <- map[c(1:5, 23)] 
+      } else if(input$map_var == "water"){
+        y <- map[c(1:5, 24)] 
+      } else if(input$map_var == "waste"){
+        y <- map[c(1:5, 25)] 
+      } else if(input$map_var == "recycling"){
+        y <- map[c(1:5, 26)] 
+      } else if(input$map_var == "resesarch"){
+        y <- map[c(1:5, 27)] 
+      } else if(input$map_var == "real_food"){
+        y <- map[c(1:5, 28)] 
+      } else if(input$map_var == "gge"){
+        y <- map[c(1:5, 29)] 
+      } else if(input$map_var == "plant_based"){
+        y <- map[c(1:5, 30)] 
+      }
+      
+      y <- y %>% filter(!is.na(input$map_var)) %>% arrange(input$map_var) %>% top_n(m_bars)
+      
+    } else if(input$map_var == "climate" | input$map_var == "locale" | input$map_var == "monday") {
+      
+      if(input$map_var == "climate"){
+        y <- map[c(1:5, 31)] 
+      } else if(input$map_var == "locale"){
+        y <- map[c(1:5, 32)] 
+      } else if(input$map_var == "monday"){
+        y <- map[c(1:5, 34)] 
+      }
+      
+      y <- y %>% filter(!is.na(input$map_var)) %>% arrange(input$map_var) 
+      
+    }
     
-
     
     #Function for Legend title
     if (input$map_var != "climate" & input$map_var != "locale" & input$map_var != "monday" & input$map_var != "total") {
@@ -477,86 +470,90 @@ server <- function(input, output, session){
         y <- y %>% relocate(label, .before = "endowment")
       }
       
-    #Function to set marker/color values and map each case
-    if (colorBy == "climate" | colorBy == "locale") {
-      
-      colorData2 <- y[[colorBy]]
-      pals <- colorFactor("plasma", unique(colorData2), reverse = TRUE)
-      
-    } else if (colorBy == "monday") {
-      
-      colorData2 <- y[[colorBy]]
-      pals <- colorFactor(c("#e07767", "#77c775"), unique(colorData2))
-      
-    } else if (colorBy == "rating") {
-      leafletProxy("map2", data = map) %>% 
-        clearControls() %>% 
-        clearMarkers() %>%
-        addMarkers(~long, 
-                   ~lat, 
-                   icon = ~medalIcons[rating],
-                   label = lapply(y[[7]], htmltools::HTML),
-                   labelOptions = labelOptions(noHide = T, direction = "bottom",
-                                               textOnly = TRUE,
-                                               style = list(
-                                                 "font-size" = "13px",
-                                                 "font-family" = "lato",
-                                                 "color" = "#2c2736",
-                                                 "font-family" = "lato",
-                                                 "text-shadow" = "1px 1px 1px #ffffff"))) %>% 
-        addLegendImage(c('icons/platinum.png','icons/gold.png', 
-                         'icons/silver.png', 'icons/bronze.png'), 
-                       title = htmltools::HTML(paste0('<h6>', 'Rating', '</h6>', '<hr>')),
-                       labels = c("Platinum", "Gold", "Silver", "Bronze"),
-                       labelStyle = "font-size:12px")
-      
-    } else if (colorBy == "total") {
-      colorData2 <- y[[colorReport]]
-      pals <- colorQuantile(c("#520b06", "#cf3227", "#de6c49", "#eb976a", "#ffe291"), unique(colorData2), 5, reverse = TRUE)
-
-    } else if (colorBy != "rating" | colorBy != "climate" | colorBy != "locale" | colorBy != "monday"){
-      colorData2 <- y[[colorBy]]
-      pals <- colorQuantile(c("#520b06", "#cf3227", "#de6c49", "#eb976a", "#ffe291"), unique(colorData2), 5, reverse = TRUE)
-
-    }
-    
-    
-    #If not on ratings page, generate circle markers
-    if (colorBy != "rating") {
-
-      leafletProxy("map2", data = y) %>%
-        clearControls() %>%
-        clearMarkers() %>%
-        addCircleMarkers(~long,
-                         ~lat,
-                         label = lapply(y[[7]], htmltools::HTML),
-                         labelOptions = labelOptions(noHide = T, direction = "bottom",
-                                                     textOnly = TRUE,
-                                                     style = list(
-                                                       "font-size" = "13px",
-                                                       "font-family" = "lato",
-                                                       "color" = "#2c2736",
-                                                       "font-family" = "lato",
-                                                       "text-shadow" = "1px 1px 1px #ffffff")),
-                         radius = 3,
-                         stroke = FALSE,
-                         fillOpacity = 1,
-                         fillColor= pals(colorData2),
-                         weight = 0) %>% 
-        addLegend("topleft", pal=pals, values=colorData2, title=legend_title,
-                  layerId="colorLegend2", labFormat = labelFormat(transform = cf))
-    }
-    }
-    
-    #Update search input to only show choices for when institution data is available
-    observe({
-      if (!is.null(input$map_search)){
-        update <- input$map_search
-        updateSelectizeInput(session, "map_search", choices = y$institution, selected = update)
+      #Function to set marker/color values and map each case
+      if (colorBy == "climate" | colorBy == "locale") {
+        
+        colorData2 <- y[[colorBy]]
+        pals <- colorFactor("plasma", unique(colorData2), reverse = TRUE)
+        
+      } else if (colorBy == "monday") {
+        
+        colorData2 <- y[[colorBy]]
+        pals <- colorFactor(c("#e07767", "#77c775"), unique(colorData2))
+        
+      } else if (colorBy == "rating") {
+        leafletProxy("map2", data = map) %>% 
+          clearControls() %>% 
+          clearMarkers() %>%
+          addMarkers(~long, 
+                     ~lat, 
+                     icon = ~medalIcons[rating],
+                     label = lapply(y[[7]], htmltools::HTML),
+                     labelOptions = labelOptions(noHide = T, direction = "bottom",
+                                                 textOnly = TRUE,
+                                                 style = list(
+                                                   "font-size" = "13px",
+                                                   "font-family" = "lato",
+                                                   "color" = "#2c2736",
+                                                   "font-family" = "lato",
+                                                   "text-shadow" = "1px 1px 1px #ffffff"))) %>% 
+          addLegendImage(c('icons/platinum.png','icons/gold.png', 
+                           'icons/silver.png', 'icons/bronze.png'), 
+                         title = htmltools::HTML(paste0('<h6>', 'Rating', '</h6>', '<hr>')),
+                         labels = c("Platinum", "Gold", "Silver", "Bronze"),
+                         labelStyle = "font-size:12px")
+        
+      } else if (colorBy == "total") {
+        colorData2 <- y[[colorReport]]
+        pals <- colorQuantile(c("#520b06", "#cf3227", "#de6c49", "#eb976a", "#ffe291"), unique(colorData2), 5, reverse = TRUE)
+        
+      } else if (colorBy != "rating" | colorBy != "climate" | colorBy != "locale" | colorBy != "monday"){
+        colorData2 <- y[[colorBy]]
+        pals <- colorQuantile(c("#520b06", "#cf3227", "#de6c49", "#eb976a", "#ffe291"), unique(colorData2), 5, reverse = TRUE)
+        
       }
-    })
+      
+      
+      #If not on ratings page, generate circle markers
+      if (colorBy != "rating") {
+        
+        leafletProxy("map2", data = y) %>%
+          clearControls() %>%
+          clearMarkers() %>%
+          addCircleMarkers(~long,
+                           ~lat,
+                           label = lapply(y[[7]], htmltools::HTML),
+                           labelOptions = labelOptions(noHide = T, direction = "bottom",
+                                                       textOnly = TRUE,
+                                                       style = list(
+                                                         "font-size" = "13px",
+                                                         "font-family" = "lato",
+                                                         "color" = "#2c2736",
+                                                         "font-family" = "lato",
+                                                         "text-shadow" = "1px 1px 1px #ffffff")),
+                           radius = 3,
+                           stroke = FALSE,
+                           fillOpacity = 1,
+                           fillColor= pals(colorData2),
+                           weight = 0) %>% 
+          addLegend("topleft", pal=pals, values=colorData2, title=legend_title,
+                    layerId="colorLegend2", labFormat = labelFormat(transform = cf))
+      }
+    }
     
   })
+  
+  
+  
+  #Update search input to only show choices for when institution data is available
+  observe({
+    if (!is.null(input$map_search)){
+      update <- input$map_search
+      updateSelectizeInput(session, "map_search", choices = y$institution, selected = update)
+    }
+  })
+  
+  
   
   #Render text for map variable description
   output$description <- renderUI({
@@ -691,7 +688,7 @@ server <- function(input, output, session){
       x <- map[c(1:5, 30)] 
       x <- x %>% filter(!is.na(plant_based)) %>% arrange(plant_based) %>% top_n(n_bars)
     } 
-
+    
     
     #Update search input to only show choices for when institution data is available
     observe({
@@ -700,7 +697,7 @@ server <- function(input, output, session){
         updateSelectizeInput(session, "search_var", choices = x$institution, selected = edit)
       }
     })
-
+    
     #Deal with factors
     x$institution <- as.vector(x$institution) #get rid of factors
     x$institution = factor(x$institution, x$institution) #add ordered factors back
@@ -708,27 +705,27 @@ server <- function(input, output, session){
     #Determine x-axis label breaks for visualization clarity
     v <- c(as.character(x$institution[1]))
     
-   if(input$threshold2 == 100 | input$threshold2 == "LAC"){
-        percentile_label <- c("0%", "20%", "40%", "60%", "80%", "100%")
-        breaks <- 5
-      } else if (input$threshold2 == 20){
-        percentile_label <- c("80%", "85%", "90%", "95%", "100%")
-        breaks <- 4
-      } else if (input$threshold2 == 10){
-        percentile_label <- c("90%", "92.5%", "95%", "97%", "100%")
-        breaks <- 4
-      } else if (input$threshold2 == 5 & nrow(x) < 15){
-        breaks <- 14
-        percentile_label <- c("95%", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "100%")
-      } else if (input$threshold2 == 5 & nrow(x) >= 15){
-        breaks <- 6
-        percentile_label <- c("95%", "________", "________", "________", "________", "________", "100%")
-      }
+    if(input$threshold2 == 100 | input$threshold2 == "LAC"){
+      percentile_label <- c("0%", "20%", "40%", "60%", "80%", "100%")
+      breaks <- 5
+    } else if (input$threshold2 == 20){
+      percentile_label <- c("80%", "85%", "90%", "95%", "100%")
+      breaks <- 4
+    } else if (input$threshold2 == 10){
+      percentile_label <- c("90%", "92.5%", "95%", "97%", "100%")
+      breaks <- 4
+    } else if (input$threshold2 == 5 & nrow(x) < 15){
+      breaks <- 14
+      percentile_label <- c("95%", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "________", "100%")
+    } else if (input$threshold2 == 5 & nrow(x) >= 15){
+      breaks <- 6
+      percentile_label <- c("95%", "________", "________", "________", "________", "________", "100%")
+    }
     
     for(i in seq_len(breaks)){ 
       v[i+1] <- as.character(x$institution[round((i/breaks)*nrow(x))]) 
       
-      }
+    }
     
     v[breaks+1] <- as.character(x$institution[nrow(x)])
     label <-  function(x) stringr::str_wrap(x, width = 30)
@@ -757,9 +754,9 @@ server <- function(input, output, session){
     })
     
   })
-
   
-  #Render text for map variable description
+  
+  # render text for map variable description
   output$description <- renderUI({
     if(input$map_var == "rating"){
       HTML(paste(""))
@@ -824,7 +821,7 @@ server <- function(input, output, session){
       HTML(paste("weighted campus users"))
     } 
   })
-   
+  
 }
 
 ####################
