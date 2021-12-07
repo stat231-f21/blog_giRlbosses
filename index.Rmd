@@ -80,7 +80,8 @@ word_frequencies %>%
   guides(color = "none", fill = "none") +
   labs(x = NULL,
        y = "Number of instances",
-       title = "The Most Common Words in Amherst's Sustainability Report")
+       title = "The Most Common Words in Amherst's Sustainability Report") +
+  theme(axis.text = element_text(size = 15))
 
 #Word Cloud
 mypal <- brewer.pal(10, "Paired")
@@ -105,35 +106,30 @@ wordcloud(words = word_frequencies$word,
 
 Next, I examined three different lexicons to try and summarize the sentiments in the report. First is the NRC Lexicon which categorizes words by emotions. I created a visualization that displays all of the emotions sorted with the lexicon and the words with the highest contribution to those sentiments. Some notable aspects from this visualization include that the fear emotion included the word change 10 times and the trust and joy emotions included a large variety of words while emotions like sadness and disgust had many less words. This provides some context about how Amherst talks about sustainability coming more from a positive place with change rather than a place of fear or distrust.
 
-```{r, fig.height = 6}
+```{r, fig.height = 7}
 #NRC Lexicon
 nrc_lexicon <- get_sentiments("nrc")
 
 nrc_lexicon_formatted <- inner_join(nrc_lexicon, word_frequencies, by = c("word" = "word"))
 
 nrc_graphic <- nrc_lexicon_formatted %>%
-  filter(sentiment %in% c("anger", 
-                          "anticipation", 
-                          "disgust", 
-                          "sadness", 
-                          "fear", 
-                          "joy", 
-                          "surprise", 
-                          "trust")) %>%
+  filter(sentiment %in% c("anger", "anticipation", "disgust", "sadness", "fear", "joy", "surprise", "trust")) %>%
   group_by(sentiment) %>%
   arrange(desc(n)) %>%
   slice(1:10) %>%
-  ungroup()
+  ungroup() 
 
 nrc_graphic %>%
   ggplot(aes(x = reorder(word, n), y = n, 
              fill = sentiment)) +
   geom_col(show.legend = FALSE) +
   coord_flip() +
-  facet_wrap(~ sentiment, ncol = 2, scales = "free") +
+  facet_wrap(~ sentiment, ncol = 2, scales = "free_y") +
   labs(x = NULL,
        y = "Contribution to sentiment",
-       title = "The most common sentiments in Amherst's Sustainability Report, NRC")
+       title = "The most common sentiments in Amherst's Sustainability Report, NRC") +
+theme(axis.text = element_text(size = 10))
+
 ```
 
 ## AFINN Lexicon
@@ -152,7 +148,11 @@ ggplot(afinn_lexicon_formatted, aes(x = word, y = value, fill = n)) +
   labs(x = NULL,
        y = "Contribution to sentiment",
        title = "The most common sentiments in Amherst's Sustainability Report, AFINN") +
-        guides(fill = guide_legend(title = "Frequency"))
+        guides(fill = guide_legend(title = "Frequency")) +
+  theme(
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank(),
+  axis.ticks = element_blank())
 ```
 
 ## BING Lexicon
@@ -170,7 +170,11 @@ ggplot(bing_words, aes(x = word, y = n)) +
   facet_wrap(vars(sentiment), scales = 'free_x') +
   labs(x = NULL,
        y = "Contribution to sentiment",
-       title = "The most common sentiments in Amherst's Sustainability Report, BING") 
+       title = "The most common sentiments in Amherst's Sustainability Report, BING") +
+  theme(
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank(),
+  axis.ticks = element_blank())
 ```
 
 ## Conclusions
