@@ -1,7 +1,7 @@
 ---
 title: "Sustainability on College Campuses across the US"
 author: "giRlbosses"
-date: "11/18/2021"
+date: "12/7/2021"
 output:
   rmdformats::readthedown:
     thumbnails: false
@@ -164,7 +164,7 @@ ggplot(afinn_lexicon_formatted, aes(x = value)) +
 
 ## BING Lexicon
 
-Lastly, I looked at the BING Lexicon which just sorts words into negative or positive. A visualization would not be very helpful here since it is only two categories so I calculated the average sentiment of the whole report. To do this, I mutated the sentiment variable so that if it was positive, it would be a 1 and if it was negative it would be -1. Therefore, a neutral report would get a sentiment of 0. Then, I calculated the mean of the sentiment variable and got .71698. This shows that the report is on the more positive side of the BING Lexicon, which aligns with the findings from the other sentiments discussed above.
+Lastly, I looked at the BING Lexicon which just sorts words into negative or positive. A visualization would not be very helpful here since it is only two categories so I calculated the average sentiment of the whole report. To do this, I mutated the sentiments so that if it was positive, it would be a 1 and if it was negative it would be -1. Therefore, a neutral report would get a sentiment of 0. Then, I calculated the mean score of the words and got .71698. This shows that the report is on the more positive side of the BING Lexicon, which aligns with the findings from the other sentiments discussed above.
 
 ```{r, message = FALSE, include = FALSE}
 #BING Lexicon
@@ -184,7 +184,7 @@ mean(bing_lexicon_average$sentiment)
 
 The overall conclusion I drew from my sentiment analysis is that Amherst talks about sustainability from an overall positive viewpoint and tries to limit its use of negative words. There are some limitations to this conclusion. First, I only used the sustainability report Amherst published in 2017. Therefore, this is a very limited view into Amherst College's sentiments surrounding sustainability and is outdated, however, there is not a more recent report. Therefore, the population this can be applied to is very limited and the results can not be generalized beyond Amherst College within the last few years. Although the scope of this analysis is small, it is purposeful to pinpoint how the institution of our own college has recently talked about the issue of sustainability. This analysis could be extended by including all past reports, or broadening the scope to include other colleges. 
 
-#Sustainability on A National Level
+# Sustainability on A National Level
 
 ## Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
 
