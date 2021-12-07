@@ -42,7 +42,7 @@ options(knitr.kable.NA = '')
 
 # Motivations
 
-Similar to our Shiny project, we wanted to investigate sustainability at Amherst College and expand our study of sustainability to other colleges. Our goal is to assess how Amherst College prioritizes sustainability through their sustainability report and actions to both hold our campus accountable and make cross institutional comparisons. By making these comparisons, we hope to foster cross institutional dialogue to become a more sustainable campus through collaboration with other colleges to inspire our own 
+Similar to our Shiny project, we wanted to investigate sustainability at Amherst College and expand our study of sustainability to other colleges. Our goal is to assess how Amherst College prioritizes sustainability through their sustainability report and actions to both hold our campus accountable and make cross institutional comparisons. By making these comparisons, we hope to foster cross institutional dialogue to become a more sustainable campus through collaboration with other colleges to inspire our own. 
 
 # Sustainability Report Sentiment Analysis
 
@@ -56,12 +56,14 @@ report <- read_csv("sentimentanalysis/data/amherstsustainabilityreport.txt")
 data(stop_words)
 
 #Wrangling
-word_frequencies <- report %>%
+word_tokenized <- report %>%
   #Tokenize text into words
   unnest_tokens(output = word, input = x) %>%
   #Remove stop words
-  anti_join(stop_words, by = "word") %>%
+  anti_join(stop_words, by = "word") 
+
   #Word frequencies
+word_frequencies <- word_tokenized %>%
   count(word, sort = TRUE) 
 ```
 
@@ -129,52 +131,44 @@ nrc_graphic %>%
        y = "Contribution to sentiment",
        title = "The most common sentiments in Amherst's Sustainability Report, NRC") +
 theme(axis.text = element_text(size = 10))
-
 ```
 
 ## AFINN Lexicon
 
-Next, I created a visualization with the AFINN lexicon which looks at negative versus positive words with an integer between 5 and -5. The highest integer on this visualization is 3 with the word sucessful. However, the overall trend shows words with positive integers (positive words) with values between 1 and 2. Therefore, Amherst is talking about sustainability with generally slightly positive terms and very few negative terms. 
+Next, I created a visualization with the AFINN lexicon which looks at negative versus positive words with an integer between 5 and -5. The highest integer on this visualization is 3 with the word sucessful. However, the overall trend shows words with positive integers (positive words) with values between 1 and 2. I calculated the average weighted sentiment value by dividing the sum of the weighted scores (frequency times value) by the total frequency (sum of frequency). The average was 1.297, which is slightly higher. Therefore, Amherst is talking about sustainability with generally slightly positive terms and very few negative terms. 
 
-```{r, fig.width = 10}
+```{r, echo = FALSE}
 #AFINN Lexicon
 afinn_lexicon <- get_sentiments("afinn")
 
-afinn_lexicon_formatted <- inner_join(afinn_lexicon, word_frequencies, by = c("word" = "word"))
+afinn_lexicon_formatted <- inner_join(afinn_lexicon, word_tokenized, by = c("word" = "word"))
 
-ggplot(afinn_lexicon_formatted, aes(x = word, y = value, fill = n)) +
-  geom_col() +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
-  labs(x = NULL,
-       y = "Contribution to sentiment",
-       title = "The most common sentiments in Amherst's Sustainability Report, AFINN") +
-        guides(fill = guide_legend(title = "Frequency")) +
-  theme(
-  axis.text.x = element_blank(),
-  axis.text.y = element_blank(),
-  axis.ticks = element_blank())
+mean(afinn_lexicon_formatted$value)
+```
+
+```{r, , fig.width = 6}
+ggplot(afinn_lexicon_formatted, aes(x = value)) +
+  geom_histogram(binwidth = 1, color = "black", fill = "lightblue") +
+  labs(x = "Frequency",
+       y = "Sentiment Value",
+       title = "Sentiment Distribution, AFINN") +
+  geom_vline(aes(xintercept = mean(value)),
+            color = "blue", linetype = "dashed", size = 1)
 ```
 
 ## BING Lexicon
 Lastly, I looked at the BING Lexicon which just sorts words into negative or positive and created a visualization that shows the negative and positive words with their frequency. Again, you can see that there are many more positive words than negative words and that the positive words seem to have higher frequencies, with the word sustainability having the highest frequency.
 
-```{r, fig.width = 10, message = FALSE}
+```{r, message = FALSE, echo = FALSE}
 #BING Lexicon
-bing_words <- word_frequencies %>%
+bing_words <- word_tokenized %>%
   inner_join(get_sentiments("bing")) %>%
   ungroup() 
 
-ggplot(bing_words, aes(x = word, y = n)) +
-  geom_col() +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
-  facet_wrap(vars(sentiment), scales = 'free_x') +
-  labs(x = NULL,
-       y = "Contribution to sentiment",
-       title = "The most common sentiments in Amherst's Sustainability Report, BING") +
-  theme(
-  axis.text.x = element_blank(),
-  axis.text.y = element_blank(),
-  axis.ticks = element_blank())
+bing_lexicon_average <- bing_words %>%
+  mutate(sentiment = ifelse(sentiment == "positive", 1, -1))
+
+mean(bing_lexicon_average$sentiment)
 ```
 
 ## Conclusions
