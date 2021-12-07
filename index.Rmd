@@ -270,12 +270,16 @@ We then wanted to explore the relationship between the school's prioritization o
 #creating scatterplot to investigate relationship between percent sustainability and the out of state tuition
 
 ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), x = out_of_state_tuition)) +
-  geom_point(aes(color = institution.x)) + theme(legend.position = "none") + ggtitle("Transformed percent Sustainability Studies completions\ncompared to out of state tuition in ten thousands of dollars") + xlab("Out of State Tuition (ten thousands of dollars)") + ylab ("Transformed % Sustainability Studies degrees\n(log-log transformed)") + theme(plot.title = element_text(size = 18)) + theme(axis.title.y = element_text(size = 14)) + theme(axis.title.x = element_text(size = 14)) + theme(axis.title.y = element_text(size = 14)) + theme(axis.text = element_text(size = 12))
-
-#filtering out the zeros so can look at trend line
-
-#creating a frequency plot with just the schools that have the most completions equal to zero, so count up how many zeros there were over all of the years
-
+  geom_point(aes(color = institution.x)) + 
+  theme(legend.position = "none") + 
+  ggtitle("Transformed percent Sustainability Studies completions\ncompared to out of state tuition in ten thousands of dollars") + 
+  xlab("Out of State Tuition (ten thousands of dollars)") + 
+  ylab ("Transformed % Sustainability Studies degrees\n(log-log transformed)") + 
+  theme(plot.title = element_text(size = 18)) + 
+  theme(axis.title.y = element_text(size = 14)) + 
+  theme(axis.title.x = element_text(size = 14)) + 
+  theme(axis.title.y = element_text(size = 14)) + 
+  theme(axis.text = element_text(size = 12))
 ```
 
 Percent completions of the Sustainability Studies degree were transformed in order to visualize the relationship. There appears to be no relationship between the percent completions and the tuition. This suggests that tuition may not affect the school's prioritization of Sustainability Studies and thus may not limit students' access to the Sustainability Studies degree.
@@ -286,19 +290,31 @@ We also wanted to investigate the trend of Sustainability Studies degrees awarde
 
 ```{r, message = FALSE}
 #dynamic histogram to see if the percent sustainability degrees differ over time
-#gganimate
+
 #first create different datasets for the different years
 enroll2019 <- enroll_map %>%
   filter(year == "2019") %>%
   select(institution.x, year, percentdegree)
+
 enroll_map <- enroll_map %>%
   mutate(year = as.integer(year))
+
 #make sure to adjust the size: want x axis to about 1.5 times the y axis
-anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + geom_density(col = "black",fill = "blue") + ggtitle("{frame_time}") + theme(plot.title = element_text(size = 24)) + xlab("Transformed percent degree completions(log-log transformed)") + theme(axis.title.x = element_text(size = 20)) + theme(axis.title.y = element_text(size = 20)) + theme(axis.text = element_text(size = 14)) + transition_time(year) + shadow_mark(alpha = .3) + ease_aes("linear") +
+anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + 
+  geom_density(col = "black",fill = "blue") + 
+  ggtitle("{frame_time}") + 
+  theme(plot.title = element_text(size = 24)) + 
+  xlab("Transformed percent degree completions(log-log transformed)") + 
+  theme(axis.title.x = element_text(size = 20)) + 
+  theme(axis.title.y = element_text(size = 20)) + 
+  theme(axis.text = element_text(size = 14)) + 
+  transition_time(year) + 
+  shadow_mark(alpha = .3) + 
+  ease_aes("linear") +
   enter_fade() +
   exit_fade()
-animate(anim_plot, width = 700, height = 450)
 
+animate(anim_plot, width = 700, height = 450)
 ```
 
 Between 2013 and 2019 there appears to be first an increase in the number of schools which documented Sustainability Studies completions, which is most likely because there are less data for 2013 than the other years. Notably, however, the density plot shifts to higher percentages of completions from 2013-2019, which could suggest that institutions are starting to prioritize educating their students on Sustainability-related topics.
