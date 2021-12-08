@@ -188,37 +188,52 @@ The overall conclusion I drew from my sentiment analysis is that Amherst talks a
 
 ## Sustainability Degrees Awarded Across Colleges Nationwide as a Proxy for Sustainability
 
-We also wanted to visualize how different universities across the United States prioritize educating their students on sustainability-related disciplines. Therefore, we used data collected from [datausa](https://datausa.io/profile/cip/sustainability-studies#about) on the amount of Sustainability Studies degrees awarded to students across institutions between 2013-2019 with 1014 total measurements of Sustainability Studies completions across these years. In order to consider differing sizes of the undergraduate class across institutions, these degree completions were divided by 1/4 the number of undergraduate students during Fall 2020 from the [National Center for Education Statistics](https://nces.ed.gov/ipeds/SummaryTables/report/202?templateId=20202&year=2020&expand_by=0&tt=institutional&instType=2). This ratio was then multiplied by 100 to calculate the percent of Sustainability Studies degrees awarded for each graduating year. We also collected out of state tuition data for these institutions using data from datausa to examine the relationship between sustainability degrees awarded for a given graduating class and the tuition cost. Latitude and longitude data for the institutions was collected using the `colleges` dataset to create the interactive map below.
+We also wanted to visualize how different universities across the United States prioritize educating their students on sustainability-related disciplines. Therefore, we used data collected from [datausa](https://datausa.io/profile/cip/sustainability-studies#about) on the amount of Sustainability Studies degrees awarded to students across institutions between 2013-2019 with 1014 total measurements of Sustainability Studies completions across these years. In order to consider differing sizes of the undergraduate class across institutions, these degree completions were divided by 1/4 the number of undergraduate students during Fall 2020 from the [National Center for Education Statistics](https://nces.ed.gov/ipeds/SummaryTables/report/202?templateId=20202&year=2020&expand_by=0&tt=institutional&instType=2). This ratio was then multiplied by 100 to calculate the percent of Sustainability Studies degrees awarded for each graduating year. We also collected out-of-state tuition data for these institutions using data from [datausa](https://datausa.io/profile/cip/sustainability-studies#about) to examine the relationship between sustainability degrees awarded for a given graduating class and the tuition cost. Latitude and longitude data for the institutions was collected using the `colleges` dataset to create the interactive map below.
 
 ## Sustainability Studies degree and college tuition map 
 
 ```{r, message = FALSE}
 #Reading in sustainability studies data
-Institutions <- read_csv("data/Institutions.csv")
-Tuition <- read_csv("data/Tuition Costs for Common Institutions.csv")
-Degrees_by_County <- read_csv("data/Degrees Awarded by County.csv")
-Growth_by_County <-  read_csv("data/Growth in Awarded Degrees.csv")
+Institutions <- read_csv("data/Institutions.csv") %>%
+  janitor::clean_names()
+Tuition <- read_csv("data/Tuition Costs for Common Institutions.csv")  %>%
+  janitor::clean_names()
 colleges <- read_csv("data/ipeds_directory_info.csv") %>%
   janitor::clean_names() %>%
   rename("institution" = "institution_name")
 
 #Creating joined dataset with tuition and degree completions
 
-joined_uni <- left_join(Tuition, Institutions, by = c("ID University", "Year"))
+joined_uni <- left_join(Tuition, Institutions, by = c("id_university", "year"))
 
 #Wrangling joined_uni data 
+#Did not include the total graduates column
+#because there was no documentation on what the data means
 clean_joined_uni <- joined_uni %>%
-  janitor::clean_names() %>%
-  select(id_university, university_x, year, state_tuition, total_graduates, out_of_state_tuition, sector, completions) %>%
-rename("institution" = "university_x")
+  select(id_university, 
+         university.x, 
+         year, 
+         out_of_state_tuition, 
+         completions) %>%
+rename("institution" = "university.x")
 
 #Joining tuition and degree completion data with colleges data
 fuzzy_uni <- stringdist_left_join(clean_joined_uni, colleges, by = "institution")
 
 #Wrangling joined dataset to prepare for creating map figure
 uni_map <- fuzzy_uni %>%
-  filter(!institution.x %in% c("Jefferson (Philadelphia University + Thomas Jefferson University)", "Messiah University", "Lyndon State College"))
-
+  filter(!institution.x %in% c("Jefferson (Philadelphia University + Thomas Jefferson University)",
+"Messiah University",
+"Lyndon State College")) %>%
+  rename("long" = longitude_location_of_institution_hd2019,
+         "lat" = latitude_location_of_institution_hd2019) %>%
+  select(id_university, 
+         institution.x, 
+         year, 
+         out_of_state_tuition,
+         completions,
+         long,
+         lat)
 
 #Reading in class size data to calculate percent degrees awarded
 Summary_Tables <- read_excel("data/Summary Tables.xlsx")
@@ -226,33 +241,55 @@ Summary_Tables <- read_excel("data/Summary Tables.xlsx")
 #Wrangling class size data so can join with the enrollment map later
 Summary_Tables <- Summary_Tables[-c(1:4),] %>%
   janitor::clean_names() %>%
-  rename("institution" = "x2", "id_university" = "national_center_for_education_statistics",
+  rename("institution" = "x2", 
+         "id_university" = "national_center_for_education_statistics",
          "enrollment_type" = "x3",
          "total_enrollment" = "x4")
 
 enrollment <- Summary_Tables %>%
-  select(institution, id_university, enrollment_type, total_enrollment) %>%
+  select(institution, 
+         id_university, 
+         enrollment_type, 
+         total_enrollment) %>%
   #just want the undergrad
-  filter(enrollment_type == "Undergraduate Enrollment", !total_enrollment == "-") %>%
+  filter(enrollment_type == "Undergraduate Enrollment",
+         !total_enrollment == "-") %>%
   mutate(id_university = parse_double(id_university),
          total_enrollment = parse_double(total_enrollment))
 #Joining the tuition and completion data with the class size data
-enroll_map <- left_join(uni_map, enrollment, by = "id_university") %>%
+enroll_map <- left_join(uni_map, 
+                        enrollment, 
+                        by = "id_university") %>%
   #Creating new column to represent the percentage of each graduating class 
   #that receives a Sustainability Studies degree
   mutate(percentdegree = (completions/(total_enrollment/4)*100)) %>%
-  filter(!is.na(percentdegree))
+  #filtering out rows that did not produce percent degree
+  #filtering out percent degrees greater than 100
+  filter(!is.na(percentdegree),
+         percentdegree < 100) 
   
-#Creating color palette
+#Creating color palette based on min. and max. percent degree
 pal <- colorBin(
   palette = 'Dark2',
   domain = enroll_map$percentdegree,
-  bins = c(0, .1, .3, .6, .9, 1.1, 1.5, 2, 2.5, 5, 6, 10, 20, 30)
+  bins = c(0, .1, .3, .6, .9, 1.1, 
+           1.5, 2, 2.5, 5, 6, 10, 20, 30)
 )
 #Creating
 leaflet(data = enroll_map) %>%
   addTiles() %>%
-  addCircleMarkers(lat = ~latitude_location_of_institution_hd2019, lng = ~longitude_location_of_institution_hd2019, popup = ~ paste0("Institution: ", institution.x, " Percent degree completions: ", percentdegree, "%", "\nOut of state tuition: $", out_of_state_tuition), weight = 1,  color=~pal(percentdegree), radius = ~out_of_state_tuition/10000) %>%
+  addCircleMarkers(lat = ~lat, 
+                   lng = ~long, 
+                   popup = ~ paste0("Institution: ", institution.x, 
+                                    ";",
+                                    " Percent degree completions: ",
+                                    percentdegree,
+                                    "%;", 
+                                    "\nOut of state tuition: $",
+                                    out_of_state_tuition), 
+                   weight = 1,  
+                   color=~pal(percentdegree), 
+                   radius = ~out_of_state_tuition/10000) %>%
   addLegend("bottomright", pal = pal, values = ~percentdegree,
     title = "Percent sustainability degree",
     labFormat = labelFormat(suffix = "%"),
@@ -260,29 +297,29 @@ leaflet(data = enroll_map) %>%
   )
 ```
 
-To investigate the spatial distribution of percent degrees awarded, we created an interactive map with the color of the points indicating the percent of all graduating undergraduate students for a given year between 2013 and 2019 that were awarded the Sustainability Studies degree. The sizes of the points are scaled by the out of state tuition. This plot allows the user to zoom into different colleges to geographically visualize percent degrees awarded and the out of state tuition.
+To investigate the spatial distribution of percent degrees awarded, we created an interactive map with the color of the points indicating the percent of all graduating undergraduate students for a given year between 2013 and 2019 that were awarded the Sustainability Studies degree. The sizes of the points are scaled by the out of state tuition. This plot allows the user to zoom into different colleges to geographically visualize percent degrees awarded and the out of state tuition. This allows the user to check how a given college, including their college, compares to other colleges' percent Sustainability Studies degrees awarded. The user can then take this information to hold their campuses accountable for providing education opportunities for those interested in Sustainability Studies.
 
 ## Relationship between Sustainability Studies degrees awarded and college tuition
 
-We then wanted to explore the relationship between the school's prioritization of the Sustainability Studies department and the out of state tuition. We hypothesized that schools with higher tuition would have higher percent Sustainability Studies degree completions because schools with higher tuition could have the finances to expand their degree options to Sustainability Studies and provide more support and resources in this department.
+We then wanted to explore the relationship between the college's prioritization of the Sustainability Studies department and the out-of-state tuition. We hypothesized that colleges with higher tuition would have higher percent Sustainability Studies degree completions because schools with higher tuition could have the finances to expand their degree options to Sustainability Studies and provide more support and resources to this department.
 
 ```{r, message = FALSE}
 #creating scatterplot to investigate relationship between percent sustainability and the out of state tuition
 
-ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), x = out_of_state_tuition)) +
+ggplot(data = enroll_map, aes(y = log(log(percentdegree + 1)), 
+                              x = out_of_state_tuition)) +
   geom_point(aes(color = institution.x)) + 
   theme(legend.position = "none") + 
   ggtitle("Transformed percent Sustainability Studies completions\ncompared to out of state tuition in ten thousands of dollars") + 
   xlab("Out of State Tuition (ten thousands of dollars)") + 
   ylab ("Transformed % Sustainability Studies degrees\n(log-log transformed)") + 
-  theme(plot.title = element_text(size = 18)) + 
-  theme(axis.title.y = element_text(size = 14)) + 
-  theme(axis.title.x = element_text(size = 14)) + 
-  theme(axis.title.y = element_text(size = 14)) + 
-  theme(axis.text = element_text(size = 12))
+  theme(plot.title = element_text(size = 18),
+      axis.title.y = element_text(size = 14),
+      axis.title.x = element_text(size = 14),
+      axis.text = element_text(size = 12))
 ```
 
-Percent completions of the Sustainability Studies degree were transformed in order to visualize the relationship. There appears to be no relationship between the percent completions and the tuition. This suggests that tuition may not affect the school's prioritization of Sustainability Studies and thus may not limit students' access to the Sustainability Studies degree.
+Percent completions of the Sustainability Studies degree were transformed in order to visualize the relationship. The points at the bottom of the scatterplot represent colleges with 0% Sustainability Studies completions. There appears to be no relationship between the percent completions and the tuition. This suggests that tuition may not affect the college's prioritization of Sustainability Studies. This is a positive result because it seems that tuition cost may not limit students' access to the Sustainability Studies degree.
 
 ## Change in degrees awarded over time
 
@@ -290,24 +327,20 @@ We also wanted to investigate the trend of Sustainability Studies degrees awarde
 
 ```{r, message = FALSE}
 #dynamic histogram to see if the percent sustainability degrees differ over time
-
-#first create different datasets for the different years
-enroll2019 <- enroll_map %>%
-  filter(year == "2019") %>%
-  select(institution.x, year, percentdegree)
-
+#transforming year to become integer so can round anim. plot to year
 enroll_map <- enroll_map %>%
   mutate(year = as.integer(year))
 
-#make sure to adjust the size: want x axis to about 1.5 times the y axis
+#making the animation plot
 anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) + 
-  geom_density(col = "black",fill = "blue") + 
+  geom_density(col = "black",
+               fill = "blue") + 
   ggtitle("{frame_time}") + 
   theme(plot.title = element_text(size = 24)) + 
   xlab("Transformed percent degree completions(log-log transformed)") + 
-  theme(axis.title.x = element_text(size = 20)) + 
-  theme(axis.title.y = element_text(size = 20)) + 
-  theme(axis.text = element_text(size = 14)) + 
+  theme(axis.title.x = element_text(size = 20),
+        axis.title.y = element_text(size = 20),
+        axis.text = element_text(size = 14)) +
   transition_time(year) + 
   shadow_mark(alpha = .3) + 
   ease_aes("linear") +
@@ -317,32 +350,46 @@ anim_plot <- ggplot(enroll_map, aes(log(log(percentdegree + 1)))) +
 animate(anim_plot, width = 700, height = 450)
 ```
 
-Between 2013 and 2019 there appears to be first an increase in the number of schools which documented Sustainability Studies completions, which is most likely because there are less data for 2013 than the other years. Notably, however, the density plot shifts to higher percentages of completions from 2013-2019, which could suggest that institutions are starting to prioritize educating their students on Sustainability-related topics.
+Between 2013 and 2019 there appears to be first an increase in the density of colleges which documented Sustainability Studies completions, and these completions tend to be at lower percentages. However, this result is most likely because there are less data for 2013 than the other years. Notably, however, the density plot shifts to higher percentages of completions from 2013-2019, which could suggest that institutions are starting to prioritize educating their students on Sustainability-related topics.
 
 ## How well do Sustainability Studies completions measure sustainability?
 
-We used data from the [EPA](https://www.epa.gov/greenpower/green-power-partnership-top-30-college-university) which ranked the top most sustainable colleges and universities in terms of the amount of green power they use. Below is a table ranking the top 10 most sustainable colleges as well as a table ranking the top 10 schools with the highest number of Sustainability Studies completions.
+We sought to compare the top 10 colleges with the highest percent Sustainability Studies degrees to the top 10 school ranked based on green power usage to determine how using Sustainability Studies degree completions as a proxy for sustainability of a college compares to other measurements of sustainability. 
+
+We used data from the [EPA](https://www.epa.gov/greenpower/green-power-partnership-top-30-college-university) which ranked the top most sustainable colleges and universities in terms of the amount of green power they use. 
 
 ## Top 10 schools using the most green power
 
-```{r, message = FALSE}
-#comparing the top 30 to the other top 30
+Below is a table ranking the top 10 most sustainable colleges in terms of green energy usage.
 
-#Top 30 in terms of Green Power for 2019
-Top30 <- read_excel("data/Top30.xlsx") %>%
+```{r, message = FALSE}
+#comparing the top 10 %completions to top 10 green power users
+
+#Top 10 in terms of Green Power for 2019
+Top10 <- read_excel("data/Top30.xlsx") %>%
   rename("Green Power Proportion of Total Energy Used" = "...4") %>%
   select(Institution, 
          `Green Power (kWh)`,
          `Green Power Proportion of Total Energy Used`) %>%
   slice(1:10)
-knitr::kable(Top30)  
+knitr::kable(Top10)  
 ```
 
 ## Top 10 schools with the most Sustainability Studies degree completions
 
+Below is a table ranking the top 10 colleges with the highest number of Sustainability Studies completions.
+
 ```{r, message = FALSE}
-#Top 30 in terms of percent Sustainability Studies completions
-Top30degree <- enroll2019 %>%
+
+#creating enrollment ranking for 2019 to compare to top 10 green power users
+enroll2019 <- enroll_map %>%
+  filter(year == "2019") %>%
+  select(institution.x, 
+         year, 
+         percentdegree)
+
+#Top 10 in terms of percent Sustainability Studies completions
+Top10degree <- enroll2019 %>%
   filter(institution.x != "SIT Graduate Institute") %>%
   mutate(percentdegree = round(percentdegree, 2)) %>%
   distinct() %>%
@@ -351,7 +398,7 @@ Top30degree <- enroll2019 %>%
   select(institution.x, percentdegree) %>%
   rename("Institution" = "institution.x",
          "Percent Sustainability Studies completions" = "percentdegree") 
-knitr::kable(Top30degree)
+knitr::kable(Top10degree)
 
 ```
 
@@ -359,7 +406,10 @@ There does not appear to be any overlap between the ranked schools in the two ta
 
 ## Conclusions from Sustainability Studies Degree Analysis
 
-From our analysis of the sustainability studies degrees awarded, the interactive map allows the user to check how a specific school of interest prioritizes Sustainability Studies. Overall, it seems that there is little relationship between sustainability studies degrees awarded and the tuition cost. According to the density plot, there appears to be a rise in sustainability studies degrees awarded, which is exciting! Lastly the Sustainability Studies degree completions does not determine a school's "sustainability" and we need to consider many different factors in order to generate a more comprehensive survey of schools' sustainability.
+From our analysis of the sustainability studies degrees awarded, the interactive map allows the user to check how a specific school of interest prioritizes Sustainability Studies. Overall, it seems that there is little relationship between sustainability studies degrees awarded and the tuition cost. According to the density plot, there appears to be a rise in sustainability studies degrees awarded, which is exciting! Lastly the Sustainability Studies degree completions does not determine a school's "sustainability." It is necessary to consider many different factors in order to generate a more comprehensive survey of college's sustainability. Gathering informative and accurate data is important in our mission to push our college and other colleges nationwide to act more sustainably and teach students to continue these sustainable habits when they graduate.
+
+There are limitations in these analyses since percent completions were calculated using the completions and the number of graduates from different sources. We filtered out percent completions that were over 100%, meaning that the completions were greater than 1/4 the students who were undergraduates in Fall 2020. This could happen if during a given year, the actual number of undergraduate students was greater than the number of undergraduates in Fall 2020. In the future, I would use the data from the same year for number of graduates each year and completions to calculate percent completions.
+
 
 # STARS Interactive Map
 
@@ -367,42 +417,112 @@ From our analysis of the sustainability studies degrees awarded, the interactive
 
 After examining Amherst's expressed commitment to sustainability, and sustainability as a growing field in higher education, we wanted to develop a tool to visualize our college's performance, and more importantly, to understand how Amherst compares to other institutions using a common set of benchmarks.
 
-Our project recognizes the unique challenges, constraints, and opportunities facing colleges and universities in the U.S. today, and created these interactive features with the goal of aiding strategic planning, fostering cross-sector dialogue about sustainability on campus, and stimulating conversations and learning between institutions.  
+Our project recognizes the unique challenges, constraints, and opportunities facing colleges and universities in the U.S. today, and created these interactive features with the goal of aiding strategic planning and fostering cross-sector dialogue about sustainability on campus.
 
-We ended up scraping the entire [STARS Database](https://stars.aashe.org/) of higher education institutions in the US. After filtering out reports that were expired or non-scoring, our final data set consisted of scraped reports for 275 institutions.
+We ended up scraping the entire [STARS Database](https://stars.aashe.org/) of higher education institutions in the US, including individual report card components and responses spanning several web pages for each institution. We spent a significant amount of time compiling the final database, relying on a variety of for loops, selectors, mutation methods, and other wrangling tactics. The following code chunk demonstrates how we scraped each unique response variable displayed in our leaflet map:
+
+```{r, echo = TRUE, eval = FALSE}
+# list of XML selectors for different scraped response item (e.g. percentage of course offerings that focus on sustainability)
+elements <- c("/html/body/div/main/div/div/main/div/div/div/section/div/div[2]/div/div[2]/text()",
+              "/html/body/div/main/div/div/main/div/div/div/section/div/div[2]/div/div[4]/text()",
+              "/html/body/div/main/div/div/main/div/div/div/section/div/div[2]/div/div[15]",
+              "/html/body/div/main/div/div/main/div/div/div/section/div/div[2]/div/table[5]/tbody/tr/td[2]",
+              "/html/body/div/main/div/div/main/div/div/div/section/div/div[2]/div/table[4]/tbody/tr/td[2]",
+              "/html/body/div/main/div/div/main/div/div/div/section/div/div[2]/div/div[5]/text()",
+              "/html/body/div/main/div/div/main/div/div/div/section/div/div[2]/div/div[2]/text()")
+
+# list of corresponding columns that contain the scraped link needed to target each response item for each institution
+df_cols <- c(8, 9, 10, 7, 4, 4, 12)
+
+# iterate through all 275 rows/institutions
+for(i in seq_len(275)){
+  #ERROR HANDLING
+  skip_to_next <- FALSE
+  
+  tryCatch(
+    # for each item in the elements list
+    for(k in 1:12){ 
+      # scrape from the specified location in the links database
+      df[i, k+1] <- links[df_cols[k], i] %>%
+        read_html() %>%
+         # scrape using the XML selectors specified in elements
+        html_element(xpath = elements[k]) %>%
+        html_text()}, error = function(e) { skip_to_next <<- TRUE})
+  
+  if(skip_to_next) { next }     
+}
+```
+
+*Example of the main report page scraped for each institution:*
 
 ![](img/stars-head.png)
 
 !["Amherst STARS Report Card"](img/stars-amherst.png)
 
+Once finished with the scraping portion, we performed several more data mutations to clean the dataframe and join the IPEDS dataframe which contained geographic coordinates for each institution. We also scraped the U.S. News' rankings of top Liberal Arts Colleges to make meaningful comparisons between Amherst and other institutions that are similar in size, resources, and culture. 
 
-## Interactive Features
+```{r, echo = TRUE, eval = FALSE}
+college_map <- colleges %>% 
+  # Remove institutioins with reporter status
+  filter(rating != "Reporter") %>% 
+  # Remove punctuation in name (dashes and apostrophes were especially problematic)
+  mutate(institution = gsub("[[:punct:]]", "", institution)) %>% 
+  # Use `regex_inner_join` to allow join in cases where names merely exist within the other joined column
+  # As opposed to requiring an exact match
+  regex_inner_join(all, by = "institution") %>% 
+  # Join information on liberal arts schools extracted from US News
+  left_join(select(news, institution = college_name, IPEDS.ID), by = "institution")
+```
+
+Our final product was an interactive Shiny App that users can navigate below.
+
+## Shiny App
 
 ```{r, out.width="100%", out.extra='data-external=1; style="border: none;"'}
  knitr::include_app("https://sazhu24.shinyapps.io/shiny-map/", height = "920px")
 ```
 
-The aggregate scores of each section on the STARS Report Card – Curriculum, Research, Campus Engagement, Public Engagement, Air, Buildings, Energy, Food, Planning, Diversity, Investment, Wellbeing, and a few additional points for Innovation and Leadership – culminate in the total score and overall STARS rating for each institution. The first page of our interactive leaflet map displays the overall rating, component scores, as well as scraped answers for many of the highest-weighted response items on the STARS report. These range from questions of greenhouse gas emissions produced per weighted campus user, to the percentage of course offerings that focus on sustainability at each institution. 
+The first page of our interactive leaflet map displays the overall rating, individual component scores, and scraped answers for many of the highest-weighted response items on the STARS report. These range from questions of greenhouse gas emissions produced per weighted campus user, to the percentage of course offerings that focus on sustainability at each institution. Scores and responses for each institution are mapped as percentile scores to marker color on the map, and to bar height on the plot in the following tab. Operational characteristics including endowment, area, population, climate, and locale are also provided to contextualize each institution's score. A search feature also allows users to highlight institutions of their choosing for easy comparison, and radio buttons allow users to filter for top scoring institutions and liberal arts colleges (which bear similar characteristics to Amherst). 
 
-Percentile scores for each institution are mapped to a corresponding color scale on the map, and to bar heights on the plot in the corresponding tab. Operational characteristics including endowment, area, population, climate, and locale are also provided to contextualize each institution's score. A search feature also allows users to highlight institutions of their choosing for easy comparison, while radio buttons enable users to filter for top scoring institutions, or for liberal arts colleges bearing similar characteristics to Amherst. 
 
-## Assesing Amherst's Performance
-After factoring in Amherst's recent announcement of the New England College Renewable Partnership – a joint solar energy facility collectively owned and managed by Amherst, Bowdoin, Hampshire, Smith and Williams that will reduce Amherst's CO2 emissions by "more than 3,200 metric tons per year, or 17.5 percent" – we found that it still places in the top 80% of largest greenhouse gas producers per capita. And the same finding pretty much holds when we're only talking about liberal arts colleges too. 
+## Amherst's Report Card
+
+One key limitation of our data was the range in submission dates within the reports. Since original report dates can range as far back as 2018 - like Amherst's report does - and schools can report data from up to 3 years before the report submission, a 6 year gap separates the oldest reports and the newest reports. Recognizing that newer reports are more likely to reflect achievements in these fields, we wanted to see whether using more recent data would significantly alter Amherst's standing. We ended drawing from the recent announcement of the New England College Renewable Partnership – a joint solar energy facility collectively owned and managed by Amherst, Bowdoin, Hampshire, Smith and Williams - to conduct a more balanced analysis.
 
 ```{r, echo = TRUE, eval = FALSE}
 # Account for 3200 metric tons of CO2, or 17.5% reduction from the New England College Renewable Partnership project
 map[3, 29] <- lapply(map[3, 29], function (x) x*(0.825))
 ```
 
+<center> Carbon Emissions per Campus User at ***All Reporting Institutions*** 
 
-![](img/emmissions-plot.png)
+![](img/emmisions-all.png){width=100%}</center>
+However, even after factoring in the reported reduction of "more than 3,200 metric tons of CO2 per year, or by 17.5 percent," Amherst still places in the top 80% of largest greenhouse gas producers per capita among all reporting institutions. In fact, the same finding holds even when we narrow our analysis to include liberal arts colleges only:
 
 
-To our disappointment, we discovered this was pretty much the case across the board. Amherst scores just as poorly when it comes to sustainability integrated into curriculum, waste production and diversion, energy and water efficiency, ethical and sustainable sourcing, and other regions.
+<center> 
+Carbon Emissions per Campus User at ***Liberal Arts Colleges*** 
+
+![](img/emmisions-lac.png){width=100%}
+</center>
+
+Disappointingly, our plot shows that this is the case across almost every other measure of performance too. The following plots show how Amherst scores just as poorly when it comes to sustainability integrated into curriculum and waste production. Users can interact with the plot to find similar results when it comes to energy efficiency, water use, sustainable food sourcing, and even more.
+
+<center>
+***Percentage of Courses that Focus on Sustainability at All Reporting Institutions***
+
+![](img/classes.png){width=90%}
+
+***Waste Produced per Weighted Campus User at All Reporting Institution***
+
+![](img/waste-.png){width=90%}
+</center>
 
 ## Limitations
 
-However, as comprehensive as the STARS database may be, the accuracy of cross-institutional comparisons still hinge on the range and accuracy of the self-reported data submitted by each institution. The STARS report allows institutions to submit data from as far back as three years before the report date. Since original report dates can range as far back as 2018 (like Amherst's does), the reported data can be up to 6 years old. The constant evolution the STARS report and rising popularity of sustainability values means newer reports are more likely to reflect accurate information and potentially higher scores. Moreover, since the report is a voluntary self-assessment tool, the map excludes reports for non-participating institutions, expired reports, and those not verified by the STARS assessment board. Although the 275 institutions mapped represent a wide range of higher education institutions, it by nature filters for schools that are actively pursuing the goals outlined by the STARS report. Even some of the most prestigious ivy-league institutions like Harvard, Dartmouth, and Brown University are not participating STARS members. The range in institution and report type also means that some variables only show information from institutions that were able to to report on certain prompts, such as the percentage of food products verified as ethically or sustainably sourced. Thus, any conclusions drawn from cross-institutional comparisons must take these considerations into account. The interactive map and plot show us that in terms of greenhouse gas emissions per person and other similar metrics, Amherst has tremendous room for growth and a lot to learn from peer institutions with similar operating and geographic characteristics. However, it would not be accurate to say that they lie in the bottom 30th percentile of all institutions in the U.S..
+As comprehensive as the STARS database may be, the accuracy of cross-institutional comparisons still hinge on voluntary reports submitted individually by each participating institution. Although the 275 institutions mapped represent a wide range of higher education institutions, it inherently filters for schools that are actively pursuing the goals outlined by the STARS report. The interactive features do not account for non-participating institutions, expired or non-verified reports. Even some of the most prestigious ivy-league institutions, like Harvard, Dartmouth, and Brown University are not participating STARS members. The range in institution and report type also means that some variables only show information for institutions that chose to report on certain prompts. Moreover, since original report dates can range as far back as 2018 (like Amherst College's) and schools can report data from up to 3 years before the submission, a 6 year span separates the oldest reports from the newest submissions.
+
+Any conclusions we draw from cross-institutional comparisons must take these considerations into account. Overall, the interactive map and plot show us that in terms curriculum, innovation, and other sustainability metrics on display, Amherst has tremendous room for growth and a lot to learn from peer institutions with similar operating and geographic characteristics. 
 
 # Future Explorations
 
